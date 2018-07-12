@@ -1,0 +1,26 @@
+
+.circle {
+	background-color: green;
+	height: 9rem;
+	width: 9rem;
+	border-radius: 50%;
+	position: relative;
+	margin: 0 auto; 
+
+}
+.circle__icon{
+	position: relative;
+
+	margin: 0 auto;
+	
+	display: inline-block;
+	
+	width: 50%;
+	
+	transform: translate(0,-50%);
+	top: 50%;
+	left: -2%; 
+	
+	font-size: 5rem;
+	color: white;
+}

@@ -1,0 +1,20 @@
+{
+  "name": "aquicultura",
+  "version": "1.0.0",
+  "description": "site para encontro de aquicultura",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "sass ./sass/main.scss ./build/css/main.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/jeliel/aquicultura.git"
+  },
+  "author": "jeliel augusto",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/jeliel/aquicultura/issues"
+  },
+  "homepage": "https://gitlab.com/jeliel/aquicultura#README"
+}

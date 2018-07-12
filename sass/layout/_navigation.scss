@@ -1,0 +1,16 @@
+.navbar{
+	background-color: darkgreen;
+	& > *{
+		color: white;
+	}
+}
+.navbar-collapse{
+	padding: 8px;
+}
+.nav-link{
+	color: white;
+}
+.nav-link:hover{
+	background-color: rgba(104, 110, 105, 0.4);
+	color: rgba(0, 255, 42, 0.76);
+}

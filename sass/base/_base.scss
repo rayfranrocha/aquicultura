@@ -1,0 +1,26 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
+html
+{
+	//The order is Bigger---------Lower.
+	font-size: 100%;//1rem = 10px 10px/16=62.5;               /*H------------>L*/
+	@include respond(tab-land){ //<1200px
+		font-size: 75%; //1rem= 9px 9/16=>56.25%
+	}
+	@include respond(tab-port){ //<900px
+		font-size: 60%; //1rem= 8px => 50%
+	}
+	@include respond(big-desktop){
+		font-size: 100%; //1rem=20px 12/16 => 75%
+	}
+
+}
+
+body{
+	box-sizing: border-box;
+	@include respond(tab-land){ //<1200px
+		padding:0;
+	}
+}

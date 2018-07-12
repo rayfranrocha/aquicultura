@@ -1,0 +1,23 @@
+.header{
+	width: 100%;
+	display: flex !important;
+	height: 20vh;
+	display: block;
+	background-color: white;
+}
+.header-logo-text-side > .primary-title{
+	display: block;
+	width: 75%;
+	margin-left: -2rem;
+	font-size: 2rem;
+}
+.header-logo{
+    display: block;
+    width: 20%;
+}
+.header-logo-img{
+	width: 50%;
+	margin: 0 20%;
+	position: relative;
+	display: block;
+}
