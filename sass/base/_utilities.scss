@@ -1,4 +1,8 @@
 .u-center-text{text-align:center !important;}
+.u-center-text-2{
+	width: 100%;
+	text-align: center;
+}
 .u-margin-bottom-big{margin-bottom:8rem !important;
 	@include respond(tab-port){
 		margin-bottom: 5rem !important;;

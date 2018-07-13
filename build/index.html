@@ -1,213 +1,450 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Encontro</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script src="./js/carousel.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </head>
+
 <body>
-  <div class="header">
-    <div class="header-logo">
-      <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
+    <div class="header">
+        <div class="header-logo">
+            <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
+        </div>
+        <div class="header-logo-text-side">
+            <h1 class="primary-title u-center-vertical">2° Encontro de aquicultura na amazônia ocidental</h1>
+        </div>
+        <div class="header-acesso-rapido">
+            <div class="icone-header">
+                <i class="material-icons">contact_phone</i>
+            </div>
+        </div>
     </div>
-    <div class="header-logo-text-side">
-      <h1 class="primary-title u-center-vertical">2° 
-        Encontro de aquicultura na amazônia ocidental</h1>
+    <nav class="navbar navbar-expand-lg ">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Evento
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Comissão Organizadora</a>
+                        <a class="dropdown-item" href="#">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Programação
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
+                        <a class="dropdown-item" href="#">Minicursos</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Inscrições
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                        <a class="dropdown-item" href="#">Formulário de Inscrição</a>
+                    </div>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        Contatos
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="#">Email</a>
+                        <a class="dropdown-item" href="#">Telefone</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h2 class="display-4 u-titulo-branco">2° Encontro de aquicultura na amazônia ocidental</h2>
+            <p class="lead u-texto-branco">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, minus necessitatibus quae ad incidunt quis ratione numquam
+                magnam ea laboriosam et optio consequatur quibusdam! Libero accusantium fugit repellendus maxime tenetur.</p>
+        </div>
     </div>
-  </div>
-  <nav class="navbar navbar-expand-lg ">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Evento
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Comissão Organizadora</a>
-            <a class="dropdown-item" href="#">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Programação
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown2">
-            <a class="dropdown-item" href="#">Minicursos</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Inscrições
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-            <a class="dropdown-item" href="#">Formulário de Inscrição</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Contatos
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Email</a>
-            <a class="dropdown-item" href="#">Telefone</a>
-          </div>
-        </li>
-      </ul>
-    </div>
-  </nav>  
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
-      <h2 class="display-4 u-titulo-branco">2° Encontro de aquicultura na amazônia ocidental</h2>
-      <p class="lead u-texto-branco">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, minus necessitatibus quae ad incidunt quis ratione numquam magnam ea laboriosam et optio consequatur quibusdam! Libero accusantium fugit repellendus maxime tenetur.</p>
-    </div>
-  </div>
-  <section id="services" class="section-services">
-      <div class="container" data-animation="slideInLeft" data-timeout="350">
-          <div class="row justify-content-center">
-              <div class="col-lg-10 col-lg-offset-1">
-                  <h3 class="heading-secondary u-margin-top-small ">2° 
-                      Encontro de aquicultura na amazônia ocidental</h3>
-                  <h4 class="heading-quaternary u-margin-top-small ">Venha Conhecer!</h4>                        
-                  <hr class="large">
-                  <div class="row">
-                      <div class="col-lg-3 col-md-3 col-sm-12">
-                          <div class="service-item">
-                              <div class="circle__container u-margin-top-small">
-                                  <div class="circle">
-                                      <i class="circle__icon material-icons ">announcement</i>
-                                  </div>
-                              </div>
-                              <div class="service-item__text-container u-margin-top-small">
-                                  <h4 class=" heading-quaternary">Sobre o Evento</h4>
-                                  <p class="u-margin-bottom-medium">O Aquaciência é um evento técnico científico que reúne os principais expoentes da aquicultura nacional.
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-3 col-sm-12">
-                          <div class="service-item">
-                              <div class="circle__container u-margin-top-small">
-                                  <div class="circle">
-                                      <i class="circle__icon material-icons ">location_on</i>
-                                  </div>
-                              </div>
-                              <div class="service-item__text-container u-margin-top-small">
-                                  <h4 class=" heading-quaternary">Localização</h4>
-                                  <p class="u-margin-bottom-medium">O Aquaciência é um evento técnico científico que reúne os principais expoentes da aquicultura nacional.
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-3 col-sm-12">
-                          <div class="service-item">
-                              <div class="circle__container u-margin-top-small">
-                                  <div class="circle">
-                                      <i class="circle__icon material-icons ">calendar_today</i>
-                                  </div>
-                              </div>
-                              <div class="service-item__text-container u-margin-top-small">
-                                  <h4 class=" heading-quaternary">Programação</h4>
-                                  <p class="u-margin-bottom-medium">O Aquaciência é um evento técnico científico que reúne os principais expoentes da aquicultura nacional.
-                                  </p>
-                              </div>
-                          </div>
-                      </div>
-                      <div class="col-lg-3 col-md-3 col-sm-12">
-                          <div class="service-item">
-                              <div class="circle__container u-margin-top-small">
-                                  <div class="circle">
-                                      <i class="circle__icon material-icons ">folder</i>
-                                  </div>
-                              </div>
-                              <div class="service-item__text-container u-margin-top-small">
-                                  <h4 class=" heading-quaternary ">Trabalhos</h4>
-                                  <p class="u-margin-bottom-medium">O Aquaciência é um evento técnico científico que reúne os principais expoentes da aquicultura nacional.
-                                  </p>
-                              </div>
-                          </div>
-                      </div>      
-                  </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <section id="local" class="section-local">
-      <div class="container" data-animation="slideInLeft" data-timeout="350">
-          <div class="row justify-content-center">
-              <h3 class="heading-secondary-white u-margin-top-small u-margin-bottom-small ">Conheça Manaus a cidade que sediará o evento!</h3>
-              <!-- <div class="col-md-3"></div> -->
-              <div class="col-md-12 col-sm-12 col-lg-12">
-                <div class="video-wrapper">
-                    <iframe width="540" height="405" src="https://www.youtube.com/embed/QTZDGLmaHyg" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>                
+    <section id="services" class="section-services">
+        <div class="container" data-animation="slideInLeft" data-timeout="350">
+            <div class="row justify-content-center">
+                <div class="col-lg-10 col-lg-offset-1">
+                    <h3 class="heading-secondary u-margin-top-small ">2° Encontro de aquicultura na amazônia ocidental</h3>
+                    <h4 class="heading-quaternary u-margin-top-small ">Venha Conhecer!</h4>
+                    <hr class="large">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="service-item">
+                                <div class="circle__container u-margin-top-small">
+                                    <div class="circle">
+                                        <i class="circle__icon material-icons ">announcement</i>
+                                    </div>
+                                </div>
+                                <div class="service-item__text-container u-margin-top-small">
+                                    <h4 class=" heading-quaternary">Sobre o Evento</h4>
+                                    <p class="u-margin-bottom-medium">O Aquaciência é um evento técnico científico que reúne os principais expoentes da aquicultura
+                                        nacional.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="service-item">
+                                <div class="circle__container u-margin-top-small">
+                                    <div class="circle">
+                                        <i class="circle__icon material-icons ">location_on</i>
+                                    </div>
+                                </div>
+                                <div class="service-item__text-container u-margin-top-small">
+                                    <h4 class=" heading-quaternary">Localização</h4>
+                                    <p class="u-margin-bottom-medium">O Aquaciência é um evento técnico científico que reúne os principais expoentes da aquicultura
+                                        nacional.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="service-item">
+                                <div class="circle__container u-margin-top-small">
+                                    <div class="circle">
+                                        <i class="circle__icon material-icons ">calendar_today</i>
+                                    </div>
+                                </div>
+                                <div class="service-item__text-container u-margin-top-small">
+                                    <h4 class=" heading-quaternary">Programação</h4>
+                                    <p class="u-margin-bottom-medium">O Aquaciência é um evento técnico científico que reúne os principais expoentes da aquicultura
+                                        nacional.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-3 col-sm-12">
+                            <div class="service-item">
+                                <div class="circle__container u-margin-top-small">
+                                    <div class="circle">
+                                        <i class="circle__icon material-icons ">folder</i>
+                                    </div>
+                                </div>
+                                <div class="service-item__text-container u-margin-top-small">
+                                    <h4 class=" heading-quaternary ">Trabalhos</h4>
+                                    <p class="u-margin-bottom-medium">O Aquaciência é um evento técnico científico que reúne os principais expoentes da aquicultura
+                                        nacional.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
-          </div>
-      </div>
-  </section>
-  <section class="parceiros u-margin-top-medium" id="parceiros">
-    <div class="container">
-      <div class="row justify-content-center">
-        <h3 class="heading-secondary u-margin-top-small ">PARCEIROS </h3>
-        <div id="myCarousel" class="carousel slide">
-                 
-            <ol class="carousel-indicators">
-                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-                <li data-target="#myCarousel" data-slide-to="1"></li>
-                <li data-target="#myCarousel" data-slide-to="2"></li>
-            </ol>
-             
-            <!-- Carousel items -->
-            <div class="carousel-inner">
-                
-            <div class="item active">
-              <div class="row-fluid">
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-              </div><!--/row-fluid-->
-            </div><!--/item-->
-             
-            <div class="item">
-              <div class="row-fluid">
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-              </div><!--/row-fluid-->
-            </div><!--/item-->
-             
-            <div class="item">
-              <div class="row-fluid">
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-                <div class="span3"><a href="#x" class="thumbnail"><img src="http://placehold.it/250x250" alt="Image" style="max-width:100%;" /></a></div>
-              </div><!--/row-fluid-->
-            </div><!--/item-->
-             
-            </div><!--/carousel-inner-->
-             
-            <a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
-            <a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
-            </div><!--/myCarousel-->
-             
-      </div>
-    </div>
-      
-  </section>
+            </div>
+        </div>
+    </section>
+    <section id="local" class="section-local">
+        <div class="container" data-animation="slideInLeft" data-timeout="350">
+            <div class="row justify-content-center">
+                <h3 class="heading-secondary-white u-margin-top-small u-margin-bottom-small ">Conheça Manaus a cidade que sediará o evento!</h3>
+                <!-- <div class="col-md-3"></div> -->
+                <div class="col-md-12 col-sm-12 col-lg-12">
+                    <div class="video-wrapper">
+                        <iframe class="video" width="540" height="405" src="https://www.youtube.com/embed/QTZDGLmaHyg" frameborder="0" allow="autoplay; encrypted-media"
+                            allowfullscreen></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="sobre u-margin-top-medium u-margin-bottom-medium" id="section-sobre">
+        <div class="container">
+            <h3 class="col-xs-12 heading-secondary u-center-text-2 u-margin-top-small u-margin-bottom-small ">O EVENTO</h3>
+            <div class="row">
+                <p class="col-xs-12 col-sm-12 col-md-6">
+                    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sunt vitae blanditiis a numquam rem nam, voluptates
+                    quam modi quos voluptatum odio veniam consectetur qui eius voluptate ad deleniti reiciendis. Lorem ipsum
+                    dolor, sit amet consectetur adipisicing elit. Recusandae vitae suscipit quod. Earum sapiente reprehenderit
+                    fugiat, eum maxime quod est non totam, quaerat asperiores voluptatem omnis mollitia tempore dignissimos
+                    vel. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sunt vitae blanditiis a numquam
+                    rem nam, voluptates quam modi quos voluptatum odio veniam consectetur qui eius voluptate ad deleniti
+                    reiciendis. Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae vitae suscipit quod.
+                    Earum sapiente reprehenderit fugiat, eum maxime quod est non totam, quaerat asperiores voluptatem omnis
+                    mollitia tempore dignissimos vel.
+                </p>
+                <div class="col-xs-12 col-sm-12 col-md-6 imagem">
+                    <img src="./img/fundo_manaus-min.jpg" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- <section class="section-inscricao" id="section-inscricao">
+       <div class="row">
+            <div class="book">
+                    <div class="book__form">
+                        <form action="#" class="from">
+                            <div class="u-margin-bottom-medium">
+                                <h2 class="heading-secondary">
+                                    Start booking now
+                                </h2>
+                            </div>
+                            <div class="form__group">
+                                <input id="name" class="form__input" placeholder="Full Name" required="" type="text">
+                                <label for="name" class="form__label">Full Name</label>
+                            </div>
+                            <div class="form__group">
+                                <input id="email" class="form__input" placeholder="Email Address" required="" type="email">
+                                <label for="email" class="form__label">Email</label>
+                            </div>
+                            <div class="form__group u-margin-bottom-medium">
+                                <div class="form__radio-group">
+                                    <input class="form__radio-input" id="small" name="size" type="radio">
+                                    <label for="small" class="form__radio-label">
+                                        <span class="form__radio-button">
+        
+                                        </span>
+                                        Small Tour Group
+                                    </label>
+                                </div>
+                                <div class="form__radio-group">
+                                    <input class="form__radio-input" id="large" name="size" type="radio">
+                                    <label for="large" class="form__radio-label">
+                                        <span class="form__radio-button">
+        
+                                        </span>
+                                        Large Tour Group
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__group">
+                                <button class="btn btn--green">
+                                    Next step →
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+       </div>
+    </section> -->
+    <section class="section-book">
+            <div class="row">
+                <div class="book">
+                    <div class="book__form">
+                        <form action="#" class="from">
+                            <div class="u-margin-bottom-medium">
+                                <h2 class="heading-secondary">
+                                     Start booking now
+                                </h2>
+                            </div>
+                            <div class="form__group">
+                                <input id="name" type="text" class="form__input" placeholder="Full Name" required>
+                                <label for="name" class="form__label">Full Name</label>
+                            </div>
+                            <div class="form__group">
+                                <input id="email" type="email" class="form__input" placeholder="Email Address" required>
+                                <label for="email" class="form__label">Email</label>
+                            </div>
+                            <div class="form__group u-margin-bottom-medium">
+                                <div class="form__radio-group">
+                                    <input type="radio" class="form__radio-input" id="small" name="size">
+                                    <label for="small" class="form__radio-label">
+                                        <span class="form__radio-button">
+                                            
+                                        </span>
+                                        Small Tour Group
+                                    </label>
+                                </div>
+                                  <div class="form__radio-group">
+                                    <input type="radio" class="form__radio-input" id="large" name="size">
+                                    <label for="large" class="form__radio-label">
+                                        <span class="form__radio-button">
+                                            
+                                        </span>
+                                        Large Tour Group
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="form__group">
+                                <button class="btn btn--green">
+                                    Next step &rarr;
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section> 
+    <section class="parceiros u-margin-top-medium" id="section-parceiros">
+        <div class="container">
+            <div class="row justify-content-center">
+                <h3 class="heading-secondary u-margin-top-small ">PARCEIROS </h3>
+                <div class="owl-carousel owl-theme play owl autoplay">
+                    <div>
+                        <img src="http://imew.co.uk/wp-content/uploads/2017/03/cav1-1.png">
+                    </div>
+                    <div>
+                        <img src="http://imew.co.uk/wp-content/uploads/2017/03/cav2-1.png">
+                    </div>
+                    <div>
+                        <img src="http://imew.co.uk/wp-content/uploads/2017/03/cav3-1.png">
+                    </div>
+                    <div>
+                        <img src="http://imew.co.uk/wp-content/uploads/2017/03/cav4-1.png">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="footer">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>About</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>FAQ</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Get Started</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Videos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>About</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>FAQ</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Get Started</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Videos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
+                    <h5>Quick links</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Home</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>About</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>FAQ</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Get Started</a>
+                        </li>
+                        <li>
+                            <a href="https://wwwe.sunlimetech.com" title="Design and developed by">
+                                <i class="fa fa-angle-double-right"></i>Imprint</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();" target="_blank">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p>
+                        <u>
+                            <a href="https://www.nationaltransaction.com/">National Transaction Corporation</a>
+                        </u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis,
+                        MN]
+                    </p>
+                    <p class="h6">&copy All right Reversed.
+                        <a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a>
+                    </p>
+                </div>
+                </hr>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="./js/default.js" type="text/javascript"></script>
 </body>
+
 </html>
