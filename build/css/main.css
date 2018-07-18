@@ -391,7 +391,6 @@ body {
 .card {
   max-width: 1024px;
   position: relative;
-  height: 50rem;
   margin: 1rem auto;
   background: white;
   box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.3);
@@ -404,11 +403,17 @@ body {
 }
 
 form {
-  max-width: 20rem;
+  width: 75%;
   margin: 10px auto;
   padding: 10px 20px;
   background: rgba(0, 0, 0, 0.3);
   border-radius: 8px;
+}
+@media (max-width: 37.5em) {
+  form {
+    max-width: 100%;
+    padding: 5px 10px;
+  }
 }
 
 input[type=text],
@@ -498,11 +503,6 @@ label.light {
   border-radius: 100%;
 }
 
-@media screen and (min-width: 480px) {
-  form {
-    max-width: 480px;
-  }
-}
 .bg-video {
   position: absolute;
   top: 0;
@@ -608,7 +608,7 @@ label.light {
   background-color: rgba(0, 0, 0, 0.8);
   z-index: 10000;
   opacity: 0;
-  visibility: hidden;
+  visibility: visible;
   transition: all 0.3s;
 }
 .popup:target {
@@ -1049,6 +1049,16 @@ section .section-title {
   color: transparent;
   background-image: linear-gradient(to right, #7ed56f, #28b485);
   -webkit-background-clip: text;
+}
+
+.table-head {
+  background-color: #86E276;
+  color: #33552D;
+  padding: 1rem;
+}
+
+.gone {
+  display: none;
 }
 
 .contato .material-icons {

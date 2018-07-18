@@ -7,7 +7,7 @@
 	background-color: rgba($color-black,0.8);
 	z-index: 10000;
 	opacity:0;
-	visibility: hidden;
+	visibility: visible;
 	transition: all .3s;
 	&:target{
 		opacity:1;
