@@ -42,12 +42,14 @@ $(document).ready(function () {
     })();
 });
 
-function areaRestrita() {
+function areaRestrita(redirecionar) {
     if (!sessao.isLogado()) {
         var location =  'file:///home/jeliel/Documentos/Trabalho/site-encontro-aquicultura/aquicultura/build';
         window.location.href = location + '/login.html';
-    }else{
-
+    }else if(redirecionar === "login"){
+        //Ir para área restrita
+    }else if(redirecionar === "inscricao"){
+        //Redirecionar para as inscrições
     }
 }
 function showCadastro(){
@@ -76,4 +78,5 @@ function cadastrar(event){
         error.style.display = 'block';
         error.innerText = 'O campo confirmar senha está diferente do campo senha';
     }
+    //Se tiver sucesso, redirecionar para área restrita.
 }
