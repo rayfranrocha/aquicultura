@@ -15,12 +15,9 @@
 	float: right;
 	left: 15%;
 	position: relative;
-	&:hover .icone-header{
-		cursor: pointer;
-		transform: translateY(-50%) scale(1.1,1.1);
-	}
 }
 .icone-header{
+	display: inline-block;
 	background: black;
 	width: 4rem;
 	position: relative;
@@ -30,6 +27,10 @@
 	color: white;
 	border-radius: 50%;
 	transition: all .4s;
+}
+.icone-header:hover{
+	cursor: pointer;
+	transform: translateY(-50%) scale(1.1,1.1);
 }
 .icone-header > i{
 	left: 50%;

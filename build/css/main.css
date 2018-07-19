@@ -73,6 +73,22 @@ body {
     transform: translateX(0);
   }
 }
+@keyframes showOut {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes showIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 body {
   font-family: "Lato", sans-serif;
   font-weight: 400;
@@ -429,7 +445,7 @@ input[type=url],
 textarea,
 select {
   background: rgba(255, 255, 255, 0.1);
-  border: none;
+  border: 1px solid transparent;
   font-size: 16px;
   height: auto;
   margin: 0;
@@ -758,12 +774,9 @@ label.light {
   left: 15%;
   position: relative;
 }
-.header-acesso-rapido:hover .icone-header {
-  cursor: pointer;
-  transform: translateY(-50%) scale(1.1, 1.1);
-}
 
 .icone-header {
+  display: inline-block;
   background: black;
   width: 4rem;
   position: relative;
@@ -773,6 +786,11 @@ label.light {
   color: white;
   border-radius: 50%;
   transition: all 0.4s;
+}
+
+.icone-header:hover {
+  cursor: pointer;
+  transform: translateY(-50%) scale(1.1, 1.1);
 }
 
 .icone-header > i {
@@ -902,6 +920,11 @@ section .section-title {
     margin-bottom: 10px;
   }
 }
+.erro {
+  font-size: 1.5rem;
+  color: yellow;
+}
+
 .jumbotron {
   min-height: 70vh;
   background-position: center;
@@ -1074,6 +1097,22 @@ section .section-title {
 
 .formulario-contato form {
   background-color: white;
+}
+
+.login-form form, .cadastro-form form {
+  background: white;
+}
+
+.in {
+  display: block;
+  transition: all 0.4s;
+  animation: ease-in 1s showIn forwards;
+}
+
+.out {
+  display: none;
+  transition: all 0.4s;
+  animation: ease-in 1s showOut forwards;
 }
 
 /*# sourceMappingURL=main.css.map */

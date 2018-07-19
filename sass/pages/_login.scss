@@ -1,0 +1,15 @@
+.login-form,.cadastro-form{
+    form{
+        background: white;
+    }
+}
+.in{
+    display: block;
+    transition: all .4s;
+    animation: ease-in 1s showIn forwards;
+}
+.out{
+    display: none;
+    transition: all .4s;
+    animation: ease-in 1s showOut forwards;
+}

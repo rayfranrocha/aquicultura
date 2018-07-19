@@ -34,3 +34,19 @@
 		transform: translateX(0);
 	}
 }
+@keyframes showOut{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
+@keyframes showIn{
+	0%{
+		opacity: 0;
+	}
+	100%{
+		opacity: 1;
+	}
+}
