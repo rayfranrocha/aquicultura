@@ -925,7 +925,7 @@ section .section-title {
   color: yellow;
 }
 
-.jumbotron {
+.home.jumbotron {
   min-height: 70vh;
   background-position: center;
   background-size: cover;
@@ -1082,6 +1082,26 @@ section .section-title {
 
 .gone {
   display: none;
+}
+
+#jumbo-premiacao > * {
+  color: white !important;
+}
+
+#jumbo-premiacao {
+  width: 100%;
+}
+
+.categoria {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.titulo-categoria {
+  width: 100%;
+  border-radius: 0.3rem;
+  display: block;
+  color: white;
 }
 
 .contato .material-icons {

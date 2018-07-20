@@ -75,7 +75,19 @@
                             Inscrições
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" href="#">Formulário de Inscrição</a>
+                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('inscricao')">Formulário de Inscrição</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Trabalhos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./orientacaopremios.html">Orientação para submissão e Premiações</a>
+                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('trabalhos')" role="button" aria-haspopup="true" aria-expanded="false">
+                                Submeter Trabalho
+                            </a>
                         </div>
                     </li>
                     <li class="nav-item ">
@@ -89,15 +101,15 @@
     </header>
     <main>
         <div id="login-form" class="login-form">
-            <form action="index.html" method="post">
+            <form onsubmit="login(event)" action="index.html" method="post">
                 <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Realizar Login</h1>
                 <p>Prezado participante, você ainda não está logado. Para se inscrever no evento, minicursos ou submeter trabalhos,
                     você precisa estar logado</p>
                 <fieldset>
                     <label for="name">CPF*:</label>
-                    <input type="text" id="name" name="user_name">
-                    <label for="mail">Senha*:</label>
-                    <input type="email" id="mail" name="user_email">
+                    <input type="text" id="cpf" name="cpf">
+                    <label for="senha">Senha*:</label>
+                    <input type="password" id="senha" name="senha">
                 </fieldset>
                 <button class="bt-flat-azul" type="submit">Login</button>
             </form>

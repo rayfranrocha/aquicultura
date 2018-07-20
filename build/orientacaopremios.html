@@ -40,7 +40,7 @@
                         <i class="material-icons">contact_phone</i>
                     </div>
                 </a>
-                <a onclick="areaRestrita('login')">
+                <a onclick="areaRestrita()">
                     <div class="icone-header">
                         <i class="material-icons">person</i>
                     </div>
@@ -75,7 +75,7 @@
                             Inscrições
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" onclick="areaRestrita('inscricao')">Formulário de Inscrição</a>
+                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('inscricao')">Formulário de Inscrição</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -89,6 +89,7 @@
                                 Submeter Trabalho
                             </a>
                         </div>
+
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link " href="./contato.html" role="button" aria-haspopup="true" aria-expanded="false">
@@ -100,21 +101,99 @@
         </nav>
     </header>
     <main>
-        <div class="card container">
-            <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">SELECIONE UMA DAS OPÇÕES ABAIXO</h1>
-            <div class="row u-margin-top-small ">
-                <button type="button" class="btn btn-success" style="width: 10rem">Inscrição</button>
+        <section id="premiacao" class="premiacao">
+            <div class="container card">
+                <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">ORIENTAÇÃO E PRÊMIOS</h1>
+                <div class="bg-info jumbotron u-margin-top-small" id="jumbo-premiacao">
+                    <h1 class="title display-5">Prazo de submissão: 30/08/2018</h1>
+                    <h2 class="display-5">Prêmios nas categorias abaixo:</h2>
+                </div>
+                <div class="categoria">
+                    <span style="padding: 0.3rem" class="bg-success titulo-categoria"> CATEGORIA I</span>
+                    Estudantes de Curso Técnico ou Graduação
+                </div>
+                <div class="categoria">
+                    <span style="padding: 0.3rem" class="bg-success titulo-categoria"> CATEGORIA II</span>
+                    Estudantes de Curso Técnico ou Graduação
+                </div>
+                <div class="categoria">
+                    <span style="padding: 0.3rem" class="bg-success titulo-categoria"> CATEGORIA III</span>
+                    Estudantes de Curso Técnico ou Graduação
+                </div>
+
+                <div class="categoria">
+                    <span style="padding: 0.3rem" class="bg-success titulo-categoria"> CATEGORIA IV</span>
+                    Estudantes de Curso Técnico ou Graduação
+                </div>
+                <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">OBSERVAÇÕES</h1>
+                <div style="padding: 1rem">
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+
+                    </ul>
+                </div>
             </div>
-            <div class="row u-margin-top-small">
-                <button type="button" class="btn btn-success">Submeter Trabalhos</button>
+        </section>
+        <section id="orientacao" class="orientacao">
+            <div class="card">
+                <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">ORIENTAÇÃO PARA SUBMISSÃO</h1>
+
+                <div class="categoria">
+                    <span style="padding: 0.3rem" class="bg-success titulo-categoria"> REGRAS PARA SUBMISSÃO DO RESUMO
+                    </span>
+                </div>
+                <div style="padding: 1rem">
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+
+                    </ul>
+                </div>
+                <div class="categoria">
+                    <span style="padding: 0.3rem" class="bg-success titulo-categoria"> REGRAS PARA SUBMISSÃO DO RESUMO
+                    </span>
+                </div>
+                <div style="padding: 1rem">
+                    <ul>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+                        <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure neque necessitatibus nostrum molestias
+                            totam, enim asperiores aperiam, animi minus accusamus dolor eum. Voluptatibus eius dolorum consequuntur
+                            vitae, possimus magnam nam?</li>
+
+                    </ul>
+                </div>
             </div>
-            <div class="row u-margin-top-small u-margin-bottom-small">
-                <button type="button" class="btn btn-success">Inscrição minicursos</button>
             </div>
-            <div class="row u-margin-top-small u-margin-bottom-small">
-                <button type="button" onclick="logout();" style="width: 10rem" class="btn btn-success">Sair</button>
-            </div>
-        </div>
+        </section>
     </main>
     <footer id="footer">
         <div class="container">
