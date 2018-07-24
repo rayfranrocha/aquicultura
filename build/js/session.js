@@ -12,55 +12,55 @@ $(document).ready(function () {
     });
     /*---Get para objeto de redirecionar---*/
     db.redirect.get('1')
-    .then((res)=>{
-        if(res === undefined){
-            db.redirect.put(objetoRedirect()).then(()=>{
-                console.log('Criado redirect');
-                userRedirect = objetoRedirect();
-            });
-        }else{
-            userRedirect = res;
-        }
-    });
-    /*---Get para objeto de sessão---*/
-    db.user.get('1')
-    .then((res) => {
-        if (res === undefined) {
-            db.user.put({ id: '1', isLogado: false, nome: '', cpf: '', email: '' }).then(() => {
-                console.log('Criado');
-                userSession = { id: '1', isLogado: false, nome: '', cpf: '', email: '' };
-            });
-        } else {
-            userSession = res;
-        }
-    }).catch((err) => {
-        console.error('Failed to open db: ' + (err.stack || err));
-    });
-    function logar(dados,callback) {
-        db.user.put({ id: '1', isLogado: true, nome: dados.nome, cpf: dados.cpf, email: dados.email }).then(() => {
-            userSession = { id: '1', isLogado: true, nome: dados.nome, cpf: dados.cpf, email: dados.email};
-        })
-        .then(()=>{
-            if(callback){
-                callback();
-            }
-        })
-    }
-    function deslogar(callback) {
-        db.user.put({id: '1',isLogado: false,nome:'',cpf:'',email: ''})
-        .then(()=>{
-            if(callback){
-                callback();
+        .then((res) => {
+            if (res === undefined) {
+                db.redirect.put(objetoRedirect()).then(() => {
+                    console.log('Criado redirect');
+                    userRedirect = objetoRedirect();
+                });
+            } else {
+                userRedirect = res;
             }
         });
+    /*---Get para objeto de sessão---*/
+    db.user.get('1')
+        .then((res) => {
+            if (res === undefined) {
+                db.user.put({ id: '1', isLogado: false, nome: '', cpf: '', email: '' }).then(() => {
+                    console.log('Criado');
+                    userSession = { id: '1', isLogado: false, nome: '', cpf: '', email: '' };
+                });
+            } else {
+                userSession = res;
+            }
+        }).catch((err) => {
+            console.error('Failed to open db: ' + (err.stack || err));
+        });
+    function logar(dados, callback) {
+        db.user.put({ id: '1', isLogado: true, nome: dados.nome, cpf: dados.cpf, email: dados.email }).then(() => {
+            userSession = { id: '1', isLogado: true, nome: dados.nome, cpf: dados.cpf, email: dados.email };
+        })
+            .then(() => {
+                if (callback) {
+                    callback();
+                }
+            })
+    }
+    function deslogar(callback) {
+        db.user.put({ id: '1', isLogado: false, nome: '', cpf: '', email: '' })
+            .then(() => {
+                if (callback) {
+                    callback();
+                }
+            });
     }
     function getDados() {
         return userSession;
     }
-    function setRed(red){
-        db.redirect.put({id:'1',redirect:red}).then(()=>{});
+    function setRed(red) {
+        db.redirect.put({ id: '1', redirect: red }).then(() => { });
     }
-    function getRed(){
+    function getRed() {
         return userRedirect;
     }
     function isLogado() {
@@ -77,47 +77,47 @@ $(document).ready(function () {
         }
     })();
 });
-function objetoRedirect(){
-    return {id:'1',redirect:''}
+function objetoRedirect() {
+    return { id: '1', redirect: '' }
 }
 function areaRestrita(redirecionar) {
     if (sessao.isLogado()) {
-        if(redirecionar === "inscricao"){
-            var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
-            window.location.href = location + '/inscricao.html';   
+        if (redirecionar === "inscricao") {
+            var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
+            window.location.href = location + '/inscricao.html';
         }
-        else if(redirecionar === "trabalhos"){
-            var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
-            window.location.href = location + '/trabalhos.html';    
-        }else{
-            var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
-            window.location.href = location + '/arearestrita.html';    
+        else if (redirecionar === "trabalhos") {
+            var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
+            window.location.href = location + '/trabalhos.html';
+        } else {
+            var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
+            window.location.href = location + '/arearestrita.html';
         }
-    }else{
+    } else {
         sessao.setRed(redirecionar); //Guardar para onde o usuário queria ir
-        var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
+        var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
         window.location.href = location + '/login.html';
     }
 }
-function showCadastro(){
+function showCadastro() {
     var esconder = document.getElementById('login-form');
     esconder.classList.add('out');
-    esconder.addEventListener("animationend",function(){
+    esconder.addEventListener("animationend", function () {
         esconder.style.display = "none";
     });
     var mostrar = document.getElementById('cadastro-form');
-    mostrar.addEventListener("animationend",function(){
+    mostrar.addEventListener("animationend", function () {
         mostrar.style.display = "block";
     });
     mostrar.classList.add('in');
 }
-function logout(){
-    sessao.deslogar(()=>{
-        var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
+function logout() {
+    sessao.deslogar(() => {
+        var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
         window.location.href = location + '/index.html';
     });
 }
-function login(event){
+function login(event) {
     event.preventDefault();
     var cpf, senha;
     senha = document.getElementById('senha').value;
@@ -128,15 +128,15 @@ function login(event){
         cpf: '004.238.642-03',
         email: 'jeliel.augusto10@gmail.com'
     };
-    sessao.logar(dados,()=>{ //callback para quando o login foi feito
+    sessao.logar(dados, () => { //callback para quando o login foi feito
         var redirect = sessao.getRed().redirect;
         areaRestrita(redirect);
     });
 }
-function cadastrar(event,redirecionar){
+function cadastrar(event, redirecionar) {
     event.preventDefault();
-    var emailElement,senhaElement,confElement,cpfElement;
-    var email,senha,confsenha,cpf;
+    var emailElement, senhaElement, confElement, cpfElement;
+    var email, senha, confsenha, cpf;
     emailElement = document.getElementById('email');
     senhaElement = document.getElementById('senha');
     confElement = document.getElementById('confsenha');
@@ -145,7 +145,7 @@ function cadastrar(event,redirecionar){
     senha = senhaElement.value;
     confsenha = confElement.value;
     cpf = cpfElement.value;
-    if(confsenha !== senha){
+    if (confsenha !== senha) {
         confElement.style.borderColor = 'yellow';
         senhaElement.style.borderColor = 'yellow';
         var error = document.getElementById('erro_form');
@@ -158,5 +158,13 @@ function cadastrar(event,redirecionar){
         //redirecionar 
     }
     */
-    areaRestrita(redirecionar);
+    dados = {
+        nome: 'Jeliel',
+        cpf: '004.238.642-03',
+        email: 'jeliel.augusto10@gmail.com'
+    };
+    sessao.logar(dados, () => { //callback para quando o login foi feito
+        var redirect = sessao.getRed().redirect;
+        areaRestrita(redirect);
+    });
 }
