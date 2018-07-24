@@ -16,17 +16,15 @@
 	left: 15%;
 	position: relative;
 }
-.icone-header{
+.bt-header, .bt-header:active, .bt-header:visited,.bt-header:link{
 	display: inline-block;
-	background: black;
-	width: 4rem;
 	position: relative;
-	top: 50%;
-	transform: translateY(-50%);
-	height: 4rem;
-	color: white;
-	border-radius: 50%;
+	top: 30%;
+	color: white !important;
 	transition: all .4s;
+}
+.bt-header > i {
+	vertical-align: middle;
 }
 .icone-header:hover{
 	cursor: pointer;
