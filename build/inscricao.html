@@ -22,6 +22,7 @@
         crossorigin="anonymous"></script>
     <script src="./js/popup.js"></script>
     <script src="./js/session.js"></script>
+    <script src="./js/inscricao.js"></script>
 </head>
 
 <body>
@@ -33,15 +34,19 @@
                 </a>
             </div>
             <div class="header-logo-text-side">
-                <h1 class="primary-title u-center-vertical">2° Encontro de aquicultura na amazônia ocidental</h1>
+                <h1 class="primary-title u-center-vertical">2° Encontro de Aquicultura na Amazônia Ocidental</h1>
             </div>
             <div class="header-acesso-rapido">
-                <div class="icone-header">
-                    <i class="material-icons">contact_phone</i>
-                </div>
-                <div class="icone-header">
-                    <i class="material-icons">person</i>
-                </div>
+                <a href="./contato.html">
+                    <div class="icone-header">
+                        <i class="material-icons">contact_phone</i>
+                    </div>
+                </a>
+                <a onclick="areaRestrita()">
+                    <div class="icone-header">
+                        <i class="material-icons">person</i>
+                    </div>
+                </a>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg ">
@@ -123,6 +128,8 @@
             </div>
         </div>
         <div class="container card">
+            <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">INSCRIÇÕES</h1>
+            <hr class="small">
             <div class="table-head u-margin-top-small">
                 <h3>Tabela de Preços</h3>
             </div>
@@ -158,32 +165,126 @@
                         <td>
                             Minicursos
                         </td>
-                        <td colspan="3" style="text-align: center">R$50,00</td>
+                        <td>R$50,00</td>
+                        <td>R$50,00</td>
+                        <td>R$50,00</td>
+
                     </tr>
                 </tbody>
             </table>
+        </div>
+        <div class="container card">
+
             <div class="formulario-contato">
-                <form action="index.html" method="post">
-                    <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Formulário de inscrições</h1>
+                <form onsubmit="proximo(event);" id="form" action="index.html" method="post">
                     <fieldset>
                         <div class="row">
-                            <div class="step-1 col-md-12 col-sm-12 col-xs-12">
-                                <label for="name">Nome*:</label>
+                            <h2 id="textoPassoAtual" class="heading-secondary no-hover u-center-text-2">PASSO 1 DE 3</h2>
+                            <hr class="small">
+                            <div id="passo1" class="passo-1 col-md-12 col-sm-12 col-xs-12">
+                                <h2 class="heading-secondary no-hover u-center-text-2">Dados para cadastro</h2>
+                                <label for="name">Nome para o crachá*:</label>
                                 <input type="text" id="nome" name="nome">
-                                <label for="mail">Email*:</label>
-                                <input type="email" id="email" name="email">
-                                <label for="message">Senha*:</label>
-                                <input type="text" id="senha" name="senha">
-                                <label for="message">Confirmar Senha*:</label>
-                                <input type="text" id="senha" name="confirmar_senha">
+                                <label for="empresa">Empresa/Instituição*:</label>
+                                <input type="text" id="empresa" name="empresa">
+                                <label for="sexo">Sexo*:</label>
+                                <input type="text" id="sexo" name="sexo">
+                                <label for="telefone">Telefone*:</label>
+                                <input type="tel" id="telefone" name="telefone">
                             </div>
-                            <div class="step-2 col-md-12 col-sm-12 col-xs-12">
-
+                            <div id="passo2" class="passo-2 col-md-12 col-sm-12 col-xs-12">
+                                <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Dados para boleto/recibo</h1>
+                                <label for="nome">Nome*:</label>
+                                <input type="text" id="nome" name="nome">
+                                <label for="cpf_cnpj">CPF/CNPJ*:</label>
+                                <input type="text" id="cpf_cnpj" name="cpf_cnpj">
+                                <label for="endereco">Endereço*:</label>
+                                <input type="text" id="endereco" name="endereco">
+                            </div>
+                            <div id="passo3" class="passo-2 col-md-12 col-sm-12 col-xs-12">
+                                <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Inscrição minicursos e pagamento</h1>
+                                <table class="table">
+                                    <thead>
+                                        <caption>Tabela da Programação Minicursos</caption>
+                                        <tr>
+                                            <th scope="col">Desejo Participar</th>
+                                            <th scope="col">Data/Horário</th>
+                                            <th scope="col">Minicurso</th>
+                                            <th scope="col">Local</th>
+                                            <th scope="col">Instrutor</th>
+                                            <th scope="col">Preço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td style="text-align: center">
+                                                <input type="checkbox" name="" id="">
+                                            </td>
+                                            <td>8:00 - 18:00</td>
+                                            <td>Metodologia Científica</td>
+                                            <td>Sala 1</td>
+                                            <td>Volpato</td>
+                                            <td>R$50,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center">
+                                                <input type="checkbox" name="" id="">
+                                            </td>
+                                            <td>8:00 - 18:00</td>
+                                            <td>Nutrição e Saúde</td>
+                                            <td>Sala 2</td>
+                                            <td>Aires</td>
+                                            <td>R$50,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td style="text-align: center">
+                                                <input type="checkbox" name="" id="">
+                                            </td>
+                                            <td>8:00 - 18:00</td>
+                                            <td>Doenças na Aquicultura</td>
+                                            <td>Sala 3</td>
+                                            <td>Henrique e Guilherme</td>
+                                            <td>R$50,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td colspan="4">Total a Pagar Minicursos</td>
+                                            <td id="totalAPagar" style="text-align: right;" colspan="2">R$150,00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <table class="table">
+                                    <thead>
+                                        <caption>Tabela Preço Total A Pagar</caption>
+                                        <tr>
+                                            <th scope="col">Item</th>
+                                            <th scope="col">Quantidade</th>
+                                            <th scope="col">Preço</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Minicursos</td>
+                                            <td>0</td>
+                                            <td>R$0,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Inscrição</td>
+                                            <td>R100,00</td>
+                                            <td>R100,00</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </fieldset>
-
-                    <!-- <button class="bt-flat-azul" type="submit">Enviar Mensagem</button> -->
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <button onclick="anterior();" id="btAnterior" class="bt-flat-azul" type="button">Anterior</button>
+                        </div>
+                        <div class="col-xs-6">
+                            <button id="btProximo" class="bt-flat-azul" type="submit">Próximo</button>
+                        </div>
+                    </div>
                 </form>
             </div>
         </div>

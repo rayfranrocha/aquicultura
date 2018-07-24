@@ -83,31 +83,37 @@ function objetoRedirect(){
 function areaRestrita(redirecionar) {
     if (sessao.isLogado()) {
         if(redirecionar === "inscricao"){
-        
+            var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
+            window.location.href = location + '/inscricao.html';   
         }
         else if(redirecionar === "trabalhos"){
-            var location =  'file:///home/jeliel/Documentos/Trabalho/site-encontro-aquicultura/aquicultura/build';
-            window.location.href = location + '/arearestrita.html';    
+            var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
+            window.location.href = location + '/trabalhos.html';    
         }else{
-            var location =  'file:///home/jeliel/Documentos/Trabalho/site-encontro-aquicultura/aquicultura/build';
+            var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
             window.location.href = location + '/arearestrita.html';    
         }
     }else{
         sessao.setRed(redirecionar); //Guardar para onde o usuário queria ir
-        var location =  'file:///home/jeliel/Documentos/Trabalho/site-encontro-aquicultura/aquicultura/build';
+        var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
         window.location.href = location + '/login.html';
     }
 }
 function showCadastro(){
     var esconder = document.getElementById('login-form');
     esconder.classList.add('out');
+    esconder.addEventListener("animationend",function(){
+        esconder.style.display = "none";
+    });
     var mostrar = document.getElementById('cadastro-form');
+    mostrar.addEventListener("animationend",function(){
+        mostrar.style.display = "block";
+    });
     mostrar.classList.add('in');
-    mostrar.style.display = 'block';
 }
 function logout(){
     sessao.deslogar(()=>{
-        var location =  'file:///home/jeliel/Documentos/Trabalho/site-encontro-aquicultura/aquicultura/build';
+        var location =  'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
         window.location.href = location + '/index.html';
     });
 }
@@ -123,10 +129,8 @@ function login(event){
         email: 'jeliel.augusto10@gmail.com'
     };
     sessao.logar(dados,()=>{ //callback para quando o login foi feito
-        //Redirecionar para a página que o usuário queria acessar
-        // sessao.getRed().then((res)=>{
-        //     areaRestrita(res);
-        // })
+        var redirect = sessao.getRed().redirect;
+        areaRestrita(redirect);
     });
 }
 function cadastrar(event,redirecionar){

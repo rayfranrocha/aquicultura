@@ -75,10 +75,10 @@ body {
 }
 @keyframes showOut {
   0% {
-    opacity: 0;
+    opacity: 1;
   }
   100% {
-    opacity: 1;
+    opacity: 0;
   }
 }
 @keyframes showIn {
@@ -253,6 +253,13 @@ body {
 }
 
 .u-texto-branco {
+  color: white;
+}
+
+a.btn.btn-success,
+a.btn.btn-success:hover,
+a.btn.btn-success:active,
+a.btn.btn-success:visited {
   color: white;
 }
 
@@ -486,7 +493,6 @@ select {
 }
 
 fieldset {
-  margin-bottom: 30px;
   border: none;
 }
 
@@ -1084,6 +1090,20 @@ section .section-title {
   display: none;
 }
 
+#passo1 {
+  transition: all 0.1s ease-out;
+}
+
+#passo2 {
+  display: none;
+  transition: all 0.1s ease-out;
+}
+
+#passo3 {
+  display: none;
+  transition: all 0.1s ease-out;
+}
+
 #jumbo-premiacao > * {
   color: white !important;
 }
@@ -1124,13 +1144,11 @@ section .section-title {
 }
 
 .in {
-  display: block;
   transition: all 0.4s;
   animation: ease-in 1s showIn forwards;
 }
 
 .out {
-  display: none;
   transition: all 0.4s;
   animation: ease-in 1s showOut forwards;
 }

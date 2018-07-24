@@ -32,7 +32,7 @@
                 </a>
             </div>
             <div class="header-logo-text-side">
-                <h1 class="primary-title u-center-vertical">2° Encontro de aquicultura na amazônia ocidental</h1>
+                <h1 class="primary-title u-center-vertical">2° Encontro de Aquicultura na Amazônia Ocidental</h1>
             </div>
             <div class="header-acesso-rapido">
                 <a href="./contato.html">
@@ -40,7 +40,7 @@
                         <i class="material-icons">contact_phone</i>
                     </div>
                 </a>
-                <a onclick="areaRestrita('login')">
+                <a onclick="areaRestrita()">
                     <div class="icone-header">
                         <i class="material-icons">person</i>
                     </div>
@@ -75,7 +75,7 @@
                             Inscrições
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" onclick="areaRestrita('inscricao')">Formulário de Inscrição</a>
+                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('inscricao')">Formulário de Inscrição</a>
                         </div>
                     </li>
                     <li class="nav-item dropdown">
@@ -103,16 +103,13 @@
         <div class="card container">
             <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">SELECIONE UMA DAS OPÇÕES ABAIXO</h1>
             <div class="row u-margin-top-small ">
-                <button type="button" class="btn btn-success" style="width: 10rem">Inscrição</button>
+                <a href="./inscricao.html" class="btn btn-success" style="width: 10rem">Inscrição</a>
             </div>
             <div class="row u-margin-top-small">
-                <button type="button" class="btn btn-success">Submeter Trabalhos</button>
+                <a href="./trabalhos.html" class="btn btn-success">Submeter Trabalhos</a>
             </div>
             <div class="row u-margin-top-small u-margin-bottom-small">
-                <button type="button" class="btn btn-success">Inscrição minicursos</button>
-            </div>
-            <div class="row u-margin-top-small u-margin-bottom-small">
-                <button type="button" onclick="logout();" style="width: 10rem" class="btn btn-success">Sair</button>
+                <a onclick="logout();" style="width: 10rem" class="btn btn-success">Sair</a>
             </div>
         </div>
     </main>
