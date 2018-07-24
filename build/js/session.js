@@ -1,4 +1,6 @@
 var sessao;
+var location_ = 'http://iconsti.com/aquicultura';
+
 $(document).ready(function () {
     var db = new Dexie("dbusuario");
     var userSession = {};
@@ -83,45 +85,46 @@ function objetoRedirect() {
 function areaRestrita(redirecionar) {
     if (sessao.isLogado()) {
         if (redirecionar === "inscricao") {
-            var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
-            window.location.href = location + '/inscricao.html';
+            window.location.href = location_ + '/inscricao.html';
         }
-        else if (redirecionar === "trabalhos") {
-            var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
-            window.location.href = location + '/trabalhos.html';
+        else if (redirecionar === "trabalhos") {           
+             window.location.href = location_ + '/trabalhos.html';
         } else {
-            var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
-            window.location.href = location + '/arearestrita.html';
+            window.location.href = location_ + '/arearestrita.html';
         }
     } else {
         sessao.setRed(redirecionar); //Guardar para onde o usuário queria ir
-        var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
-        window.location.href = location + '/login.html';
+        window.location.href = location_ + '/login.html';
     }
 }
 function showCadastro() {
     var esconder = document.getElementById('login-form');
-    esconder.classList.add('out');
-    esconder.addEventListener("animationend", function () {
-        esconder.style.display = "none";
-    });
     var mostrar = document.getElementById('cadastro-form');
-    mostrar.addEventListener("animationend", function () {
+    esconder.addEventListener("webkitAnimationEnd",function(){
+        esconder.style.display = "none";
+
+        mostrar.classList.add('in');
+        mostrar.classList.remove('out');
         mostrar.style.display = "block";
     });
-    mostrar.classList.add('in');
+    esconder.addEventListener("animationend", function () {
+        esconder.style.display = "none";
+        mostrar.classList.add('in');
+        mostrar.classList.remove('out');
+        mostrar.style.display = "block";
+    });
+    esconder.classList.add('out');
 }
 function logout() {
     sessao.deslogar(() => {
-        var location = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
-        window.location.href = location + '/index.html';
+        window.location.href = location_ + '/index.html';
     });
 }
 function login(event) {
     event.preventDefault();
     var cpf, senha;
-    senha = document.getElementById('senha').value;
-    cpf = document.getElementById('cpf').value;
+    senha = document.getElementById('senha_log').value;
+    cpf = document.getElementById('cpf_log').value;
     //Chamar webservice com dados
     dados = {
         nome: 'Jeliel',
@@ -137,10 +140,10 @@ function cadastrar(event, redirecionar) {
     event.preventDefault();
     var emailElement, senhaElement, confElement, cpfElement;
     var email, senha, confsenha, cpf;
-    emailElement = document.getElementById('email');
-    senhaElement = document.getElementById('senha');
-    confElement = document.getElementById('confsenha');
-    cpfElement = document.getElementById('cpf');
+    emailElement = document.getElementById('email_cad');
+    senhaElement = document.getElementById('senha_cad');
+    confElement = document.getElementById('confsenha_cad');
+    cpfElement = document.getElementById('cpf_cad');
     email = emailElement.value;
     senha = senhaElement.value;
     confsenha = confElement.value;
