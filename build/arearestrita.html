@@ -26,23 +26,27 @@
 <body>
     <header>
         <div class="header">
-            <div class="header-logo">
-                <a href="./index.html">
-                    <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
-                </a>
-            </div>
-            <div class="header-logo-text-side">
-                <h1 class="primary-title u-center-vertical">2° Encontro de Aquicultura na Amazônia Ocidental</h1>
-            </div>
-            <div class="header-acesso-rapido">
-                <a onclick="areaRestrita()" class="bt-header btn btn-primary">
-                    <i class="material-icons">person</i>Área restrita</a>
+            <div class="row">
+                <div class="header-logo">
+                    <a href="./index.html">
+                        <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
+                    </a>
+                </div>
+                <div class=" header-logo-text-side">
+                    <h1 class="primary-title u-center-vertical">2° Encontro de Aquicultura na Amazônia Ocidental</h1>
+                </div>
+                <div class="header-acesso-rapido">
+                    <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
+                        <i class="material-icons">person</i>Área restrita</a>
+                </div>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg ">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon">
+                    <i class="material-icons u-center-relative">menu</i>
+                </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -53,7 +57,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="./comissao.html">Comissão Organizadora</a>
-                            <a class="dropdown-item" href="#">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
+                            <a class="dropdown-item" href="./index.html#section-sobre">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -94,96 +98,102 @@
     <main>
         <div class="card container">
             <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">SELECIONE UMA DAS OPÇÕES ABAIXO</h1>
-            <div class="row u-margin-top-small ">
-                <a href="./inscricao.html" class="btn btn-success" style="width: 10rem">Inscrição</a>
+            <div style="padding: 0 3rem;" class=" u-margin-top-small ">
+                <a href="./inscricao.html">
+                    <button class="bt-flat-azul">Inscrições</button>
+                </a>
             </div>
-            <div class="row u-margin-top-small">
-                <a href="./trabalhos.html" class="btn btn-success">Submeter Trabalhos</a>
+            <div style="padding: 0 3rem;" class="u-margin-top-small">
+                <a href="./trabalhos.html">
+                    <button class="bt-flat-azul">Submeter Trabalhos</button>
+                </a>
             </div>
-            <div class="row u-margin-top-small u-margin-bottom-small">
-                <a onclick="logout();" style="width: 10rem" class="btn btn-success">Sair</a>
+            <div style="padding: 0 3rem;" class=" u-margin-top-small u-margin-bottom-small">
+                <a onclick="logout();">
+                    <button class="bt-flat-azul">Sair</button>
+                </a>
             </div>
         </div>
     </main>
     <footer id="footer">
         <div class="container">
-            <div class="row text-center text-xs-center text-sm-left text-md-left">
-                <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Home</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>About</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>FAQ</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Get Started</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Videos</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Home</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>About</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>FAQ</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Get Started</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Videos</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Home</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>About</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>FAQ</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Get Started</a>
-                        </li>
-                        <li>
-                            <a href="https://wwwe.sunlimetech.com" title="Design and developed by">
-                                <i class="fa fa-angle-double-right"></i>Imprint</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <!-- <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>About</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>FAQ</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Get Started</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Videos</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>About</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>FAQ</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Get Started</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Videos</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>About</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>FAQ</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Get Started</a>
+                            </li>
+                            <li>
+                                <a href="https://wwwe.sunlimetech.com" title="Design and developed by">
+                                    <i class="fa fa-angle-double-right"></i>Imprint</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
