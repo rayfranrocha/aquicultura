@@ -28,23 +28,27 @@
 <body>
     <header>
         <div class="header">
-            <div class="header-logo">
-                <a href="./index.html">
-                    <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
-                </a>
-            </div>
-            <div class="header-logo-text-side">
-                <h1 class="primary-title u-center-vertical">2° Encontro de Aquicultura na Amazônia Ocidental</h1>
-            </div>
-            <div class="header-acesso-rapido">
-                <a onclick="areaRestrita()" class="bt-header btn btn-primary">
-                    <i class="material-icons">person</i>Área restrita</a>
+            <div class="row">
+                <div class="header-logo">
+                    <a href="./index.html">
+                        <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
+                    </a>
+                </div>
+                <div class=" header-logo-text-side">
+                    <h1 class="primary-title u-center-vertical">2° Encontro de Aquicultura na Amazônia Ocidental</h1>
+                </div>
+                <div class="header-acesso-rapido">
+                    <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
+                        <i class="material-icons">person</i>Área restrita</a>
+                </div>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg ">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon">
+                    <i class="material-icons u-center-relative">menu</i>
+                </span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -55,7 +59,7 @@
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="./comissao.html">Comissão Organizadora</a>
-                            <a class="dropdown-item" href="#">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
+                            <a class="dropdown-item" href="./index.html#section-sobre">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
                         </div>
                     </li>
                     <li class="nav-item">
@@ -195,12 +199,11 @@
                             </div>
                             <div id="passo3" class="passo-2 col-md-12 col-sm-12 col-xs-12">
                                 <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Inscrição minicursos e pagamento</h1>
-                                <table class="table">
+                                <table class="table" id="tabela-minicursos">
                                     <thead>
                                         <caption>Tabela da Programação Minicursos</caption>
                                         <tr>
                                             <th scope="col">Desejo Participar</th>
-                                            <th scope="col">Data/Horário</th>
                                             <th scope="col">Minicurso</th>
                                             <th scope="col">Local</th>
                                             <th scope="col">Instrutor</th>
@@ -212,7 +215,6 @@
                                             <td style="text-align: center">
                                                 <input type="checkbox" name="" id="">
                                             </td>
-                                            <td>8:00 - 18:00</td>
                                             <td>Metodologia Científica</td>
                                             <td>Sala 1</td>
                                             <td>Volpato</td>
@@ -222,8 +224,7 @@
                                             <td style="text-align: center">
                                                 <input type="checkbox" name="" id="">
                                             </td>
-                                            <td>8:00 - 18:00</td>
-                                            <td>Nutrição e Saúde</td>
+                                            <td>Testes na aquicultura</td>
                                             <td>Sala 2</td>
                                             <td>Aires</td>
                                             <td>R$50,00</td>
@@ -232,7 +233,6 @@
                                             <td style="text-align: center">
                                                 <input type="checkbox" name="" id="">
                                             </td>
-                                            <td>8:00 - 18:00</td>
                                             <td>Doenças na Aquicultura</td>
                                             <td>Sala 3</td>
                                             <td>Henrique e Guilherme</td>
@@ -244,6 +244,9 @@
                                         </tr>
                                     </tbody>
                                 </table>
+                                <button id="mostrarModalMinicursos" class="bt-flat-azul" style="display: none" ; data-toggle="modal" data-target="#modalMinicursos">Escolher minicursos</button>
+                                <!-- Modal da tabela de minicursos -->
+
                                 <table class="table">
                                     <thead>
                                         <caption>Tabela Preço Total A Pagar</caption>
@@ -266,100 +269,197 @@
                                         </tr>
                                     </tbody>
                                 </table>
+
                             </div>
                         </div>
                     </fieldset>
-                    <div class="row">
-                        <div class="col-xs-6">
+                    <div class="row" id="botoesDiv">
+                        <div class="col" id="anterior">
                             <button onclick="anterior();" id="btAnterior" class="bt-flat-azul" type="button">Anterior</button>
                         </div>
-                        <div class="col-xs-6">
+                        <div class="col" id="proximo">
                             <button id="btProximo" class="bt-flat-azul" type="submit">Próximo</button>
                         </div>
                     </div>
                 </form>
             </div>
         </div>
+        <div style="display: none;" class="modal fade" id="modalMinicursos" tabindex="3" role="dialog" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-xs-12">
+                                    <div class="table-responsive">
+                                        <table summary="This table shows how to create responsive tables using Bootstrap's default functionality" class="table table-bordered table-hover">
+                                            <caption class="text-center">An example of a responsive table based on
+                                                <a href="https://getbootstrap.com/css/#tables-responsive"
+                                                    target="_blank">Bootstrap</a>:</caption>
+                                            <thead>
+                                                <tr>
+                                                    <th>Country</th>
+                                                    <th>Languages</th>
+                                                    <th>Population</th>
+                                                    <th>Median Age</th>
+                                                    <th>Area (Km²)</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>Argentina</td>
+                                                    <td>Spanish (official), English, Italian, German, French</td>
+                                                    <td>41,803,125</td>
+                                                    <td>31.3</td>
+                                                    <td>2,780,387</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Australia</td>
+                                                    <td>English 79%, native and other languages</td>
+                                                    <td>23,630,169</td>
+                                                    <td>37.3</td>
+                                                    <td>7,739,983</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Greece</td>
+                                                    <td>Greek 99% (official), English, French</td>
+                                                    <td>11,128,404</td>
+                                                    <td>43.2</td>
+                                                    <td>131,956</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Luxembourg</td>
+                                                    <td>Luxermbourgish (national) French, German (both administrative)</td>
+                                                    <td>536,761</td>
+                                                    <td>39.1</td>
+                                                    <td>2,586</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Russia</td>
+                                                    <td>Russian, others</td>
+                                                    <td>142,467,651</td>
+                                                    <td>38.4</td>
+                                                    <td>17,076,310</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Sweden</td>
+                                                    <td>Swedish, small Sami- and Finnish-speaking minorities</td>
+                                                    <td>9,631,261</td>
+                                                    <td>41.1</td>
+                                                    <td>449,954</td>
+                                                </tr>
+                                            </tbody>
+                                            <tfoot>
+                                                <tr>
+                                                    <td colspan="5" class="text-center">Data retrieved from
+                                                        <a href="http://www.infoplease.com/ipa/A0855611.html"
+                                                            target="_blank">infoplease</a> and
+                                                        <a href="http://www.worldometers.info/world-population/population-by-country/"
+                                                            target="_blank">worldometers</a>.</td>
+                                                </tr>
+                                            </tfoot>
+                                        </table>
+                                    </div>
+                                    <!--end of .table-responsive-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                        <button type="button" class="btn btn-primary">Salvar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer id="footer">
         <div class="container">
-            <div class="row text-center text-xs-center text-sm-left text-md-left">
-                <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Home</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>About</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>FAQ</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Get Started</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Videos</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Home</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>About</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>FAQ</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Get Started</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Videos</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
-                    <h5>Quick links</h5>
-                    <ul class="list-unstyled quick-links">
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Home</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>About</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>FAQ</a>
-                        </li>
-                        <li>
-                            <a href="javascript:void();">
-                                <i class="fa fa-angle-double-right"></i>Get Started</a>
-                        </li>
-                        <li>
-                            <a href="https://wwwe.sunlimetech.com" title="Design and developed by">
-                                <i class="fa fa-angle-double-right"></i>Imprint</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <!-- <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>About</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>FAQ</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Get Started</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Videos</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>About</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>FAQ</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Get Started</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Videos</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
+                        <h5>Quick links</h5>
+                        <ul class="list-unstyled quick-links">
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Home</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>About</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>FAQ</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void();">
+                                    <i class="fa fa-angle-double-right"></i>Get Started</a>
+                            </li>
+                            <li>
+                                <a href="https://wwwe.sunlimetech.com" title="Design and developed by">
+                                    <i class="fa fa-angle-double-right"></i>Imprint</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div> -->
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
@@ -400,7 +500,7 @@
                         </u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis,
                         MN]
                     </p>
-                    <p class="h6">&copy IconSTI 2018. Todos os direitos reservados.
+                    <p class="h6">&copy All right Reversed.
                         <a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a>
                     </p>
                 </div>
@@ -413,3 +513,46 @@
 </body>
 
 </html>
+<!-- <thead>
+        <caption>Tabela da Programação Minicursos</caption>
+        <tr>
+            <th scope="col">Desejo Participar</th>
+            <th scope="col">Minicurso</th>
+            <th scope="col">Local</th>
+            <th scope="col">Instrutor</th>
+            <th scope="col">Preço</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="text-align: center">
+                <input type="checkbox" name="" id="">
+            </td>
+            <td>Metodologia Científica</td>
+            <td>Sala 1</td>
+            <td>Volpato</td>
+            <td>R$50,00</td>
+        </tr>
+        <tr>
+            <td style="text-align: center">
+                <input type="checkbox" name="" id="">
+            </td>
+            <td>Testes na aquicultura</td>
+            <td>Sala 2</td>
+            <td>Aires</td>
+            <td>R$50,00</td>
+        </tr>
+        <tr>
+            <td style="text-align: center">
+                <input type="checkbox" name="" id="">
+            </td>
+            <td>Doenças na Aquicultura</td>
+            <td>Sala 3</td>
+            <td>Henrique e Guilherme</td>
+            <td>R$50,00</td>
+        </tr>
+        <tr>
+            <td colspan="4">Total a Pagar Minicursos</td>
+            <td id="totalAPagar" style="text-align: right;" colspan="2">R$150,00</td>
+        </tr>
+    </tbody> -->

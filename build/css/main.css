@@ -425,6 +425,11 @@ a.btn.btn-success:visited {
   background: white;
   box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.3);
 }
+@media (max-width: 56.25em) {
+  .card {
+    width: 100%;
+  }
+}
 .card-title {
   font-weight: 400;
   text-align: center;
@@ -729,23 +734,6 @@ label.light {
   clear: both;
   display: table;
 }
-.row [class^=col-] {
-  float: left;
-}
-.row [class^=col-]:not(:last-child) {
-  margin-right: auto;
-}
-@media (max-width: 56.25em) {
-  .row [class^=col-]:not(:last-child) {
-    margin-right: 0;
-    margin-bottom: 2rem;
-  }
-}
-@media (max-width: 56.25em) {
-  .row [class^=col-] {
-    width: 100% !important;
-  }
-}
 .row .col-1-2 {
   width: calc((100% - auto)/2);
 }
@@ -863,6 +851,10 @@ label.light {
   color: white;
 }
 
+.navbar-toggler-icon i {
+  font-size: 3.5rem;
+}
+
 .navbar-collapse {
   padding: 8px;
 }
@@ -881,6 +873,20 @@ section .section-title {
   color: #007b5e;
   margin-bottom: 50px;
   text-transform: uppercase;
+}
+
+@media (max-width: 56.25em) {
+  #footer {
+    height: 50vh;
+  }
+}
+
+@media (max-width: 56.25em) {
+  #footer .container {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+  }
 }
 
 #footer {
@@ -1117,14 +1123,7 @@ section .section-title {
 }
 
 .ul {
-  position: relative;
-  left: 4rem;
-}
-
-.card.comissao .card-title {
-  color: transparent;
-  background-image: linear-gradient(to right, #7ed56f, #28b485);
-  -webkit-background-clip: text;
+  padding: 0 3rem;
 }
 
 .table-head {
@@ -1149,6 +1148,14 @@ section .section-title {
 #passo3 {
   display: none;
   transition: all 0.1s ease-out;
+}
+
+@media (max-width: 56.25em) {
+  .table {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
 }
 
 #jumbo-premiacao > * {

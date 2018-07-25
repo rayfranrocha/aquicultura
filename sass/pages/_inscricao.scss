@@ -3,3 +3,10 @@
 }
 #passo2{display: none;transition: all .1s ease-out;}
 #passo3{display: none;transition: all .1s ease-out;}
+.table{
+    @include respond(tab-port){     
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

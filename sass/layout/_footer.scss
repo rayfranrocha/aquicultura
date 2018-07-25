@@ -5,6 +5,18 @@ section .section-title {
     margin-bottom: 50px;
     text-transform: uppercase;
 }
+#footer{
+	@include respond(tab-port){
+		height: 50vh;
+	}
+}
+#footer .container{
+	@include respond(tab-port){
+		position: relative;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+}
 #footer {
 	padding-top: 1rem;
 	background:rgb(14, 75, 14) !important;

@@ -4,6 +4,9 @@
 	margin: 1rem auto;
 	background: white;
 	box-shadow: 0rem 0rem 0.5rem rgba(0,0,0,0.3);
+	@include respond(tab-port){
+		width: 100%;
+	}
 	&-title{
 		font-weight: 400;
 		text-align: center;
