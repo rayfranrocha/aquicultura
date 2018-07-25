@@ -1,9 +1,14 @@
 .header{
 	width: 100%;
 	display: flex !important;
-	height: 20vh;
+	height: auto;
 	display: block;
 	background-color: white;
+}
+.header-logo-text-side{
+	@include respond(phone){
+		display: none;
+	}
 }
 .header-logo-text-side > .primary-title{
 	display: block;
@@ -15,11 +20,18 @@
 	float: right;
 	left: 15%;
 	position: relative;
+	@include respond(tab-land){
+		left: 10%;
+	}
+	@include respond(tab-port){
+		display: none;
+	}
 }
 .bt-header, .bt-header:active, .bt-header:visited,.bt-header:link{
 	display: inline-block;
 	position: relative;
-	top: 30%;
+	top: 50%;
+	transform: translateY(-50%);
 	color: white !important;
 	transition: all .4s;
 }
@@ -38,12 +50,26 @@
 	transform: translate(-50%,-50%);
 }
 .header-logo{
-    display: block;
+	display: block;
     width: 20%;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+
+	@include respond(phone){
+		left: 50%;
+		transform: translate(-50%,-50%);
+		top: 50%;
+	}
 }
 .header-logo-img{
 	width: 50%;
 	margin: 0 20%;
 	position: relative;
 	display: block;
+	
+	@include respond(big-desktop){
+		margin: 0 10%;
+		width: 60%;
+	}
 }

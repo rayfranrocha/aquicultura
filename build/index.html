@@ -26,23 +26,25 @@
 <body>
     <header>
         <div class="header">
-            <div class="header-logo">
-                <a href="./index.html">
-                    <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
-                </a>
-            </div>
-            <div class="header-logo-text-side">
-                <h1 class="primary-title u-center-vertical">2° Encontro de Aquicultura na Amazônia Ocidental</h1>
-            </div>
-            <div class="header-acesso-rapido">
-                <a onclick="areaRestrita()" class="bt-header btn btn-primary">
-                    <i class="material-icons">person</i>Área restrita</a>
+            <div class="row">
+                <div class="header-logo">
+                    <a href="./index.html">
+                        <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
+                    </a>
+                </div>
+                <div class=" header-logo-text-side">
+                    <h1 class="primary-title u-center-vertical">2° Encontro de Aquicultura na Amazônia Ocidental</h1>
+                </div>
+                <div class="header-acesso-rapido">
+                    <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
+                        <i class="material-icons">person</i>Área restrita</a>
+                </div>
             </div>
         </div>
         <nav class="navbar navbar-expand-lg ">
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+                <span class="navbar-toggler-icon"><i class="material-icons u-center-relative">menu</i></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
@@ -191,17 +193,19 @@
             <div class="container">
                 <h3 class="col-xs-12 heading-secondary u-center-text-2 u-margin-top-small u-margin-bottom-small ">O EVENTO</h3>
                 <div class="row">
-                    <p class="col-xs-12 col-sm-12 col-md-6">
-                        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sunt vitae blanditiis a numquam rem nam, voluptates
-                        quam modi quos voluptatum odio veniam consectetur qui eius voluptate ad deleniti reiciendis. Lorem
-                        ipsum dolor, sit amet consectetur adipisicing elit. Recusandae vitae suscipit quod. Earum sapiente
-                        reprehenderit fugiat, eum maxime quod est non totam, quaerat asperiores voluptatem omnis mollitia
-                        tempore dignissimos vel. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sunt
-                        vitae blanditiis a numquam rem nam, voluptates quam modi quos voluptatum odio veniam consectetur
-                        qui eius voluptate ad deleniti reiciendis. Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                        Recusandae vitae suscipit quod. Earum sapiente reprehenderit fugiat, eum maxime quod est non totam,
-                        quaerat asperiores voluptatem omnis mollitia tempore dignissimos vel.
-                    </p>
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sunt vitae blanditiis a numquam rem nam, voluptates
+                            quam modi quos voluptatum odio veniam consectetur qui eius voluptate ad deleniti reiciendis.
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae vitae suscipit quod. Earum
+                            sapiente reprehenderit fugiat, eum maxime quod est non totam, quaerat asperiores voluptatem omnis
+                            mollitia tempore dignissimos vel. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+                            sunt vitae blanditiis a numquam rem nam, voluptates quam modi quos voluptatum odio veniam consectetur
+                            qui eius voluptate ad deleniti reiciendis. Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Recusandae vitae suscipit quod. Earum sapiente reprehenderit fugiat, eum maxime quod est
+                            non totam, quaerat asperiores voluptatem omnis mollitia tempore dignissimos vel.
+                        </p>
+                    </div>
                     <div class="col-xs-12 col-sm-12 col-md-6 imagem">
                         <img src="./img/fundo_manaus-min.jpg" alt="">
                     </div>
@@ -210,7 +214,7 @@
         </section>
         <section class="section-inscricao" id="section-inscricao">
             <form action="#" id="form" method="post" onsubmit="cadastrar(event,'inscricao');">
-                <h1 class=" u-center-text-2 u-margin-top-small">Inscreva-se!</h1>
+                <h1 class=" u-center-text-2 u-margin-top-small">Faça sua inscrição no evento!</h1>
                 <fieldset>
                     <label for="name">Email*:</label>
                     <input type="email" id="email" name="email">

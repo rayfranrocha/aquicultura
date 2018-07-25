@@ -149,18 +149,12 @@ function cadastrar(event, redirecionar) {
     confsenha = confElement.value;
     cpf = cpfElement.value;
     if (confsenha !== senha) {
-        confElement.style.borderColor = 'yellow';
-        senhaElement.style.borderColor = 'yellow';
+        confElement.style.borderColor = 'red';
+        senhaElement.style.borderColor = 'red';
         var error = document.getElementById('erro_form');
         error.style.display = 'block';
         error.innerText = 'O campo confirmar senha está diferente do campo senha';
     }
-    //Se tiver sucesso, redirecionar.
-    /*
-    if(ja_tem_login || session.isLogado()){
-        //redirecionar 
-    }
-    */
     dados = {
         nome: 'Jeliel',
         cpf: '004.238.642-03',
@@ -170,4 +164,11 @@ function cadastrar(event, redirecionar) {
         var redirect = sessao.getRed().redirect;
         areaRestrita(redirect);
     });
+    //Se tiver sucesso, redirecionar.
+    /*
+    if(ja_tem_login || session.isLogado()){
+        //redirecionar 
+    }
+    */
+  
 }

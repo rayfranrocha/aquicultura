@@ -11,6 +11,12 @@
 	rgba($color-primary-light,0.5),
 	rgba($color-primary-dark,0.5)),
 	url("http://www.aquaciencia.aquabio.com.br/images/aquaciencia/slider/slider-1.jpg");
+	@include respond(tab-land){
+		min-height: 60vh;
+	}
+	@include respond(tab-port){
+		min-height: 40vh;
+	}
 }
 .section-services{
 	text-align: center !important;
