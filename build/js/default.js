@@ -30,9 +30,15 @@ $(document).ready(function () {
         /* ---- TABELA ----------------- */
         var tabela = document.getElementById('tabela-minicursos');
         var mostrarModalMinicursos = document.getElementById('mostrarModalMinicursos');
-        if(tabela){
+        var tabela1 = document.getElementById('tabela1');
+        var tabela2 = document.getElementById('tabela2');
+        if(tabela && width <=500){
             tabela.style.display = 'none';
             mostrarModalMinicursos.style.display = 'block'; 
+            if(tabela1 && tabela2){
+                tabela1.style.display = 'none';
+                tabela2.style.display = 'block';
+            }
         }
     }
 }); 
