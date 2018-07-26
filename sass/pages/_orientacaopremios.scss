@@ -8,6 +8,16 @@
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
+.premiacao{
+    @include respond(tab-port){
+        margin: 1rem;
+    }
+}
+.orientacao{
+    @include respond(tab-port){
+        margin: 1rem;
+    }
+}
 .titulo-categoria{
     width: 100%;
     border-radius: .3rem;

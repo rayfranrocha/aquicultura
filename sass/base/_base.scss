@@ -1,6 +1,11 @@
 *{
 	margin: 0px ;
 	padding: 0px;
+	@include respond(tab-port){
+		*:focus{
+			outline: none;
+		}
+	}
 }
 html
 {

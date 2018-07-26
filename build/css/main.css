@@ -8,6 +8,11 @@ big-desktop*/
   margin: 0px;
   padding: 0px;
 }
+@media (max-width: 56.25em) {
+  * *:focus {
+    outline: none;
+  }
+}
 
 html {
   font-size: 100%;
@@ -1169,6 +1174,18 @@ section .section-title {
 .categoria {
   margin-top: 1rem;
   margin-bottom: 1rem;
+}
+
+@media (max-width: 56.25em) {
+  .premiacao {
+    margin: 1rem;
+  }
+}
+
+@media (max-width: 56.25em) {
+  .orientacao {
+    margin: 1rem;
+  }
 }
 
 .titulo-categoria {

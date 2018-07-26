@@ -32,10 +32,12 @@ $(document).ready(function () {
         var mostrarModalMinicursos = document.getElementById('mostrarModalMinicursos');
         var tabela1 = document.getElementById('tabela1');
         var tabela2 = document.getElementById('tabela2');
-        if(tabela && width <=500){
+        var tabelasExistem = (tabela1!==undefined && tabela2!==undefined 
+            && mostrarModalMinicursos!==undefined);
+        if(tabelasExistem && width <=500){
             tabela.style.display = 'none';
             mostrarModalMinicursos.style.display = 'block'; 
-            if(tabela1 && tabela2){
+            if(tabelasExistem){
                 tabela1.style.display = 'none';
                 tabela2.style.display = 'block';
             }
