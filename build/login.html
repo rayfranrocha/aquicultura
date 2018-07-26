@@ -19,6 +19,8 @@
         crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
         crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="./js/session.js"></script>
 </head>
@@ -116,6 +118,8 @@
             <form action="#" onsubmit="cadastrar(event)" method="post">
                 <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Realizar Cadastro</h1>
                 <fieldset>
+                    <label for="nome_cad">Nome*:</label>
+                    <input type="text" id="nome_cad" name="nome_cad">
                     <label for="email_cad">Email*:</label>
                     <input type="email" id="email_cad" name="email_cad">
                     <label for="cpf_cad">CPF*:</label>
@@ -125,7 +129,7 @@
                     <label for="confsenha_cad">Confirmar Senha*:</label>
                     <input type="password" id="confsenha_cad" name="confsenha_cad">
                 </fieldset>
-                <span id="erro_form" class="erro" style="display: none;"></span>
+                <span id="erro_form" class="erro" style="display:none;"><a href="#">Esqueci minha senha</a></span>
                 <button class="bt-flat-azul" type="submit">Cadastrar</button>
             </form>
         </div>

@@ -1,5 +1,7 @@
 var sessao;
-var location_ = 'http://iconsti.com/aquicultura';
+// var location_ = 'http://iconsti.com/aquicultura';
+var location_ = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
+jQuery.support.cors = true;
 
 $(document).ready(function () {
     var db = new Dexie("dbusuario");
@@ -87,8 +89,8 @@ function areaRestrita(redirecionar) {
         if (redirecionar === "inscricao") {
             window.location.href = location_ + '/inscricao.html';
         }
-        else if (redirecionar === "trabalhos") {           
-             window.location.href = location_ + '/trabalhos.html';
+        else if (redirecionar === "trabalhos") {
+            window.location.href = location_ + '/trabalhos.html';
         } else {
             window.location.href = location_ + '/arearestrita.html';
         }
@@ -100,7 +102,7 @@ function areaRestrita(redirecionar) {
 function showCadastro() {
     var esconder = document.getElementById('login-form');
     var mostrar = document.getElementById('cadastro-form');
-    esconder.addEventListener("webkitAnimationEnd",function(){
+    esconder.addEventListener("webkitAnimationEnd", function () {
         esconder.style.display = "none";
 
         mostrar.classList.add('in');
@@ -138,8 +140,9 @@ function login(event) {
 }
 function cadastrar(event, redirecionar) {
     event.preventDefault();
-    var emailElement, senhaElement, confElement, cpfElement;
+    var nomeElement, emailElement, senhaElement, confElement, cpfElement;
     var email, senha, confsenha, cpf;
+    nomeElement = document.getElementById('nome_cad');
     emailElement = document.getElementById('email_cad');
     senhaElement = document.getElementById('senha_cad');
     confElement = document.getElementById('confsenha_cad');
@@ -148,27 +151,52 @@ function cadastrar(event, redirecionar) {
     senha = senhaElement.value;
     confsenha = confElement.value;
     cpf = cpfElement.value;
+    var error = document.getElementById('erro_form');
     if (confsenha !== senha) {
         confElement.style.borderColor = 'red';
         senhaElement.style.borderColor = 'red';
-        var error = document.getElementById('erro_form');
         error.style.display = 'block';
         error.innerText = 'O campo confirmar senha está diferente do campo senha';
+    } else {
+        var jsonCadastro = {
+            "nome": nomeElement.value,
+            "email": email,
+            "senha": senha,
+            "login": cpf,
+            "infoExtra": ""
+        };
+        $.ajax({
+            type: "post",
+            crossDomain: true,
+            contentType: "application/json",
+            dataType: 'json',
+            data: JSON.stringify(jsonCadastro),
+            url: " http://192.168.0.105:8080/netbarco-ws/api/siteCongresso/usuario/cadastro/222",
+            success: function (response) {
+
+                var resposta = response;
+                if (error && resposta && resposta.erro != null) {
+                    error.style.display = 'block';
+                    error.innerText = resposta.erro;
+                    error.style.color = 'red';
+                }
+            }
+        });
     }
-    dados = {
-        nome: 'Jeliel',
-        cpf: '004.238.642-03',
-        email: 'jeliel.augusto10@gmail.com'
-    };
-    sessao.logar(dados, () => { //callback para quando o login foi feito
-        var redirect = sessao.getRed().redirect;
-        areaRestrita(redirect);
-    });
+    // dados = {
+    //     nome: 'Jeliel',
+    //     cpf: '004.238.642-03',
+    //     email: 'jeliel.augusto10@gmail.com'
+    // };
+    // sessao.logar(dados, () => { //callback para quando o login foi feito
+    //     var redirect = sessao.getRed().redirect;
+    //     areaRestrita(redirect);
+    // });
     //Se tiver sucesso, redirecionar.
     /*
     if(ja_tem_login || session.isLogado()){
         //redirecionar 
     }
     */
-  
+
 }
