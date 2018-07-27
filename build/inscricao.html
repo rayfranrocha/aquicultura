@@ -180,7 +180,7 @@
                             <hr class="small">
                             <div id="passo1" class="passo-1 col-md-12 col-sm-12 col-xs-12">
                                 <h2 class="heading-secondary no-hover u-center-text-2">Dados para cadastro</h2>
-                                <label for="name">Nome para o crachá*:</label>
+                                <label for="nome">Nome para o crachá*:</label>
                                 <input type="text" id="nome" name="nome">
                                 <label for="empresa">Empresa/Instituição*:</label>
                                 <input type="text" id="empresa" name="empresa">
@@ -191,86 +191,68 @@
                             </div>
                             <div id="passo2" class="passo-2 col-md-12 col-sm-12 col-xs-12">
                                 <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Dados para boleto/recibo</h1>
-                                <label for="nome">Nome*:</label>
-                                <input type="text" id="nome" name="nome">
+                                <label for="nome_boleto">Nome*:</label>
+                                <input type="text" id="nome_boleto" name="nome_boleto">
                                 <label for="cpf_cnpj">CPF/CNPJ*:</label>
                                 <input type="text" id="cpf_cnpj" name="cpf_cnpj">
                                 <label for="endereco">Endereço*:</label>
                                 <input type="text" id="endereco" name="endereco">
                             </div>
-                            <div id="passo3" class="passo-2 col-md-12 col-sm-12 col-xs-12">
+                            <div id="passo3" class="passo-3 col-md-12 col-sm-12 col-xs-12">
                                 <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Inscrição minicursos e pagamento</h1>
-                                <table class="table" id="tabela-minicursos">
-                                    <thead>
-                                        <caption>Tabela da Programação Minicursos</caption>
-                                        <tr>
-                                            <th scope="col">Desejo Participar</th>
-                                            <th scope="col">Minicurso</th>
-                                            <th scope="col">Local</th>
-                                            <th scope="col">Instrutor</th>
-                                            <th scope="col">Preço</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td style="text-align: center">
-                                                <input type="checkbox" name="" id="">
-                                            </td>
-                                            <td>Metodologia Científica</td>
-                                            <td>Sala 1</td>
-                                            <td>Volpato</td>
-                                            <td>R$50,00</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: center">
-                                                <input type="checkbox" name="" id="">
-                                            </td>
-                                            <td>Testes na aquicultura</td>
-                                            <td>Sala 2</td>
-                                            <td>Aires</td>
-                                            <td>R$50,00</td>
-                                        </tr>
-                                        <tr>
-                                            <td style="text-align: center">
-                                                <input type="checkbox" name="" id="">
-                                            </td>
-                                            <td>Doenças na Aquicultura</td>
-                                            <td>Sala 3</td>
-                                            <td>Henrique e Guilherme</td>
-                                            <td>R$50,00</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="4">Total a Pagar Minicursos</td>
-                                            <td id="totalAPagar" style="text-align: right;" colspan="2">R$150,00</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                                <button id="mostrarModalMinicursos" class="bt-flat-azul" style="display: none" ; data-toggle="modal" data-target="#modalMinicursos">Escolher minicursos</button>
-                                <!-- Modal da tabela de minicursos -->
-
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="tipoInscricao">Tipo</label>
+                                    </div>
+                                    <select class="custom-select" onchange="trocarTipo(event);" id="tipoInscricao">
+                                        <option selected>Escolha um tipo de inscrição...</option>
+                                        <option value="1">Estudante de curso técnico ou Graduação</option>
+                                        <option value="2">Estudante de Pós-Graduação</option>
+                                        <option value="3">Profissional</option>
+                                    </select>
+                                </div>
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="tipoPagamento">Pagamento</label>
+                                    </div>
+                                    <select onchange="trocarPagamento(event);" class="custom-select" id="tipoPagamento">
+                                        <option selected>Escolha um modo de pagamento...</option>
+                                        <option value="1">Cartão</option>
+                                        <option value="2">Boleto</option>
+                                        <option value="3">Pagamento Local</option>
+                                    </select>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" onchange="incluirMinicurso(event);" id="participar_minicurso">
+                                    <label class="form-check-label" for="participar_minicurso">Quero participar de minicursos</label>
+                                </div>
                                 <table class="table">
                                     <thead>
                                         <caption>Tabela Preço Total A Pagar</caption>
                                         <tr>
                                             <th scope="col">Item</th>
-                                            <th scope="col">Quantidade</th>
                                             <th scope="col">Preço</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
                                             <td>Minicursos</td>
-                                            <td>0</td>
-                                            <td>R$0,00</td>
+                                            <td id="precoMinicurso">R$0,00</td>
                                         </tr>
                                         <tr>
                                             <td>Inscrição</td>
-                                            <td>R100,00</td>
-                                            <td>R100,00</td>
+                                            <td id="precoInscricao">R$0,00</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Total A Pagar</td>
+                                            <td id="precoTotal">R$0,00</td>
                                         </tr>
                                     </tbody>
                                 </table>
 
+                            </div>
+                            <div id="conclusao" class="col-md-12 col-sm-12 col-xs-12">
+                                <h1 id="textoConclusao" class="heading-secondary no-hover u-center-text-2"></h1>
                             </div>
                         </div>
                     </fieldset>
@@ -285,109 +267,7 @@
                 </form>
             </div>
         </div>
-        <div style="display: none;" class="modal fade" id="modalMinicursos" tabindex="3" role="dialog" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="container">
-                            <div class="row">
-                                <div class="col-xs-12">
-                                    <table class="table" id="tabela1">
-                                        <thead>
-                                            <caption>Tabela da Programação Minicursos</caption>
-                                            <tr>
-                                                <th scope="col">Desejo Participar</th>
-                                                <th scope="col">Minicurso</th>
-                                                <th scope="col">Local</th>
-                                                <th scope="col">Instrutor</th>
-                                                <th scope="col">Preço</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="text-align: center">
-                                                    <input type="checkbox" name="" id="">
-                                                </td>
-                                                <td>Metodologia Científica</td>
-                                                <td>Sala 1</td>
-                                                <td>Volpato</td>
-                                                <td>R$50,00</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center">
-                                                    <input type="checkbox" name="" id="">
-                                                </td>
-                                                <td>Testes na aquicultura</td>
-                                                <td>Sala 2</td>
-                                                <td>Aires</td>
-                                                <td>R$50,00</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center">
-                                                    <input type="checkbox" name="" id="">
-                                                </td>
-                                                <td>Doenças na Aquicultura</td>
-                                                <td>Sala 3</td>
-                                                <td>Henrique e Guilherme</td>
-                                                <td>R$50,00</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="4">Total a Pagar Minicursos</td>
-                                                <td id="totalAPagar" style="text-align: right;" colspan="2">R$150,00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <table class="table" id="tabela2" style="display: none;">
-                                        <thead>
-                                            <tr>
-                                                <th scope="col">Desejo Participar</th>
-                                                <th scope="col">Minicurso</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr>
-                                                <td style="text-align: center">
-                                                    <input type="checkbox" name="" id="">
-                                                </td>
-                                                <td>Metodologia Científica</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center">
-                                                    <input type="checkbox" name="" id="">
-                                                </td>
-                                                <td>Testes na aquicultura</td>
-                                            </tr>
-                                            <tr>
-                                                <td style="text-align: center">
-                                                    <input type="checkbox" name="" id="">
-                                                </td>
-                                                <td>Doenças na Aquicultura</td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="1">Total a Pagar Minicursos</td>
-                                                <td id="totalAPagar" style="text-align: right;" colspan="1">R$150,00</td>
-                                            </tr>
-                                        </tbody>
-                                    </table>
-                                    <!--end of .table-responsive-->
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary btn-lg" data-dismiss="modal">Fechar</button>
-                        <button type="button" class="btn btn-primary btn-lg">Salvar</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
     </main>
     <footer id="footer">
         <div class="container">

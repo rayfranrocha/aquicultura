@@ -486,11 +486,6 @@ select {
   margin-bottom: 30px;
 }
 
-input[type=radio],
-input[type=checkbox] {
-  margin: 0 4px 8px 0;
-}
-
 select {
   padding: 6px;
   height: 32px;
@@ -1151,6 +1146,11 @@ section .section-title {
 }
 
 #passo3 {
+  display: none;
+  transition: all 0.1s ease-out;
+}
+
+#conclusao {
   display: none;
   transition: all 0.1s ease-out;
 }

@@ -27,20 +27,6 @@ $(document).ready(function () {
             botoesDiv.removeChild(btAnterior);
             botoesDiv.appendChild(btAnterior);
         }
-        /* ---- TABELA ----------------- */
-        var tabela = document.getElementById('tabela-minicursos');
-        var mostrarModalMinicursos = document.getElementById('mostrarModalMinicursos');
-        var tabela1 = document.getElementById('tabela1');
-        var tabela2 = document.getElementById('tabela2');
-        var tabelasExistem = (tabela1!==undefined && tabela2!==undefined 
-            && mostrarModalMinicursos!==undefined);
-        if(tabelasExistem && width <=500){
-            tabela.style.display = 'none';
-            mostrarModalMinicursos.style.display = 'block'; 
-            if(tabelasExistem){
-                tabela1.style.display = 'none';
-                tabela2.style.display = 'block';
-            }
-        }
+       
     }
 }); 

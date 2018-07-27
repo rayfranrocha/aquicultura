@@ -1,8 +1,8 @@
 var sessao;
+var baseUrl = 'http://192.168.0.105:8080/netbarco-ws/api/siteCongresso/usuario';
 // var location_ = 'http://iconsti.com/aquicultura';
 var location_ = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
 jQuery.support.cors = true;
-
 $(document).ready(function () {
     var db = new Dexie("dbusuario");
     var userSession = {};
@@ -11,6 +11,18 @@ $(document).ready(function () {
         user: '&id,cpf,email',
         redirect: '&id'
     });
+    db.version(2).stores({
+        user: '&id,cpf',
+        redirect: '&id'
+    }).upgrade((tx)=>{
+        /*----Se um usuário possui uma base nas versões abaixo de 2----*/
+        return tx.user.toCollection().modify((user)=>{
+            user.nome = null;
+            user.email = null;
+            delete user.nome;
+            delete user.email;
+        });
+    })
     db.open().catch(function (e) {
         console.error("Open failed: " + e);
     });
@@ -30,9 +42,9 @@ $(document).ready(function () {
     db.user.get('1')
         .then((res) => {
             if (res === undefined) {
-                db.user.put({ id: '1', isLogado: false, nome: '', cpf: '', email: '' }).then(() => {
+                db.user.put({ id: '1', isLogado: false, cpf: '' }).then(() => {
                     console.log('Criado');
-                    userSession = { id: '1', isLogado: false, nome: '', cpf: '', email: '' };
+                    userSession = { id: '1', isLogado: false, cpf: '' };
                 });
             } else {
                 userSession = res;
@@ -41,22 +53,22 @@ $(document).ready(function () {
             console.error('Failed to open db: ' + (err.stack || err));
         });
     function logar(dados, callback) {
-        db.user.put({ id: '1', isLogado: true, nome: dados.nome, cpf: dados.cpf, email: dados.email }).then(() => {
-            userSession = { id: '1', isLogado: true, nome: dados.nome, cpf: dados.cpf, email: dados.email };
+        db.user.put({ id: '1', isLogado: true, cpf: dados.login }).then(() => {
+            userSession = { id: '1', isLogado: true, cpf: dados.login };
         })
-            .then(() => {
-                if (callback) {
-                    callback();
-                }
-            })
+        .then(() => {
+            if (callback) {
+                callback();
+            }
+        })
     }
     function deslogar(callback) {
-        db.user.put({ id: '1', isLogado: false, nome: '', cpf: '', email: '' })
-            .then(() => {
-                if (callback) {
-                    callback();
-                }
-            });
+        db.user.put({ id: '1', isLogado: false, cpf: '' })
+        .then(() => {
+            if (callback) {
+                callback();
+            }
+        });
     }
     function getDados() {
         return userSession;
@@ -124,18 +136,36 @@ function logout() {
 }
 function login(event) {
     event.preventDefault();
-    var cpf, senha;
+    var cpf, senha,error;
     senha = document.getElementById('senha_log').value;
     cpf = document.getElementById('cpf_log').value;
+    error = document.getElementById('erro_login');
     //Chamar webservice com dados
-    dados = {
-        nome: 'Jeliel',
-        cpf: '004.238.642-03',
-        email: 'jeliel.augusto10@gmail.com'
+    var dados__ = {
+        login: cpf,
+        senha: senha
     };
-    sessao.logar(dados, () => { //callback para quando o login foi feito
-        var redirect = sessao.getRed().redirect;
-        areaRestrita(redirect);
+    $.ajax({
+        type: "post",
+        crossDomain: true,
+        contentType: "application/json",
+        dataType: 'json',
+        data: JSON.stringify(dados__),
+        url: baseUrl + "/login/222",
+        success: function (response) {
+            var resposta = response;
+            console.log(resposta);
+            if (error && resposta.erro !== null) {
+                error.style.display = 'block';
+                error.innerText = resposta.erro;
+                error.style.color = 'red';
+            } else if (resposta.login !== undefined && resposta.login !== null) {
+                sessao.logar(resposta, () => {
+                    var redirect = sessao.getRed().redirect;
+                    areaRestrita(redirect);
+                });
+            }
+        }
     });
 }
 function cadastrar(event, redirecionar) {
@@ -171,32 +201,21 @@ function cadastrar(event, redirecionar) {
             contentType: "application/json",
             dataType: 'json',
             data: JSON.stringify(jsonCadastro),
-            url: " http://192.168.0.105:8080/netbarco-ws/api/siteCongresso/usuario/cadastro/222",
+            url: baseUrl + "/cadastro/222",
             success: function (response) {
-
                 var resposta = response;
-                if (error && resposta && resposta.erro != null) {
+                console.log(resposta);
+                if (error && resposta && (resposta.erro !== null)) {
                     error.style.display = 'block';
                     error.innerText = resposta.erro;
                     error.style.color = 'red';
+                } else if (resposta.login !== null) {
+                    sessao.logar(resposta, () => {
+                        var redirect = sessao.getRed().redirect;
+                        areaRestrita(redirect);
+                    });
                 }
             }
         });
     }
-    // dados = {
-    //     nome: 'Jeliel',
-    //     cpf: '004.238.642-03',
-    //     email: 'jeliel.augusto10@gmail.com'
-    // };
-    // sessao.logar(dados, () => { //callback para quando o login foi feito
-    //     var redirect = sessao.getRed().redirect;
-    //     areaRestrita(redirect);
-    // });
-    //Se tiver sucesso, redirecionar.
-    /*
-    if(ja_tem_login || session.isLogado()){
-        //redirecionar 
-    }
-    */
-
 }
