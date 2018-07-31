@@ -217,9 +217,8 @@
                                     </div>
                                     <select onchange="trocarPagamento(event);" class="custom-select" id="tipoPagamento">
                                         <option selected>Escolha um modo de pagamento...</option>
-                                        <option value="1">Cartão</option>
-                                        <option value="2">Boleto</option>
-                                        <option value="3">Pagamento Local</option>
+                                        <option value="1">Cartão/Boleto</option>
+                                        <option value="2">Pagamento Local</option>
                                     </select>
                                 </div>
                                 <div class="form-group form-check">
@@ -237,27 +236,36 @@
                                     <tbody>
                                         <tr>
                                             <td>Minicursos</td>
-                                            <td id="precoMinicurso">R$0,00</td>
+                                            <td id="precoMinicurso">R$ 0,00</td>
                                         </tr>
                                         <tr>
                                             <td>Inscrição</td>
-                                            <td id="precoInscricao">R$0,00</td>
+                                            <td id="precoInscricao">R$ 0,00</td>
                                         </tr>
                                         <tr>
                                             <td>Total A Pagar</td>
-                                            <td id="precoTotal">R$0,00</td>
+                                            <td id="precoTotal">R$ 0,00</td>
                                         </tr>
                                     </tbody>
                                 </table>
 
                             </div>
-                            <span id="erro" style="display: none; width: 100%;"></span>
                             <div id="conclusao" class="col-md-12 col-sm-12 col-xs-12">
                                 <h1 id="textoConclusao" class="heading-secondary no-hover u-center-text-2"></h1>
                             </div>
+                            <span id="erro" style="display: none; width: 100%;"></span>
                         </div>
                     </fieldset>
+
                     <div class="row" id="botoesDiv">
+                        <div id="pagamentoPagSeguro" class="col-md-12 col-sm-12 col-xs-12">
+                            <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                                <input type="hidden" name="code" value="3D636A46EFEF0B5554F5EF98F924011A" />
+                                <input type="hidden" name="iot" value="button" />
+                                <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit"
+                                    alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                            </form>
+                        </div>
                         <div class="col" id="anterior">
                             <button onclick="anterior();" id="btAnterior" class="bt-flat-azul" type="button">Anterior</button>
                         </div>

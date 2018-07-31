@@ -144,38 +144,38 @@ function login(event) {
         login: cpf,
         senha: senha
     };
-    var jsonTemp = {
-        login: "00423864203"
-    };
-    sessao.logar(jsonTemp, function () {
-        var redirect = sessao.getRed().redirect;
-        areaRestrita(redirect);
-    });
-    // $.ajax({
-    //     type: "POST",
-    //     crossDomain: true,
-    //     contentType: "application/json",
-    //     dataType: 'json',
-    //     data: JSON.stringify(dados__),
-    //     url: baseUrl + "/login/222",
-    //     success: function (response) {
-    //         var resposta = response;
-    //         console.log(resposta);
-    //         if (error && resposta.erro !== null) {
-    //             error.style.display = 'block';
-    //             error.innerText = resposta.erro;
-    //             error.style.color = 'red';
-    //         } else if (resposta.login !== undefined && resposta.login !== null) {
-    //             sessao.logar(resposta, function () {
-    //                 var redirect = sessao.getRed().redirect;
-    //                 areaRestrita(redirect);
-    //             });
-    //         }
-    //     },
-    //     error: function (jqXHR, textStatus, error) {
-    //         console.log(jqXHR, textStatus, error);
-    //     }
+    // var jsonTemp = {
+    //     login: "00423864203"
+    // };
+    // sessao.logar(jsonTemp, function () {
+    //     var redirect = sessao.getRed().redirect;
+    //     areaRestrita(redirect);
     // });
+    $.ajax({
+        type: "POST",
+        crossDomain: true,
+        contentType: "application/json",
+        dataType: 'json',
+        data: JSON.stringify(dados__),
+        url: baseUrl + "/login/222",
+        success: function (response) {
+            var resposta = response;
+            console.log(resposta);
+            if (error && resposta.erro !== null) {
+                error.style.display = 'block';
+                error.innerText = resposta.erro;
+                error.style.color = 'red';
+            } else if (resposta.login !== undefined && resposta.login !== null) {
+                sessao.logar(resposta, function () {
+                    var redirect = sessao.getRed().redirect;
+                    areaRestrita(redirect);
+                });
+            }
+        },
+        error: function (jqXHR, textStatus, error) {
+            console.log(jqXHR, textStatus, error);
+        }
+    });
 }
 function cadastrar(event, redirecionar) {
     event.preventDefault();
@@ -204,37 +204,41 @@ function cadastrar(event, redirecionar) {
             "login": cpf,
             "infoExtra": ""
         };
-        var jsonTemp = {
-            login: "00423864203"
-        };
-        sessao.logar(jsonTemp, function () {
-            var redirect = sessao.getRed().redirect;
-            areaRestrita(redirect);
-        });
-
-        // $.ajax({
-        //     type: "POST",
-        //     crossDomain: true,
-        //     contentType: "application/json",
-        //     dataType: 'json',
-        //     data: JSON.stringify(jsonCadastro),
-        //     url: baseUrl + "/cadastro/222",
-        //     success: function (response) {
-        //         var resposta = response;
-        //         if (error && resposta && (resposta.erro !== null)) {
-        //             error.style.display = 'block';
-        //             error.innerText = resposta.erro;
-        //             error.style.color = 'red';
-        //         } else if (resposta.login !== null) {
-        //             sessao.logar(resposta, function () {
-        //                 var redirect = sessao.getRed().redirect;
-        //                 areaRestrita(redirect);
-        //             });
-        //         }
-        //     },
-        //     error: function (jqXHR, textStatus, error) {
-        //         console.log(jqXHR, textStatus, error);
-        //     }
+        // var jsonTemp = {
+        //     login: "00423864203"
+        // };
+        // sessao.logar(jsonTemp, function () {
+        //     var redirect = sessao.getRed().redirect;
+        //     areaRestrita(redirect);
         // });
+
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            contentType: "application/json",
+            dataType: 'json',
+            data: JSON.stringify(jsonCadastro),
+            url: baseUrl + "/cadastro/222",
+            success: function (response) {
+                var resposta = response;
+                if (error && resposta && (resposta.erro !== null)) {
+                    error.style.display = 'block';
+                    if(!resposta.erro.indexOf("Usuário já cadastrado")){
+                        error.innerText = resposta.erro;
+                    }else{
+                        error.innerHTML = resposta.erro + '<a href="#">Esqueci minha senha</a>'
+                    }
+                    error.style.color = 'red';
+                } else if (resposta.login !== null) {
+                    sessao.logar(resposta, function () {
+                        var redirect = sessao.getRed().redirect;
+                        areaRestrita(redirect);
+                    });
+                }
+            },
+            error: function (jqXHR, textStatus, error) {
+                console.log(jqXHR, textStatus, error);
+            }
+        });
     }
 }

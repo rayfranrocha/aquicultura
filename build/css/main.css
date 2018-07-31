@@ -1155,6 +1155,12 @@ section .section-title {
   transition: all 0.1s ease-out;
 }
 
+#pagamentoPagSeguro {
+  display: none;
+  text-align: center;
+  margin: 3rem;
+}
+
 @media (max-width: 56.25em) {
   .table {
     position: relative;

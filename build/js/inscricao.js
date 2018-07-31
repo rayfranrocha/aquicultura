@@ -13,6 +13,9 @@ var erro;
 /*-----------------------------------------*/
 $(document).ready(function () {
     erro = document.getElementById('erro');
+    /* Chama essas funções para caso a página foi atualizada enquanto preenchia dados */
+    verificarEAtualizarTextoTipoInscricao();
+    trocarPagamento();
 });
 /*---- Função para ir ao próximo passo ---- */
 function proximo(event) {
@@ -29,10 +32,10 @@ function proximo(event) {
         }
     } else if (passoAtual === 3) { /* Chama a última função para concluir compra */
         concluirCompra();
-        if (tipoPagamento == 1 || tipoPagamento == 2) {
-            showMensagemFinal("Obrigado pela sua inscrição! Aguarde o envio de boleto/recibo para seu email");
+        if (tipoPagamento == 2) {
+            showMensagemFinal("Obrigado pela sua inscrição! Efetue o pagamento no local do evento");
         } else {
-            showMensagemFinal("Obrigado pela sua inscrição!");
+            showMensagemFinal("Obrigado pela sua inscrição! Clique no botão do PagSeguro para concluir a compra");
         }
     }
 }
@@ -80,6 +83,16 @@ function esconderEMostrar(esconder__, mostrar__) {
         elementoMostrar.style.display = "block";
     });
 }
+function recuperarLogin(){
+    // var db = new Dexie("dbusuario");
+    // db.open().catch(function (e) {
+    //     console.error("Open failed: " + e);
+    // });
+    // db.user.get('1').then((res)=>{
+    //     console.log(res);
+    // });
+    // return db.user.get('1');
+}
 /*---- Função para mostrar mensagem final---- */
 function showMensagemFinal(texto) {
     esconderEMostrar('passo3', 'conclusao');
@@ -110,31 +123,48 @@ function concluirCompra() {
         "tipoPagamento": tipoPagamento,
         "participanteMinicurso": participanteMinicurso
     };
-    // $.ajax({
-    //     type: "post",
-    //     crossDomain: true,
-    //     contentType: "application/json",
-    //     dataType: 'json',
-    //     data: JSON.stringify(objetoInscricao),
-    //     url: baseUrl + "/usuario/inscricao/222",
-    //     success: function (response) {
-    //         var resposta = response;
-    //         console.log(resposta);
-    //         if (erro && resposta && (resposta.erro !== null)) {
-    //             erro.style.display = 'block';
-    //             erro.innerText = resposta.erro;
-    //             erro.style.color = 'red';
-    //         }
-    //     },
-    //     error: function(jqXHR, textStatus, error){
-    //         console.log(jqXHR,textStatus,error);
-    //     }
+    if(tipoPagamento == 1){
+        document.getElementById('pagamentoPagSeguro').style.display = 'block';
+        document.getElementById('anterior').style.display = 'none';
+        document.getElementById('proximo').style.display = 'none';
+    }
+    /* Promise para recuperar login */
+    // var loginPromise = recuperarLogin();
+    // loginPromise.then(function(usuario){ /*Quando o usuário é retornado */
+    //     envio.login = usuario.cpf;
+    //     console.log(envio);
+    //     // $.ajax({
+    //     //     type: "POST",
+    //     //     crossDomain: true,
+    //     //     contentType: "application/json",
+    //     //     dataType: 'json',
+    //     //     data: JSON.stringify(envio),
+    //     //     url: baseUrl + "/usuario/inscricao/222",
+    //     //     success: function (response) {
+    //     //         var resposta = response;
+    //     //         if (erro && resposta && (resposta.erro !== null)) {
+    //     //             erro.style.display = 'block';
+    //     //             erro.innerText = resposta.erro;
+    //     //             erro.style.color = 'red';
+    //     //         }else if(resposta){
+
+    //     //         }
+    //     //     },
+    //     //     error: function(jqXHR, textStatus, error){
+    //     //         console.log(jqXHR,textStatus,error);
+    //     //     }
+    //     // });
     // });
 }
 /*---- Função para trocar tipo de pagamento e mostrar no DOM ----*/
 function trocarPagamento(evento) {
-    var valor = +evento.target.value;
-    console.log(valor);
+    var valor;
+    if (evento) {
+        valor = +evento.target.value;
+    }
+    else {
+        valor = (+document.getElementById('tipoPagamento').value);
+    }
     if (valor === 3) {
         pagarLocal = true;
         atualizarTotalAPagar();
@@ -143,14 +173,14 @@ function trocarPagamento(evento) {
         atualizarTotalAPagar();
     }
 }
-/*---- Função para trocar tipo de inscrição e mostrar no DOM ----*/
-function trocarTipoInscricao(evento) {
+/*--- Função que atualiza o innerText quando o tipo muda ou página atualiza ---*/
+function verificarEAtualizarTextoTipoInscricao(tipo) {
     var dataBase = new Date();
     dataBase.setDate(21);
     dataBase.setMonth(8);
     var dataAtual = new Date();
-    var tipo_ = +evento.target.value;
     var preco = document.getElementById("precoInscricao");
+    var tipo_ = tipo || (+document.getElementById('tipoPagamento').value);
     switch (tipo_) {
         case 1:
             if (dataAtual < dataBase) {
@@ -182,6 +212,11 @@ function trocarTipoInscricao(evento) {
         default:
             break;
     }
+}
+/*---- Função para trocar tipo de inscrição e mostrar no DOM ----*/
+function trocarTipoInscricao(evento) {
+    var tipo_ = +evento.target.value;
+    verificarEAtualizarTextoTipoInscricao(tipo_);
     atualizarTotalAPagar();
 }
 /*---- Função para confirmar inscrição em minicurso ----*/
@@ -210,6 +245,6 @@ function atualizarTotalAPagar() {
 /*---- Função para converter valor para modelo da moeda Real ----*/
 function numberParaReal(numero) {
     var numero__ = numero.toFixed(2).split('.');
-    numero__[0] = "R$ " + numero__[0].split(/(?=(?:...)*$)/).join('.');
+    numero__[0] = "R$  " + numero__[0].split(/(?=(?:...)*$)/).join('.');
     return numero__.join(',');
 }
