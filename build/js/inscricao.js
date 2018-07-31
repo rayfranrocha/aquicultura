@@ -124,9 +124,9 @@ function trocarTipoInscricao(evento) {
     dataBase.setDate(21);
     dataBase.setMonth(8);
     var dataAtual = new Date();
-    var valor = +evento.target.value;
+    var tipo_ = +evento.target.value;
     var preco = document.getElementById("precoInscricao");
-    switch (valor) {
+    switch (tipo_) {
         case 1:
             if (dataAtual < dataBase) {
                 preco.innerText = "R$ 50,00";
