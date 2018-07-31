@@ -1,13 +1,19 @@
-/* Variáveis para controle de preço */
+/*---- Variáveis para controle de preço ----*/
 var total = 0.0;
 var inscricao = 0.0;
 var minicurso = 50.0;
 var pagarLocal = false;
 var participaMinicurso = false;
-/* Variáveis para controle do DOM */
+/*-----------------------------------------*/
+/*---- Variáveis para controle do DOM ----*/
 var passoAtual = 1;
 var elementoEsconder;
 var elementoMostrar;
+var erro;
+/*-----------------------------------------*/
+$(document).ready(function () {
+    erro = document.getElementById('erro');
+});
 /*---- Função para ir ao próximo passo ---- */
 function proximo(event) {
     event.preventDefault();
@@ -104,7 +110,26 @@ function concluirCompra() {
         "tipoPagamento": tipoPagamento,
         "participanteMinicurso": participanteMinicurso
     };
-
+    // $.ajax({
+    //     type: "post",
+    //     crossDomain: true,
+    //     contentType: "application/json",
+    //     dataType: 'json',
+    //     data: JSON.stringify(objetoInscricao),
+    //     url: baseUrl + "/usuario/inscricao/222",
+    //     success: function (response) {
+    //         var resposta = response;
+    //         console.log(resposta);
+    //         if (erro && resposta && (resposta.erro !== null)) {
+    //             erro.style.display = 'block';
+    //             erro.innerText = resposta.erro;
+    //             erro.style.color = 'red';
+    //         }
+    //     },
+    //     error: function(jqXHR, textStatus, error){
+    //         console.log(jqXHR,textStatus,error);
+    //     }
+    // });
 }
 /*---- Função para trocar tipo de pagamento e mostrar no DOM ----*/
 function trocarPagamento(evento) {

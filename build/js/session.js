@@ -14,23 +14,20 @@ $(document).ready(function () {
     db.version(2).stores({
         user: '&id,cpf',
         redirect: '&id'
-    }).upgrade((tx)=>{
-        /*----Se um usuário possui uma base nas versões abaixo de 2----*/
-        return tx.user.toCollection().modify((user)=>{
-            user.nome = null;
-            user.email = null;
-            delete user.nome;
+    }).upgrade((tx) => {
+        return tx.user.toCollection().modify(function (user) {
             delete user.email;
+            delete user.nome;
         });
-    })
+    });
     db.open().catch(function (e) {
         console.error("Open failed: " + e);
     });
     /*---Get para objeto de redirecionar---*/
     db.redirect.get('1')
-        .then((res) => {
+        .then(function (res) {
             if (res === undefined) {
-                db.redirect.put(objetoRedirect()).then(() => {
+                db.redirect.put(objetoRedirect()).then(function () {
                     console.log('Criado redirect');
                     userRedirect = objetoRedirect();
                 });
@@ -40,41 +37,43 @@ $(document).ready(function () {
         });
     /*---Get para objeto de sessão---*/
     db.user.get('1')
-        .then((res) => {
+        .then(function (res) {
             if (res === undefined) {
-                db.user.put({ id: '1', isLogado: false, cpf: '' }).then(() => {
+                db.user.put({ id: '1', isLogado: false, cpf: '' }).then(function () {
                     console.log('Criado');
                     userSession = { id: '1', isLogado: false, cpf: '' };
                 });
             } else {
                 userSession = res;
             }
-        }).catch((err) => {
+        }).catch(function (err) {
             console.error('Failed to open db: ' + (err.stack || err));
         });
     function logar(dados, callback) {
-        db.user.put({ id: '1', isLogado: true, cpf: dados.login }).then(() => {
+        db.user.put({ id: '1', isLogado: true, cpf: dados.login }).then(function () {
             userSession = { id: '1', isLogado: true, cpf: dados.login };
         })
-        .then(() => {
-            if (callback) {
-                callback();
-            }
-        })
+            .then(function () {
+                if (callback) {
+                    callback();
+                }
+            })
     }
     function deslogar(callback) {
         db.user.put({ id: '1', isLogado: false, cpf: '' })
-        .then(() => {
-            if (callback) {
-                callback();
-            }
-        });
+            .then(function () {
+                if (callback) {
+                    callback();
+                }
+            });
     }
     function getDados() {
         return userSession;
     }
     function setRed(red) {
-        db.redirect.put({ id: '1', redirect: red }).then(() => { });
+        db.redirect.put({ id: '1', redirect: red }).then(function () {
+
+        });
     }
     function getRed() {
         return userRedirect;
@@ -94,7 +93,7 @@ $(document).ready(function () {
     })();
 });
 function objetoRedirect() {
-    return { id: '1', redirect: '' }
+    return { id: '1', redirect: '' };
 }
 function areaRestrita(redirecionar) {
     if (sessao.isLogado()) {
@@ -130,13 +129,13 @@ function showCadastro() {
     esconder.classList.add('out');
 }
 function logout() {
-    sessao.deslogar(() => {
+    sessao.deslogar(function () {
         window.location.href = location_ + '/index.html';
     });
 }
 function login(event) {
     event.preventDefault();
-    var cpf, senha,error;
+    var cpf, senha, error;
     senha = document.getElementById('senha_log').value;
     cpf = document.getElementById('cpf_log').value;
     error = document.getElementById('erro_login');
@@ -145,28 +144,38 @@ function login(event) {
         login: cpf,
         senha: senha
     };
-    $.ajax({
-        type: "post",
-        crossDomain: true,
-        contentType: "application/json",
-        dataType: 'json',
-        data: JSON.stringify(dados__),
-        url: baseUrl + "/login/222",
-        success: function (response) {
-            var resposta = response;
-            console.log(resposta);
-            if (error && resposta.erro !== null) {
-                error.style.display = 'block';
-                error.innerText = resposta.erro;
-                error.style.color = 'red';
-            } else if (resposta.login !== undefined && resposta.login !== null) {
-                sessao.logar(resposta, () => {
-                    var redirect = sessao.getRed().redirect;
-                    areaRestrita(redirect);
-                });
-            }
-        }
+    var jsonTemp = {
+        login: "00423864203"
+    };
+    sessao.logar(jsonTemp, function () {
+        var redirect = sessao.getRed().redirect;
+        areaRestrita(redirect);
     });
+    // $.ajax({
+    //     type: "POST",
+    //     crossDomain: true,
+    //     contentType: "application/json",
+    //     dataType: 'json',
+    //     data: JSON.stringify(dados__),
+    //     url: baseUrl + "/login/222",
+    //     success: function (response) {
+    //         var resposta = response;
+    //         console.log(resposta);
+    //         if (error && resposta.erro !== null) {
+    //             error.style.display = 'block';
+    //             error.innerText = resposta.erro;
+    //             error.style.color = 'red';
+    //         } else if (resposta.login !== undefined && resposta.login !== null) {
+    //             sessao.logar(resposta, function () {
+    //                 var redirect = sessao.getRed().redirect;
+    //                 areaRestrita(redirect);
+    //             });
+    //         }
+    //     },
+    //     error: function (jqXHR, textStatus, error) {
+    //         console.log(jqXHR, textStatus, error);
+    //     }
+    // });
 }
 function cadastrar(event, redirecionar) {
     event.preventDefault();
@@ -195,26 +204,37 @@ function cadastrar(event, redirecionar) {
             "login": cpf,
             "infoExtra": ""
         };
-        $.ajax({
-            type: "post",
-            crossDomain: true,
-            contentType: "application/json",
-            dataType: 'json',
-            data: JSON.stringify(jsonCadastro),
-            url: baseUrl + "/cadastro/222",
-            success: function (response) {
-                var resposta = response;
-                if (error && resposta && (resposta.erro !== null)) {
-                    error.style.display = 'block';
-                    error.innerText = resposta.erro;
-                    error.style.color = 'red';
-                } else if (resposta.login !== null) {
-                    sessao.logar(resposta, () => {
-                        var redirect = sessao.getRed().redirect;
-                        areaRestrita(redirect);
-                    });
-                }
-            }
+        var jsonTemp = {
+            login: "00423864203"
+        };
+        sessao.logar(jsonTemp, function () {
+            var redirect = sessao.getRed().redirect;
+            areaRestrita(redirect);
         });
+
+        // $.ajax({
+        //     type: "POST",
+        //     crossDomain: true,
+        //     contentType: "application/json",
+        //     dataType: 'json',
+        //     data: JSON.stringify(jsonCadastro),
+        //     url: baseUrl + "/cadastro/222",
+        //     success: function (response) {
+        //         var resposta = response;
+        //         if (error && resposta && (resposta.erro !== null)) {
+        //             error.style.display = 'block';
+        //             error.innerText = resposta.erro;
+        //             error.style.color = 'red';
+        //         } else if (resposta.login !== null) {
+        //             sessao.logar(resposta, function () {
+        //                 var redirect = sessao.getRed().redirect;
+        //                 areaRestrita(redirect);
+        //             });
+        //         }
+        //     },
+        //     error: function (jqXHR, textStatus, error) {
+        //         console.log(jqXHR, textStatus, error);
+        //     }
+        // });
     }
 }
