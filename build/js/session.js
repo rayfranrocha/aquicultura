@@ -204,7 +204,6 @@ function cadastrar(event, redirecionar) {
             url: baseUrl + "/cadastro/222",
             success: function (response) {
                 var resposta = response;
-                console.log(resposta);
                 if (error && resposta && (resposta.erro !== null)) {
                     error.style.display = 'block';
                     error.innerText = resposta.erro;
