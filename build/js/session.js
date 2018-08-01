@@ -1,7 +1,8 @@
 var sessao;
 // var baseUrl = 'http://192.168.0.105:8080/netbarco-ws/api/siteCongresso/usuario';
 // var location_ = 'http://iconsti.com/aquicultura';
-var location_ = 'file:///C:/Users/dell/Documents/Congresso/aquicultura/build';
+var indexSliceLocation = location.href.search(/[a-z]*.html$/);
+var location_ = location.href.substring(0,indexSliceLocation-1);
 jQuery.support.cors = true;
 $(document).ready(function () {
     var db = new Dexie("dbusuario");
