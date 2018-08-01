@@ -7,10 +7,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Encontro</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
-
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -35,7 +35,7 @@
                     </a>
                 </div>
                 <div class=" header-logo-text-side">
-                    <h1 class="primary-title u-center-vertical">2° Encontro de Aquicultura na Amazônia Ocidental</h1>
+                    <h1 class="primary-title u-center-vertical">II Encontro de Aquicultura na Amazônia Ocidental</h1>
                 </div>
                 <div class="header-acesso-rapido">
                     <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
@@ -176,7 +176,7 @@
                 <form onsubmit="proximo(event);" id="form" action="index.html" method="post">
                     <fieldset>
                         <div class="row">
-                            <h2 id="textoPassoAtual" class="heading-secondary no-hover u-center-text-2">PASSO 1 DE 3</h2>
+                            <h2 id="textoPassoAtual" class="heading-secondary no-hover u-center-text-2">PASSO 1 DE 4</h2>
                             <hr class="small">
                             <div id="passo1" class="passo-1 col-md-12 col-sm-12 col-xs-12">
                                 <h2 class="heading-secondary no-hover u-center-text-2">Dados para cadastro</h2>
@@ -198,7 +198,11 @@
                                 <label for="endereco">Endereço*:</label>
                                 <input type="text" id="endereco" name="endereco">
                             </div>
-                            <div id="passo3" class="passo-3 col-md-12 col-sm-12 col-xs-12">
+                            <div id="passo3" class="passo-4 col-md-12 col-sm-12 col-xs-12">
+                                <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Anexo para comprovação do tipo de inscrição</h1>
+                                <input class="form-control" style="margin: 3rem 0;" type="file" name="arquivo" id="arquivo">
+                            </div>
+                            <div id="passo4" class="passo-3 col-md-12 col-sm-12 col-xs-12">
                                 <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Inscrição minicursos e pagamento</h1>
                                 <div class="input-group mb-3">
                                     <div class="input-group-prepend">
@@ -209,6 +213,7 @@
                                         <option value="1">Estudante de curso técnico ou Graduação</option>
                                         <option value="2">Estudante de Pós-Graduação</option>
                                         <option value="3">Profissional</option>
+                                        <option value="4">Participação apenas do minicurso</option>
                                     </select>
                                 </div>
                                 <div class="input-group mb-3">
@@ -222,12 +227,46 @@
                                     </select>
                                 </div>
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" onchange="incluirMinicurso(event);" id="participar_minicurso">
+                                    <input type="checkbox" class="form-check-input" onchange="mostrarTabelaMinicursos(event);" id="participar_minicurso">
                                     <label class="form-check-label" for="participar_minicurso">Quero participar de minicursos</label>
                                 </div>
+                                <div class="form-group" id="tabelaMinicursos">
+                                    <table class="table">
+                                        <thead>
+                                            <tr>
+                                                <th>Desejo Participar</th>
+                                                <th>Minicurso</th>
+                                                <th>Vagas</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" onchange="incluirMinicurso(event)" class="m1">
+                                                </td>
+                                                <td>Metodologia Científica</td>
+                                                <td class="vagaMinicurso">100</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" onchange="incluirMinicurso(event)">
+                                                </td>
+                                                <td>Nutrição e Saúde</td>
+                                                <td class="vagaMinicurso">50</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <input type="checkbox" onchange="incluirMinicurso(event)" class="m3">
+                                                </td>
+                                                <td>Doenças na Aquicultura</td>
+                                                <td class="vagaMinicurso">50</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
                                 <table class="table">
                                     <thead>
-                                        <caption>Tabela Preço Total A Pagar</caption>
                                         <tr>
                                             <th scope="col">Item</th>
                                             <th scope="col">Preço</th>

@@ -1,9 +1,10 @@
 /*---- Variáveis para controle de preço ----*/
 var total = 0.0;
-var inscricao = 0.0;
-var minicurso = 50.0;
+var precoInscricao = 0.0;
+var precoMinicurso = 50.0;
 var pagarLocal = false;
 var participaMinicurso = false;
+var escolhaMinicurso = null;
 /*-----------------------------------------*/
 /*---- Variáveis para controle do DOM ----*/
 var passoAtual = 1;
@@ -16,21 +17,22 @@ $(document).ready(function () {
     /* Chama essas funções para caso a página foi atualizada enquanto preenchia dados */
     verificarEAtualizarTextoTipoInscricao();
     trocarPagamento();
+    recuperarVagas();
 });
 /*---- Função para ir ao próximo passo ---- */
 function proximo(event) {
     event.preventDefault();
-    if (passoAtual < 3) {
+    if (passoAtual < 4) {
         location.href = "#form";
         esconderEMostrar('passo' + passoAtual, 'passo' + (passoAtual + 1));
         passoAtual = passoAtual + 1;
         var texto_atual = document.getElementById('textoPassoAtual').innerText;
-        texto_atual = "PASSO " + passoAtual + " DE 3";
+        texto_atual = "PASSO " + passoAtual + " DE 4";
         document.getElementById('textoPassoAtual').innerText = texto_atual;
-        if (passoAtual == 3) {
+        if (passoAtual == 4) {
             document.getElementById('btProximo').innerText = "Concluir";
         }
-    } else if (passoAtual === 3) { /* Chama a última função para concluir compra */
+    } else if (passoAtual === 4) { /* Chama a última função para concluir compra */
         concluirCompra();
         if (tipoPagamento == 2) {
             showMensagemFinal("Obrigado pela sua inscrição! Efetue o pagamento no local do evento");
@@ -43,26 +45,32 @@ function proximo(event) {
 function anterior() {
     if (passoAtual > 1) {
         location.href = "#form";
-
         document.getElementById('btProximo').innerText = "Próximo";
-        elementoEsconder = document.getElementById('passo' + passoAtual);
-        elementoMostrar = document.getElementById('passo' + (passoAtual - 1));
+        esconderEMostrar('passo' + passoAtual, 'passo' + (passoAtual - 1));
         passoAtual--;
-        elementoEsconder.classList.add('out');
-        elementoEsconder.classList.remove('in');
-        // Code for Chrome, Safari and Opera
-        elementoEsconder.addEventListener("webkitAnimationEnd", function () {
-            elementoEsconder.style.display = "none";
-            elementoMostrar.classList.add('in');
-            elementoMostrar.classList.remove('out');
-            elementoMostrar.style.display = "block";
-        });
         var texto_atual = document.getElementById('textoPassoAtual').innerText;
-        texto_atual = "PASSO " + passoAtual + " DE 3";
+        texto_atual = "PASSO " + passoAtual + " DE 4";
         document.getElementById('textoPassoAtual').innerText = texto_atual;
     }
 }
+/*---- Função para mostrar elemento no DOM a partir de uma condição ----*/
+function mostrarAPartirDeBool(idElemento, condicao) {
+    var elemento = document.getElementById(idElemento);
+    if (condicao) {
+        elemento.style.display = 'block';
+        elemento.classList.add('in');
+        elemento.classList.remove('out');
 
+    } else {
+        elemento.classList.add('out');
+        elemento.classList.remove('in');
+        elemento.addEventListener("animationend", listener);
+    }
+    function listener() {
+        elemento.style.display = 'none';
+        elemento.removeEventListener("animationend", listener);
+    }
+}
 /*---- Função para esconder e mostrar elementos no DOM ---- */
 function esconderEMostrar(esconder__, mostrar__) {
     elementoEsconder = document.getElementById(esconder__);
@@ -83,7 +91,7 @@ function esconderEMostrar(esconder__, mostrar__) {
         elementoMostrar.style.display = "block";
     });
 }
-function recuperarLogin(){
+function recuperarLogin() {
     // var db = new Dexie("dbusuario");
     // db.open().catch(function (e) {
     //     console.error("Open failed: " + e);
@@ -92,6 +100,10 @@ function recuperarLogin(){
     //     console.log(res);
     // });
     // return db.user.get('1');
+}
+function recuperarVagas(){
+    var elementos_ = document.getElementsByClassName("vagaMinicurso");
+    
 }
 /*---- Função para mostrar mensagem final---- */
 function showMensagemFinal(texto) {
@@ -123,7 +135,7 @@ function concluirCompra() {
         "tipoPagamento": tipoPagamento,
         "participanteMinicurso": participanteMinicurso
     };
-    if(tipoPagamento == 1){
+    if (tipoPagamento == 1) {
         document.getElementById('pagamentoPagSeguro').style.display = 'block';
         document.getElementById('anterior').style.display = 'none';
         document.getElementById('proximo').style.display = 'none';
@@ -165,13 +177,12 @@ function trocarPagamento(evento) {
     else {
         valor = (+document.getElementById('tipoPagamento').value);
     }
-    if (valor === 3) {
+    if (valor === 2) {
         pagarLocal = true;
-        atualizarTotalAPagar();
-    } else {
+    }else {
         pagarLocal = false;
-        atualizarTotalAPagar();
     }
+    atualizarTotalAPagar();
 }
 /*--- Função que atualiza o innerText quando o tipo muda ou página atualiza ---*/
 function verificarEAtualizarTextoTipoInscricao(tipo) {
@@ -185,29 +196,32 @@ function verificarEAtualizarTextoTipoInscricao(tipo) {
         case 1:
             if (dataAtual < dataBase) {
                 preco.innerText = "R$ 50,00";
-                inscricao = 50.0;
+                precoInscricao = 50.0;
             } else {
                 preco.innerText = "R$ 70,00";
-                inscricao = 70.0;
+                precoInscricao = 70.0;
             }
             break;
         case 2:
             if (dataAtual < dataBase) {
                 preco.innerText = "R$ 70,00";
-                inscricao = 70.0;
+                precoInscricao = 70.0;
             } else {
                 preco.innerText = "R$ 100,00";
-                inscricao = 100.0;
+                precoInscricao = 100.0;
             }
             break;
         case 3:
             if (dataAtual < dataBase) {
                 preco.innerText = "R$ 150,00";
-                inscricao = 150.0;
+                precoInscricao = 150.0;
             } else {
                 preco.innerText = "R$ 200,00";
-                inscricao = 200.0;
+                precoInscricao = 200.0;
             }
+            break;
+        case 4: /* Participa apenas de minicurso */
+            precoInscricao = 0.0;
             break;
         default:
             break;
@@ -216,27 +230,36 @@ function verificarEAtualizarTextoTipoInscricao(tipo) {
 /*---- Função para trocar tipo de inscrição e mostrar no DOM ----*/
 function trocarTipoInscricao(evento) {
     var tipo_ = +evento.target.value;
+    
     verificarEAtualizarTextoTipoInscricao(tipo_);
     atualizarTotalAPagar();
 }
-/*---- Função para confirmar inscrição em minicurso ----*/
-function incluirMinicurso(evento) {
-    if (evento.target.checked) {
-        document.getElementById('precoMinicurso').innerText = "R$ 50,00";
-    } else {
-        document.getElementById('precoMinicurso').innerText = "R$ 0,00";
-    }
+function mostrarTabelaMinicursos(evento) {
     participaMinicurso = evento.target.checked;
+    mostrarAPartirDeBool('tabelaMinicursos', participaMinicurso);
+}
+/*---- Função para confirmar inscrição em minicurso e lógica para escolha de minicurso----*/
+function incluirMinicurso(evento) {
+    var minicursoAtual = evento.target.parentNode.nextElementSibling.innerText;
+    var checked_ = evento.target.checked;
+    if (checked_ && minicursoAtual !== escolhaMinicurso) {
+        document.getElementById('precoMinicurso').innerText = "R$ 50,00";
+        escolhaMinicurso = minicursoAtual;
+    } else if (!checked_ && minicursoAtual === escolhaMinicurso) {
+        document.getElementById('precoMinicurso').innerText = "R$ 0,00";
+        escolhaMinicurso = "";
+    }
+    precoMinicurso = escolhaMinicurso != "" ? 50.0 : 0.0;
     atualizarTotalAPagar();
 }
 /*---- Função para atualizar total a pagar e mostrar no DOM ----*/
 function atualizarTotalAPagar() {
     total = 0.0;
     if (participaMinicurso && !pagarLocal) {
-        total = inscricao + minicurso;
+        total = precoInscricao + precoMinicurso;
         document.getElementById('precoTotal').innerText = numberParaReal(total);
     } else if (!pagarLocal) {
-        total = inscricao;
+        total = precoInscricao;
         document.getElementById('precoTotal').innerText = numberParaReal(total);
     } else {
         document.getElementById('precoTotal').innerText = "R$ 0,00 (Pagamento no local)";
