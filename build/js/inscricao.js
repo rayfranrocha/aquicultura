@@ -11,12 +11,14 @@ var passoAtual = 1;
 var elementoEsconder;
 var elementoMostrar;
 var erro;
+var login = "";
 /*-----------------------------------------*/
 $(document).ready(function () {
     erro = document.getElementById('erro');
     /* Chama essas funções para caso a página foi atualizada enquanto preenchia dados */
     verificarEAtualizarTextoTipoInscricao();
     trocarPagamento();
+    recuperarLogin();
     recuperarVagas();
 });
 /*---- Função para ir ao próximo passo ---- */
@@ -92,22 +94,25 @@ function esconderEMostrar(esconder__, mostrar__) {
     });
 }
 function recuperarLogin() {
-    // var db = new Dexie("dbusuario");
-    // db.open().catch(function (e) {
-    //     console.error("Open failed: " + e);
-    // });
-    // db.user.get('1').then((res)=>{
-    //     console.log(res);
-    // });
-    // return db.user.get('1');
+    var db = new Dexie("dbusuario");
+    db.open().then(function (db_) {
+        const user = db_.table('user');
+        user.get('1').then((res) => {
+            if (res && res.cpf) {
+                login = res.cpf;
+            }
+        });
+    }).catch(function (e) {
+        console.error("Open failed: " + e);
+    });
 }
-function recuperarVagas(){
+function recuperarVagas() {
     var elementos_ = document.getElementsByClassName("vagaMinicurso");
-    
+
 }
 /*---- Função para mostrar mensagem final---- */
 function showMensagemFinal(texto) {
-    esconderEMostrar('passo3', 'conclusao');
+    esconderEMostrar('passo4', 'conclusao');
     var mensagem = document.getElementById('textoConclusao');
     mensagem.innerText = texto;
 }
@@ -135,38 +140,37 @@ function concluirCompra() {
         "tipoPagamento": tipoPagamento,
         "participanteMinicurso": participanteMinicurso
     };
+    var envio = {
+        "login": login,
+        "infoExtra": objetoInscricao
+    };
     if (tipoPagamento == 1) {
-        document.getElementById('pagamentoPagSeguro').style.display = 'block';
+        mostrarAPartirDeBool('pagamentoPagSeguro',true);
         document.getElementById('anterior').style.display = 'none';
         document.getElementById('proximo').style.display = 'none';
-    }
-    /* Promise para recuperar login */
-    // var loginPromise = recuperarLogin();
-    // loginPromise.then(function(usuario){ /*Quando o usuário é retornado */
-    //     envio.login = usuario.cpf;
-    //     console.log(envio);
-    //     // $.ajax({
-    //     //     type: "POST",
-    //     //     crossDomain: true,
-    //     //     contentType: "application/json",
-    //     //     dataType: 'json',
-    //     //     data: JSON.stringify(envio),
-    //     //     url: baseUrl + "/usuario/inscricao/222",
-    //     //     success: function (response) {
-    //     //         var resposta = response;
-    //     //         if (erro && resposta && (resposta.erro !== null)) {
-    //     //             erro.style.display = 'block';
-    //     //             erro.innerText = resposta.erro;
-    //     //             erro.style.color = 'red';
-    //     //         }else if(resposta){
+    };
+    // $.ajax({
+    //     type: "POST",
+    //     crossDomain: true,
+    //     contentType: "application/json",
+    //     dataType: 'json',
+    //     data: JSON.stringify(envio),
+    //     url: baseUrl + "/usuario/inscricao/222",
+    //     success: function (response) {
+    //         var resposta = response;
+    //         if (erro && resposta && (resposta.erro !== null)) {
+    //             erro.style.display = 'block';
+    //             erro.innerText = resposta.erro;
+    //             erro.style.color = 'red';
+    //         } else if (resposta) {
 
-    //     //         }
-    //     //     },
-    //     //     error: function(jqXHR, textStatus, error){
-    //     //         console.log(jqXHR,textStatus,error);
-    //     //     }
-    //     // });
+    //         }
+    //     },
+    //     error: function (jqXHR, textStatus, error) {
+    //         console.log(jqXHR, textStatus, error);
+    //     }
     // });
+
 }
 /*---- Função para trocar tipo de pagamento e mostrar no DOM ----*/
 function trocarPagamento(evento) {
@@ -179,7 +183,7 @@ function trocarPagamento(evento) {
     }
     if (valor === 2) {
         pagarLocal = true;
-    }else {
+    } else {
         pagarLocal = false;
     }
     atualizarTotalAPagar();
@@ -230,10 +234,10 @@ function verificarEAtualizarTextoTipoInscricao(tipo) {
 /*---- Função para trocar tipo de inscrição e mostrar no DOM ----*/
 function trocarTipoInscricao(evento) {
     var tipo_ = +evento.target.value;
-    
     verificarEAtualizarTextoTipoInscricao(tipo_);
     atualizarTotalAPagar();
 }
+/*---- Função para mostrar a tabela de minicursos caso necessário ----*/
 function mostrarTabelaMinicursos(evento) {
     participaMinicurso = evento.target.checked;
     mostrarAPartirDeBool('tabelaMinicursos', participaMinicurso);

@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Encontro</title>
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" href="./css/main.css">
@@ -297,14 +297,6 @@
                     </fieldset>
 
                     <div class="row" id="botoesDiv">
-                        <div id="pagamentoPagSeguro" class="col-md-12 col-sm-12 col-xs-12">
-                            <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
-                                <input type="hidden" name="code" value="3D636A46EFEF0B5554F5EF98F924011A" />
-                                <input type="hidden" name="iot" value="button" />
-                                <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit"
-                                    alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
-                            </form>
-                        </div>
                         <div class="col" id="anterior">
                             <button onclick="anterior();" id="btAnterior" class="bt-flat-azul" type="button">Anterior</button>
                         </div>
@@ -313,31 +305,39 @@
                         </div>
                     </div>
                 </form>
+                <div id="pagamentoPagSeguro" class="col-md-12 col-sm-12 col-xs-12">
+                    <form action="https://pagseguro.uol.com.br/checkout/v2/payment.html" method="post">
+                        <input type="hidden" name="code" value="3D636A46EFEF0B5554F5EF98F924011A" />
+                        <input type="hidden" name="iot" value="button" />
+                        <input type="image" src="https://stc.pagseguro.uol.com.br/public/img/botoes/pagamentos/209x48-comprar-assina.gif" name="submit"
+                            alt="Pague com PagSeguro - é rápido, grátis e seguro!" />
+                    </form>
+                </div>
             </div>
         </div>
 
     </main>
     <footer id="footer">
-        <div class="container">
-            <!-- <div class="row text-center text-xs-center text-sm-left text-md-left">
-                    <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
-                        <h5>Quick links</h5>
+            <div class="container">
+                <div class="row text-center text-xs-center text-sm-left text-md-left">
+                    <div class="u-margin-top-small col-xs-12 col-sm-6 col-md-6">
+                        <h5>Links rápidos</h5>
                         <ul class="list-unstyled quick-links">
                             <li>
                                 <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>Home</a>
+                                    <i class="fa fa-angle-double-right"></i>Sobre o evento</a>
                             </li>
                             <li>
                                 <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>About</a>
+                                    <i class="fa fa-angle-double-right"></i>Inscrições</a>
                             </li>
                             <li>
                                 <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>FAQ</a>
+                                    <i class="fa fa-angle-double-right"></i>Envio de trabalhos</a>
                             </li>
                             <li>
                                 <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>Get Started</a>
+                                    <i class="fa fa-angle-double-right"></i>Local</a>
                             </li>
                             <li>
                                 <a href="javascript:void();">
@@ -345,105 +345,65 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
-                        <h5>Quick links</h5>
+                    <div class="u-margin-top-small col-xs-12 col-sm-6 col-md-6">
+                        <h5>Entre em contato</h5>
                         <ul class="list-unstyled quick-links">
                             <li>
-                                <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>Home</a>
+                                <i class="fa fas fa-phone"></i> Telefone 1: 999999999
                             </li>
                             <li>
-                                <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>About</a>
+                                <i class="fa fas fa-phone"></i> Telefone 1: 999999999
                             </li>
                             <li>
-                                <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>FAQ</a>
+                                <i class="fa fas fa-phone"></i> Telefone 1: 999999999
                             </li>
                             <li>
-                                <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>Get Started</a>
-                            </li>
-                            <li>
-                                <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>Videos</a>
+                                <i class="fa fas fa-phone"></i> Telefone 1: 999999999
                             </li>
                         </ul>
                     </div>
-                    <div class="u-margin-top-small col-xs-12 col-sm-4 col-md-4">
-                        <h5>Quick links</h5>
-                        <ul class="list-unstyled quick-links">
-                            <li>
+                </div>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                        <ul class="list-unstyled list-inline social text-center">
+                            <li class="list-inline-item">
                                 <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>Home</a>
+                                    <i class="fa fa-facebook"></i>
+                                </a>
                             </li>
-                            <li>
+                            <li class="list-inline-item">
                                 <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>About</a>
+                                    <i class="fa fa-twitter"></i>
+                                </a>
                             </li>
-                            <li>
+                            <li class="list-inline-item">
                                 <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>FAQ</a>
+                                    <i class="fa fa-instagram"></i>
+                                </a>
                             </li>
-                            <li>
+                            <li class="list-inline-item">
                                 <a href="javascript:void();">
-                                    <i class="fa fa-angle-double-right"></i>Get Started</a>
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
                             </li>
-                            <li>
-                                <a href="https://wwwe.sunlimetech.com" title="Design and developed by">
-                                    <i class="fa fa-angle-double-right"></i>Imprint</a>
+                            <li class="list-inline-item">
+                                <a href="javascript:void();" target="_blank">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
                             </li>
                         </ul>
                     </div>
-                </div> -->
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
-                    <ul class="list-unstyled list-inline social text-center">
-                        <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();" target="_blank">
-                                <i class="fa fa-envelope"></i>
-                            </a>
-                        </li>
-                    </ul>
+                    </hr>
                 </div>
-                </hr>
-            </div>
-            <div class="row">
-                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
-                    <p>
-                        <u>
-                            <a href="https://www.nationaltransaction.com/">National Transaction Corporation</a>
-                        </u> is a Registered MSP/ISO of Elavon, Inc. Georgia [a wholly owned subsidiary of U.S. Bancorp, Minneapolis,
-                        MN]
-                    </p>
-                    <p class="h6">&copy All right Reversed.
-                        <a class="text-green ml-2" href="https://www.sunlimetech.com" target="_blank">Sunlimetech</a>
-                    </p>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                        <p class="h6">&copy Todos os direitos reservados. Desenvolvido por ICON STI
+                        </p>
+                    </div>
+                    </hr>
                 </div>
-                </hr>
             </div>
-        </div>
-    </footer>
+        </footer>
     <script src="./js/owl.carousel.min.js" type="text/javascript"></script>
     <script src="./js/default.js" type="text/javascript"></script>
 </body>

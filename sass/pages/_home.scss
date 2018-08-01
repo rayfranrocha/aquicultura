@@ -7,16 +7,38 @@
 	background-position: center;
 	background-size: cover;
 	background-attachment: fixed;
-	background-image:  linear-gradient(to right bottom,
-	rgba($color-primary-light,0.5),
-	rgba($color-primary-dark,0.5)),
-	url("http://www.aquaciencia.aquabio.com.br/images/aquaciencia/slider/slider-1.jpg");
+	// background-image:  linear-gradient(to right bottom,
+	// rgba($color-primary-light,0.5),
+	// rgba($color-primary-dark,0.5)),
 	@include respond(tab-land){
 		min-height: 60vh;
 	}
 	@include respond(tab-port){
 		min-height: 40vh;
 	}
+}
+#carrosselInicio{
+	height: 70vh;
+	div img{
+		max-height: 70vh;
+	}
+}
+div[class^="conteudoImagem"]{
+	height: 90vh;
+	padding: 1.5rem;
+	background-size: cover;
+}
+.conteudoImagem1{
+	background: linear-gradient(to left, rgba(123,240,88,0.3) 0%,rgba(41,176,0,0.5) 99%)
+	,url('https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg') center center no-repeat;
+}
+.conteudoImagem2{
+	background: 	linear-gradient(to left, rgba(123,240,88,0.3) 0%,rgba(41,176,0,0.5) 99%)
+	,url('https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg') center center no-repeat;
+}
+.conteudoImagem3{
+	background: linear-gradient(to left, rgba(123,240,88,0.3) 0%,rgba(41,176,0,0.5) 99%)
+	,url('https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg') center center no-repeat;
 }
 .section-services{
 	text-align: center !important;
@@ -88,61 +110,6 @@
 		padding: 12rem 0rem;
 	}
 }
-.section-tours{
-	background-color: $color-grey-light-1;
-	padding: 25rem 0rem 15rem 0;
-	margin-top: -10rem;
-	@include respond(tab-port){
-		padding:  20rem 0rem 10rem 0;
-	}
-}
-.section-stories{
-	padding: 10rem 0;
-	position: relative;
-	@include respond(tab-port){
-		padding: 7rem 0rem;
-	}
-}
-.section-book{
-	padding: 15rem 0;
-	background-image: linear-gradient(to right bottom, $color-primary-light, $color-primary-dark);
-	@include respond(tab-port){
-		padding: 10rem 0rem;
-	}
-}
-.book
-{
-	background-image: linear-gradient(105deg,
-		rgba($color-white,.9) 0%,
-        rgba($color-white,.9) 50%,
-        transparent 50%
-		),url(../img/nat-10.jpg);
-	background-size: 100%;
-	border-radius: 3px;
-	box-shadow: 0 1.5rem 4rem rgba($color-black,.2);
-	@include respond(tab-land){
-		background-image: linear-gradient(105deg,
-		rgba($color-white,.9) 0%,
-        rgba($color-white,.9) 65%,
-        transparent 65%
-		),url(../img/nat-10.jpg);
-		background-size: cover;
-	}
-	@include respond(tab-port){
-		background-image: linear-gradient(to right,
-		rgba($color-white,.9) 0%,
-        rgba($color-white,.9) 100%
-		),url(../img/nat-10.jpg);
-
-	}
-	&__form{
-		width:50%;
-		padding: 6rem;
-		@include respond(tab-land){
-			width: 65%;
-		}
-		@include respond(tab-port){
-			width: 100%;
-		}
-	}
+.list-unstyled {
+	color: white;
 }

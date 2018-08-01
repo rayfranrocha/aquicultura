@@ -5,7 +5,7 @@ tab-land
 big-desktop*/
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css");
 * {
-  font-family: "Roboto Slab", "Lato", serif;
+  font-family: "Merriweather", "Lato", serif;
   margin: 0px;
   padding: 0px;
 }
@@ -390,6 +390,12 @@ a.btn.btn-success:visited {
 }
 .imagem > img:hover {
   transform: scale(1.05, 1.05);
+}
+
+.lista-dados {
+  margin: 1rem;
+  font-size: 1.25rem;
+  list-style: none;
 }
 
 .feature-box {
@@ -980,7 +986,6 @@ section .section-title {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  background-image: linear-gradient(to right bottom, rgba(20, 107, 5, 0.5), rgba(5, 121, 82, 0.5)), url("http://www.aquaciencia.aquabio.com.br/images/aquaciencia/slider/slider-1.jpg");
 }
 @media (max-width: 75em) {
   .home.jumbotron {
@@ -991,6 +996,31 @@ section .section-title {
   .home.jumbotron {
     min-height: 40vh;
   }
+}
+
+#carrosselInicio {
+  height: 70vh;
+}
+#carrosselInicio div img {
+  max-height: 70vh;
+}
+
+div[class^=conteudoImagem] {
+  height: 90vh;
+  padding: 1.5rem;
+  background-size: cover;
+}
+
+.conteudoImagem1 {
+  background: linear-gradient(to left, rgba(123, 240, 88, 0.3) 0%, rgba(41, 176, 0, 0.5) 99%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
+}
+
+.conteudoImagem2 {
+  background: linear-gradient(to left, rgba(123, 240, 88, 0.3) 0%, rgba(41, 176, 0, 0.5) 99%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
+}
+
+.conteudoImagem3 {
+  background: linear-gradient(to left, rgba(123, 240, 88, 0.3) 0%, rgba(41, 176, 0, 0.5) 99%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
 }
 
 .section-services {
@@ -1060,67 +1090,8 @@ section .section-title {
   }
 }
 
-.section-tours {
-  background-color: #f7f7f7;
-  padding: 25rem 0rem 15rem 0;
-  margin-top: -10rem;
-}
-@media (max-width: 56.25em) {
-  .section-tours {
-    padding: 20rem 0rem 10rem 0;
-  }
-}
-
-.section-stories {
-  padding: 10rem 0;
-  position: relative;
-}
-@media (max-width: 56.25em) {
-  .section-stories {
-    padding: 7rem 0rem;
-  }
-}
-
-.section-book {
-  padding: 15rem 0;
-  background-image: linear-gradient(to right bottom, #146b05, #057952);
-}
-@media (max-width: 56.25em) {
-  .section-book {
-    padding: 10rem 0rem;
-  }
-}
-
-.book {
-  background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 50%, transparent 50%), url(../img/nat-10.jpg);
-  background-size: 100%;
-  border-radius: 3px;
-  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.2);
-}
-@media (max-width: 75em) {
-  .book {
-    background-image: linear-gradient(105deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 65%, transparent 65%), url(../img/nat-10.jpg);
-    background-size: cover;
-  }
-}
-@media (max-width: 56.25em) {
-  .book {
-    background-image: linear-gradient(to right, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.9) 100%), url(../img/nat-10.jpg);
-  }
-}
-.book__form {
-  width: 50%;
-  padding: 6rem;
-}
-@media (max-width: 75em) {
-  .book__form {
-    width: 65%;
-  }
-}
-@media (max-width: 56.25em) {
-  .book__form {
-    width: 100%;
-  }
+.list-unstyled {
+  color: white;
 }
 
 .ul {
