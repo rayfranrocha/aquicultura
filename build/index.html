@@ -23,6 +23,7 @@
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script src="./js/popup.js"></script>
     <script src="./js/session.js"></script>
 </head>
 
@@ -94,11 +95,48 @@
                             Contatos
                         </a>
                     </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Informações Úteis
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" style="cursor: pointer" role="button" aria-haspopup="true" aria-expanded="false">
+                                Local do evento
+                            </a>
+                            <a class="dropdown-item" href="#">Passeios e turismos</a>
+                            <a class="dropdown-item" href="#">Chegando em Manaus</a>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </nav>
     </header>
     <main>
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary gone" id="mostrar" data-toggle="modal" data-target="#exampleModalLong">
+            Launch demo modal
+        </button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- <img src="" alt="Imagem de boas vindas" srcset=""> -->
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary">Fechar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div>
             <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
@@ -332,7 +370,7 @@
     <footer id="footer">
         <div class="container">
             <div class="row text-center text-xs-center text-sm-left text-md-left">
-                <div class="u-margin-top-small col-xs-12 col-sm-6 col-md-6">
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
                     <h5>Links rápidos</h5>
                     <ul class="list-unstyled quick-links">
                         <li>
@@ -357,7 +395,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="u-margin-top-small col-xs-12 col-sm-6 col-md-6">
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
                     <h5>Entre em contato</h5>
                     <ul class="list-unstyled quick-links">
                         <li>
@@ -371,6 +409,23 @@
                         </li>
                         <li>
                             <i class="fa fas fa-phone"></i> Telefone 1: 999999999
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Informações úteis</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Passeios e turismos</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Chegando em Manaus</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Local do evento</a>
                         </li>
                     </ul>
                 </div>

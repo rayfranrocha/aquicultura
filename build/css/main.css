@@ -191,10 +191,7 @@ body {
 }
 
 .paragraph {
-  font-size: 1.6rem;
-}
-.paragraph:not(:last-child) {
-  margin-bottom: 3rem;
+  text-align: justify;
 }
 
 .u-center-text {

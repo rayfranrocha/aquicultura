@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>II Encontro de Aquicultura na Amazônia Ocidental</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="./js/popup.js"></script>
+    <script src="./js/session.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="row">
+                <div class="header-logo">
+                    <a href="./index.html">
+                        <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
+                    </a>
+                </div>
+                <div class=" header-logo-text-side">
+                    <h1 class="primary-title u-center-vertical">II Encontro de Aquicultura na Amazônia Ocidental</h1>
+                </div>
+                <div class="header-acesso-rapido">
+                    <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
+                        <i class="material-icons">person</i>Área restrita</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg ">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="material-icons u-center-relative">menu</i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Evento
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./comissao.html">Comissão Organizadora</a>
+                            <a class="dropdown-item" href="./index.html#section-sobre">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./programacao.html" id="navbarDropdown2" role="button" aria-haspopup="true" aria-expanded="false">
+                            Programação
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Inscrições
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('inscricao')">Formulário de Inscrição</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Trabalhos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./orientacaopremios.html">Orientação para submissão e Premiações</a>
+                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('trabalhos')" role="button" aria-haspopup="true" aria-expanded="false">
+                                Submeter Trabalho
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="./contato.html" role="button" aria-haspopup="true" aria-expanded="false">
+                            Contatos
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Informações Úteis
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" style="cursor: pointer" role="button" aria-haspopup="true" aria-expanded="false">
+                                Local do evento
+                            </a>
+                            <a class="dropdown-item" href="#">Passeios e turismos</a>
+                            <a class="dropdown-item" href="#">Chegando em Manaus</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="card container">
+            <h3 class="heading-secondary u-margin-top-small " style="text-align: center">Passeio e Turismo</h3>
+            <div class="local">
+                <h3 style="margin-left: 2rem;">
+                    <strong>Teatro Amazonas</strong>
+                </h3>
+                <div class="container row">
+
+                    <div class="col">
+
+                        <img class="alignnone" src="http://upload.wikimedia.org/wikipedia/commons/0/05/Teatro_amazonas.jpg" alt="" style="width: 100%;height: auto;">
+                    </div>
+                    <div class="col">
+                        <p class="paragraph">O Teatro Amazonas é o mais importante edifício histórico de Manaus, não somente pelo valor arquitetônico,
+                            mas principalmente pela importância histórica. Já passou por diversas reformas e hoje é considerado
+                            o cartão-postal da cidade, conhecido mundialmente pela arquitetura imponente.</p>
+                        <p style="text-align: justify;">
+                            <strong>Horário de Funcionamento: </strong>segunda a sábado, das 09 às 16h</p>
+                        <p style="text-align: justify;">
+                            <strong>Localização:</strong> Rua Tapajós,s/n, Centro, Cep 69.025-140- Praça São Sebastião</p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small">
+                <h3 style="margin-left: 2rem;">
+                    <strong>Palácio da Justiça </strong>
+                </h3>
+                <div class="container row">
+
+                    <div class="col">
+
+                        <img class="alignnone" src="http://i1.trekearth.com/photos/106940/palacio_da_justica.jpg" alt="" style="width: 100%;height: auto;">
+                    </div>
+                    <div class="col">
+                        <p class="paragraph">O Palácio da Justiça, inaugurado em 1900, foi erguido sobre uma área elevada, e protegido por um
+                            espesso muro com balaustradas, na avenida Eduardo Ribeiro, a principal artéria da região central
+                            da cidade.</p>
+                        <p style="text-align: justify;">
+                            <strong>Horário de Funcionamento: </strong>segunda a sexta-feira, das 08 às 15h</p>
+                        <p style="text-align: justify;">
+                            <strong>Localização:</strong> Av. Eduardo Ribeiro, s/n Centro</p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small">
+                <h3 style="margin-left: 2rem;">
+                    <strong>Palácio Rio Negro
+                    </strong>
+                </h3>
+                <div class="container row">
+
+                    <div class="col">
+                        <img class="alignnone" src="http://sbqs2015.com.br/wp-content/uploads/2014/08/Palacio-Rio-Negro.jpg" alt="" style="width: 100%;height: auto;">
+                    </div>
+                    <div class="col">
+                        <p class="paragraph">O Centro Cultural Palácio Rio Negro, espaço cultural e histórico de Manaus, foi construído no início
+                            do século XX, em estilo eclético, para ser residência particular do comerciante da borracha,
+                            alemão Waldemar Scholz. Em 1917, foi adquirido pelo governo para tornar-se sede do Poder Executivo
+                            e residência do governador, permanente como palácio de despachos até abril de 1995.</p>
+                        <p style="text-align: justify;">
+                            <strong>Horário de Funcionamento: </strong> terça a sexta-feira, 10h às 17h; Sábado e Domingo, 14h às
+                            18h.
+                        </p>
+                        <p style="text-align: justify;">
+                            <strong>Localização:</strong> Av. Sete de Setembro, s/n Centro</p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small">
+                <h3 style="margin-left: 2rem;">
+                    <strong>Palacete Provincial
+
+                    </strong>
+                </h3>
+                <div class="container row">
+
+                    <div class="col">
+                        <img class="alignnone" src="http://4.bp.blogspot.com/-Okoa5KXGh6I/UTClkyHVJWI/AAAAAAAABbA/ihZlEkXjaUA/s1600/MMA11+-+Palacete+Provincial+no+centro+hist%C3%B3rico+de+Manaus.jpg" alt="" style="width: 100%;height: auto;">
+                    </div>
+                    <div class="col">
+                        <p class="paragraph">O Palacete provincial em Manaus, antigo comando da Polícia Militar, foi reinaugurado no dia 25 de
+                            março de 2009. O palacete integra o conjunto arquitetônico da praça Heliodoro Balbi, no centro
+                            da cidade. Conhecendo o Palacete será possível visitar a Pinacoteca do Estado, o Museu da Imagem
+                            e do Som, o Museu Tiradentes, o Museu da Arqueologia e, ainda, o Museu de Numismática, com uma
+                            grande coleção de moedas – ou seja, cinco atrações em uma. A entrada é gratuita, assim como as
+                            visitas guiadas.</p>
+                        <p style="text-align: justify;">
+                            <strong>Horário de Funcionamento: </strong> terça a quinta-feira, 09h às 19h, às sextas, 9h às 20h; Sábados,
+                            09h às 20h e aos domingos, 16h às 21h.
+                        </p>
+                        <p style="text-align: justify;">
+                            <strong>Localização:</strong> Praça Francisco Queiroz, Centro, Manaus – AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small">
+                <h3 style="margin-left: 2rem;">
+                    <strong>Igreja São Sebastião
+
+                    </strong>
+                </h3>
+                <div class="container row">
+                    <div class="col">
+                        <img class="alignnone"  src="http://upload.wikimedia.org/wikipedia/commons/d/d0/Igreja_Manaus.JPG"  alt=" " style="width: 100%; height: auto; ">
+                    </div>
+                    <div class="col ">
+                        <p class="paragraph ">A Igrejinha de São Sebastião está próxima ao Teatro Amazonas e é um local pitoresco, que salta aos
+                            olhos pela decoração interna. A igreja data de 1888 e possui grande variedade de estilos. É um
+                            lugar legal para conhecer, especialmente para pessoas religiosas.</p>
+                        <p style="text-align: justify; ">
+                            <strong>Horário de Funcionamento: </strong> terça a sexta-feira, 10h às 17h; sábado e domingo, 14h às
+                            18h.
+                        </p>
+                        <p style="text-align: justify; ">
+                            <strong>Localização:</strong> Praça São Sebastião, Centro, Manaus – AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Praia da Ponta Negra
+                    </strong>
+                </h3>
+                <div class="container row ">
+
+                    <div class="col ">
+                        <img class="alignnone " src="http://1.bp.blogspot.com/-BTbLLT679AE/UAsa5-DSmiI/AAAAAAAAERw/EqazzwvcoWk/s1600/Nova+Ponta+Negra_Clovis+Miranda+2.jpg
+                            " alt=" " style="width: 100%;height: auto; ">
+                    </div>
+                    <div class="col ">
+                        <p class="paragraph ">A Praia de Ponta Negra está localizada a 13 quilômetros do centro da cidade é um dos principais pontos
+                            turísticos da capital amazonense. Em qualquer época do ano você pode visitar a praia para apreciar
+                            suas belas paisagens, observar a Ponte do Rio Negro, assistir aos shows que acontecem por lá
+                            ou caminhar ao ar livre. E também é próxima ao Tropical Hotel.</p>
+
+                        <p style="text-align: justify; ">
+                            <strong>Localização:</strong> Ponta Negra, Manaus – AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Zoológico do CIGS
+                    </strong>
+                </h3>
+                <div class="container row ">
+
+                    <div class="col ">
+                        <img class="alignnone " src="http://i584.photobucket.com/albums/ss281/Metropolitano_Manaus/cigs/3933605668_479585990b_o.jpg
+                            " alt=" " style="width: 100%;height: auto; ">
+                    </div>
+                    <div class="col ">
+                        <p class="paragraph "> O zoológico do Cigs, é mantido pelo Exército, atualmente possui em seu acervo somente de animais
+                            amazônicos brasileiros, dentre eles estão os jabutis, jacarés, araras, cobras, onça pintada,
+                            e uma área bem bonita e espaçosa para os macacos. É um passeio para quem deseja conhecer alguns
+                            animais da região e que estão ameaçados de extinção pelo IBAMA.</p>
+                        <p style="text-align: justify; ">
+                            <strong>Horário de Funcionamento: </strong>domingo a terça-feira, 9h às 16h30.
+                        </p>
+                        <p style="text-align: justify; ">
+                            <strong>Localização:</strong>Av. São Jorge, 750, São Jorge, Manaus – AM</p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Bosque da Ciência
+                    </strong>
+                </h3>
+                <div class="container row ">
+                    <div class="col ">
+                        <p class="paragraph "> O Bosque da Ciência do Inpa é o 3º melhor zoológico do Brasil e 7º da América do Sul, possui uma
+                            área de aproximadamente 13 (treze) hectares, localizado no perímetro urbano da cidade de Manaus
+                            na zona central – leste. Suas principais atrações são: Trilhas Educativas, Tanques de Peixe-Boi,
+                            Viveiro de Ariranhas, Casa da Ciência, Ilha da Tanimbuca, Casa da Madeira, Abraço da Morte, Trilha
+                            Suspensa, Lago Amazônico, Viveiro dos Jacarés, Recanto dos Inajás, Orquidário e Bromeliário.</p>
+                        <p style="text-align: justify; ">
+                            <strong>Horário de Funcionamento: </strong> terça a sexta, de 9h as 12h / 14h às 16h. Sábado e domingo
+                            das 9h às 16h
+                        </p>
+                        <p style="text-align: justify; ">
+                            <strong>Localização:</strong>Av. André Araújo, 1756 – Aleixo</p>
+                        <p>
+                            <strong>Mais informações:&nbsp;</strong>
+                            <a title="Visite o site " href="http://bosque.inpa.gov.br/ " target="_blank ">http://bosque.inpa.gov.br/</a>&nbsp;ou também&nbsp;
+                            <a title="Visite o site " href="https://www.inpa.gov.br/ " target="_blank ">https://www.inpa.gov.br/</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Centro Cultural dos Povos da Amazônia
+
+                    </strong>
+                </h3>
+                <div class="container row ">
+                    <div class="col ">
+                        <img class="alignnone " src="http://3.bp.blogspot.com/-q2dmAZcwtbU/Um1OFQ-3OyI/AAAAAAAAATw/UKQejbDICh0/s1600/Centro+Cultural+povos+da+Amaz%C3%B4nia,+amazonia+em+imagens.JPG "
+                            alt=" " style="width: 100%;height: auto; ">
+
+                    </div>
+                    <div class="col ">
+                        <p class="paragraph ">O Centro Cultural dos Povos da Amazônia tem como missão: valorizar e difundir a cultura e os conhecimentos
+                            dos Povos Amazônicos, ao servir como referência tanto em âmbito regional como internacional,
+                            ao contribuir para a formação da memória cultural amazônida. No interior, o museu do Centro Cultural,
+                            apresenta inúmeras fotos, quadros, frutos e colares utilizados pelos povos indígenas.</p>
+                        <p style="text-align: justify; ">
+                            <strong>Horário de Funcionamento: </strong> terça a sexta-feira de 09h as 17h
+                        </p>
+                        <p style="text-align: justify; ">
+                            <strong>Localização:</strong> Praça Francisco Pereira da Silva – S/N – Distrito Industrial,</p>
+                        <p>
+                            <strong>Mais informações:&nbsp;</strong>
+                            <a href="http://www.povosdamazonia.am.gov.br/ ">www.povosdamazonia.am.gov.br/</a>&nbsp;e&nbsp;através da página do&nbsp;Facebook:&nbsp;
+                            <a href="https://www.facebook.com/pages/Centro-Cultural-dos-Povos-da-Amazônia/ ">https://www.facebook.com/pages/Centro-Cultural-dos-Povos-da-Amazônia/</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Jardim Botânico
+                    </strong>
+                </h3>
+                <div class="container row ">
+                    <div class="col ">
+                        <img class="alignnone "
+                         src="http://sbqs2015.com.br/wp-content/uploads/2014/08/jb_frente.jpg "
+                            alt=" " style="width: 100%;height: auto; ">
+
+                    </div>
+                    <div class="col ">
+                        <p class="paragraph ">Visitar o Jardim Botânico Adolpho Ducke de Manaus é experimentar toda a exuberância da floresta de
+                            terra firme amazônica. Seus mais de 3km de trilhas levam o visitante ao interior da mata primária
+                            onde é possível encontrar árvores de 40 metros e 400 anos de idade além de ver borboletas e outros
+                            insetos, macacos e preguiças. Com sorte, há a chance de um encontro com animais selvagens raros,
+                            como o gavião-real (Harpia harpyja), que chega a medir dois metros de uma asa a outra e é considerada
+                            a mais poderosa ave de rapina do mundo.</p>
+                        <p style="text-align: justify; ">
+                            <strong>Horário de Funcionamento: </strong> Terça à Domingo, de 9h às 17h. Entrada gratuita!
+                        </p>
+                        <p style="text-align: justify; ">
+                            <strong>Localização:</strong> Localizado na borda da Reserva Florestal Adolpho Ducke, na zona Leste de
+                            Manaus.
+                        </p>
+                        <p>
+                            <strong>Mais informações</strong>:
+                            <a href="http://jardimbotanicodemanaus.org/doku.php ">http://jardimbotanicodemanaus.org/doku.php</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Parque Municipal do Mindú
+                    </strong>
+                </h3>
+                <div class="container row ">
+                    <div class="col ">
+                        <img class="alignnone " src="http://sbqs2015.com.br/wp-content/uploads/2014/08/mindu.jpg "
+                            alt=" " style="width: 100%;height: auto; ">
+
+                    </div>
+                    <div class="col ">
+                        <p class="paragraph ">O Parque Municipal do Mindu foi instituído em 1993, através da Lei Municipal nº 219 de 11 de novembro,
+                            com área de 309.518 m², atualmente protege uma área de 40,8 ha. Entre os vários atrativos ambientais,
+                            como exemplares da flora e fauna locais observados durante a caminhada nas trilhas, o parque
+                            também dispõe de anfiteatro para 700 pessoas, auditório com capacidade para 100 pessoas, orquidário,
+                            trilha suspensa com sinalização, trilhas e banheiros com adaptações para portadores de necessidades
+                            especiais, biblioteca ambiental, canteiros de ervas com propriedades medicinais e aromáticas,
+                            lanchonete e estacionamento próprio e um chapéu de palha.</p>
+                        <p style="text-align: justify; ">
+                            <strong>Localização:</strong> Rua Perimetral, s/n – Parque Dez, Manaus, AM - Fone/Fax: (92) 3236-7702
+                            Manaus.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Presidente Figueiredo
+                    </strong>
+                </h3>
+                <div class="container row ">
+                    <div class="col ">
+                        <img class="alignnone " src="http://i584.photobucket.com/albums/ss281/Metropolitano_Manaus/cachoeira%20do%20santuario/4354403902_c397fbb203_b.jpg "
+                            alt=" " style="width: 100%;height: auto; ">
+
+                    </div>
+                    <div class="col ">
+                        <p class="paragraph ">Conhecida como a Terra das Cachoeiras com mais de 100 cachoeiras catalogadas, de diversos tamanhos
+                            e formatos, além de várias corredeiras, grutas e cavernas, o que possibilita a prática de esportes
+                            de aventura como rafting, bóia cross, caiaque, tirolesa, rapel, espeleologia, arvorismo e trilhas
+                            na selva. Aqui, você não irá encontrar o típico cenário paradisíaco com piscinas naturais de
+                            águas azuis rodeadas por flores coloridas, mas sim um ambiente único cuja beleza e encanto vêm
+                            do seu aspecto naturalmente selvagem e da sensação de isolamento que ele impõe. Há vários restaurantes
+                            regionais espalhados pela cidade e uma oferta muito boa de pousadas e pequenos hotéis que, apesar
+                            de simples, são organizados e confortáveis. Ao contrário dos típicos hotéis de selva da região,
+                            os preços praticados são justos e cabem no orçamento de qualquer turista.</p>
+
+                        <p style="text-align: justify; ">
+                            <strong>Localização:</strong> Rodovia Federal Br 174 Km 107.
+                        </p>
+                        <p>
+                            <strong>Mais informações</strong>:
+                            <a href="http://www.presidentefigueiredo.am.gov.br/ ">http://www.presidentefigueiredo.am.gov.br/</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Passeio Alternativo:
+                    </strong>
+                </h3>
+                <div class="container row ">
+
+                    <div class="col ">
+                        <p class="paragraph ">Para quem deseja conhecer as principais atrações da cidade de Manaus pode utilizar o Amazon Bus,
+                            um ônibus que circula por 40 pontos da cidade de Manaus, e dura em torno de três horas o passeio.
+                            Entre os pontos turísticos que o ônibus passa está o Teatro Amazonas; Centro de Instrução de
+                            Guerra na Selva (CIGS); o Instituto Nacional de Pesquisa Ambiental (INPA); o Parque dos Bilhares,
+                            um complexo turístico que reúne restaurantes, bares, locais para shows, entre outros serviços;
+                            o Museu do Índio e a Praia de Ponta Negra. O ônibus circula de segunda-feira a sábado às 09h
+                            e às 14h30, com partida do Centro de Atendimento ao Turista, ao lado do Teatro Amazonas. O passeio
+                            no ônibus custa R$ 60,00 por pessoa. O valor pode sofrer reajuste ao longo do ano.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Encontro das Águas
+                    </strong>
+                </h3>
+                <div class="container row ">
+                    <div class="col ">
+                        <img class="alignnone " src="http://4.bp.blogspot.com/_bzz6VmSfZSI/TFdd7_THFiI/AAAAAAAAAGw/auzQmwKMpcY/s1600/Encontro+das+%C3%81guas+5.jpg "
+                            alt=" " style="width: 100%;height: auto; ">
+
+                    </div>
+                    <div class="col ">
+                        <p class="paragraph ">O Encontro das Águas é um fenômeno que acontece no Amazonas após a confluência do Rio Amazonas, de
+                            água barrenta, com o Rio Solimões, de água negra. Durante um trecho de seis quilômetros (que
+                            chega a 22km em algumas épocas), os dois rios ficam lado a lado sem misturar suas águas, devido
+                            às diferentes densidades e velocidades. É um cenário muito interessante para observar, tirar
+                            fotos e contar história.</p>
+
+                        <p>
+                            <strong>Duração do passeio: </strong>2hs</p>
+                        <p>
+                            <strong>Mais informações:&nbsp;</strong>Excursões Regionais:
+                            <a href="http://amazonexplorers.tur.br/ ">http://amazonexplorers.tur.br/</a>&nbsp;e&nbsp;Amazonas by Viverde:
+                            <a href="http://www.viverde.com.br/manaus.html ">http://www.viverde.com.br/manaus.html</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="local u-margin-top-small ">
+                <h3 style="margin-left: 2rem; ">
+                    <strong>Conhecer o Boto Rosa e Anavilhanas: Novo Airão
+                    </strong>
+                </h3>
+                <div class="container row ">
+                    <div class="col ">
+                        <img class="alignnone " src="http://i.telegraph.co.uk/multimedia/archive/01621/dolphin-9_1621471i.jpg "
+                            alt=" " style="width: 100%;height: auto; ">
+
+                    </div>
+                    <div class="col ">
+                        <p class="paragraph ">Esta atração fica em Novo Airão que está localizada a 180 Km de Manaus, para chegar ao município
+                            é necessário atravessar a Ponte do Rio Negro. A atração mais famosa da cidade é a possibilidade
+                            de interagir com os botos que regularmente visitam a casa flutuante da Dona Marilda,vários turistas
+                            vêem regularmente a Novo Airão para alimentar e ver de perto esse animal tão emblemático da fauna
+                            amazônica. O município de Novo Airão é conhecido por abrigar o famoso Parque Nacional de Anavilhanas,
+                            uma área federal protegida que engloba mais de 400 ilhas com praias de areias brancas, lagos,
+                            igarapés e rios afluentes. Ocupando uma área de 37.771.246 quilômetros quadrados, está a margem
+                            do Rio Negro e possui um dos mais importantes ecossistemas da Amazônia.</p>
+                        <p>
+                            <strong>Como chegar:</strong>
+                        </p>
+                        <ul>
+                            <li>De carro ou de ônibus, atravessando a Ponte Rio Negro. Já do outro lado do Rio Negro deve seguir
+                                pela rodovia AM-070 (Estrada Manoel Urbano) e, no Km 80, vire à direita e siga pela rodovia
+                                AM-352 que leva até Nova Airão.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="container ">
+            <div class="row text-center text-xs-center text-sm-left text-md-left ">
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4 ">
+                    <h5>Links rápidos</h5>
+                    <ul class="list-unstyled quick-links ">
+                        <li>
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-angle-double-right "></i>Sobre o evento</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-angle-double-right "></i>Inscrições</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-angle-double-right "></i>Envio de trabalhos</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-angle-double-right "></i>Local</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-angle-double-right "></i>Videos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4 ">
+                    <h5>Entre em contato</h5>
+                    <ul class="list-unstyled quick-links ">
+                        <li>
+                            <i class="fa fas fa-phone "></i> Telefone 1: 999999999
+                        </li>
+                        <li>
+                            <i class="fa fas fa-phone "></i> Telefone 1: 999999999
+                        </li>
+                        <li>
+                            <i class="fa fas fa-phone "></i> Telefone 1: 999999999
+                        </li>
+                        <li>
+                            <i class="fa fas fa-phone "></i> Telefone 1: 999999999
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4 ">
+                    <h5>Informações úteis</h5>
+                    <ul class="list-unstyled quick-links ">
+                        <li>
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-angle-double-right "></i>Passeios e turismos</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-angle-double-right "></i>Chegando em Manaus</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-angle-double-right "></i>Local do evento</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row ">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5 ">
+                    <ul class="list-unstyled list-inline social text-center ">
+                        <li class="list-inline-item ">
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-facebook "></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item ">
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-twitter "></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item ">
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-instagram "></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item ">
+                            <a href="javascript:void(); ">
+                                <i class="fa fa-google-plus "></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item ">
+                            <a href="javascript:void(); " target="_blank ">
+                                <i class="fa fa-envelope "></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row ">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white ">
+                    <p class="h6 ">&copy Todos os direitos reservados. Desenvolvido por ICON STI
+                    </p>
+                </div>
+                </hr>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/owl.carousel.min.js " type="text/javascript "></script>
+    <script src="./js/default.js " type="text/javascript "></script>
+</body>
+
+</html>
