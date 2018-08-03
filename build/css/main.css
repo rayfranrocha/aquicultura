@@ -996,15 +996,15 @@ div[class^=conteudoImagem] {
 }
 
 .conteudoImagem1 {
-  background: linear-gradient(to left, rgba(123, 240, 88, 0.3) 0%, rgba(41, 176, 0, 0.5) 99%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
+  background: linear-gradient(to bottom, rgba(41, 176, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
 }
 
 .conteudoImagem2 {
-  background: linear-gradient(to left, rgba(123, 240, 88, 0.3) 0%, rgba(41, 176, 0, 0.5) 99%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
+  background: linear-gradient(to bottom, rgba(41, 176, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
 }
 
 .conteudoImagem3 {
-  background: linear-gradient(to left, rgba(123, 240, 88, 0.3) 0%, rgba(41, 176, 0, 0.5) 99%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
+  background: linear-gradient(to bottom, rgba(41, 176, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
 }
 
 .section-services {
