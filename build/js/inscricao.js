@@ -15,11 +15,13 @@ var login = "";
 /*-----------------------------------------*/
 $(document).ready(function () {
     erro = document.getElementById('erro');
-    /* Chama essas funções para caso a página foi atualizada enquanto preenchia dados */
+    /* Chama essas funções para caso a página foi atualizada enquanto preenchia dados 
+    ou iniciando pela primeira vez*/
+    recuperarVagas();
     verificarEAtualizarTextoTipoInscricao();
     trocarPagamento();
     recuperarLogin();
-    recuperarVagas();
+    mostrarTabelaMinicursos();
 });
 /*---- Função para ir ao próximo passo ---- */
 function proximo(event) {
@@ -59,18 +61,13 @@ function anterior() {
 function mostrarAPartirDeBool(idElemento, condicao) {
     var elemento = document.getElementById(idElemento);
     if (condicao) {
-        elemento.style.display = 'block';
-        elemento.classList.add('in');
         elemento.classList.remove('out');
-
+        elemento.classList.add('in');
+        elemento.style.display = 'block';
     } else {
         elemento.classList.add('out');
         elemento.classList.remove('in');
-        elemento.addEventListener("animationend", listener);
-    }
-    function listener() {
         elemento.style.display = 'none';
-        elemento.removeEventListener("animationend", listener);
     }
 }
 /*---- Função para esconder e mostrar elementos no DOM ---- */
@@ -97,7 +94,7 @@ function recuperarLogin() {
     var db = new Dexie("dbusuario");
     db.open().then(function (db_) {
         const user = db_.table('user');
-        user.get('1').then((res) => {
+        user.get('1').then(function(res){
             if (res && res.cpf) {
                 login = res.cpf;
             }
@@ -108,7 +105,31 @@ function recuperarLogin() {
 }
 function recuperarVagas() {
     var elementos_ = document.getElementsByClassName("vagaMinicurso");
-
+    var mapaMinicursos = {};
+    /* mapaMinicursos = {
+        "1": <td class="vagaMinicurso"></td>
+        "2": <td class="vagaMinicurso"></td>
+        "3": <td class="vagaMinicurso"></td>
+    } */
+    /* Guarda o nome dos minicursos */
+    for (var i = 0; i < elementos_.length; i++) {
+        (function (index) {
+            mapaMinicursos[(index+1)] = elementos_[index];
+        })(i);
+    }
+    var resposta = {
+        "1": 31,
+        "2": 40,
+        "3": 20
+    }
+    for(var chave in resposta){
+        if(resposta.hasOwnProperty(chave)){
+            var valor = resposta[chave];
+            if(mapaMinicursos[chave]){
+                mapaMinicursos[chave].innerText = valor;
+            }
+        }
+    }
 }
 /*---- Função para mostrar mensagem final---- */
 function showMensagemFinal(texto) {
@@ -138,14 +159,17 @@ function concluirCompra() {
         "endereco": endereco,
         "tipoInscricao": tipoInscricao,
         "tipoPagamento": tipoPagamento,
-        "participanteMinicurso": participanteMinicurso
+        "minicurso": null
     };
+    if(participanteMinicurso && escolhaMinicurso != null){
+        objetoInscricao.minicurso = escolhaMinicurso;
+    }
     var envio = {
         "login": login,
         "infoExtra": objetoInscricao
     };
     if (tipoPagamento == 1) {
-        mostrarAPartirDeBool('pagamentoPagSeguro',true);
+        mostrarAPartirDeBool('pagamentoPagSeguro', true);
         document.getElementById('anterior').style.display = 'none';
         document.getElementById('proximo').style.display = 'none';
     };
@@ -239,8 +263,14 @@ function trocarTipoInscricao(evento) {
 }
 /*---- Função para mostrar a tabela de minicursos caso necessário ----*/
 function mostrarTabelaMinicursos(evento) {
-    participaMinicurso = evento.target.checked;
-    mostrarAPartirDeBool('tabelaMinicursos', participaMinicurso);
+    if(evento){
+        participaMinicurso = evento.target.checked;
+        mostrarAPartirDeBool('tabelaMinicursos', participaMinicurso);
+    }else{
+        var checkbox = document.getElementById('checkIncluirMinicurso');
+        var checked_ = checkbox.value == "on" ? true : false;
+        mostrarAPartirDeBool('tabelaMinicursos',checked_);
+    }
 }
 /*---- Função para confirmar inscrição em minicurso e lógica para escolha de minicurso----*/
 function incluirMinicurso(evento) {
