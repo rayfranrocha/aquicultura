@@ -11,7 +11,7 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
-
+    
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -113,26 +113,21 @@
         </nav>
     </header>
     <main>
-        <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary gone" id="mostrar" data-toggle="modal" data-target="#exampleModalLong">
             Modal
         </button>
-
         <!-- Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLongTitle">Bem vindo!</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <button type="button" data-target="#exampleModalLong" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
                         <img src="./img/boasvindas.jpg" style="width: 100%;" alt="Imagem de boas vindas" srcset="">
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary">Fechar</button>
                     </div>
                 </div>
             </div>
