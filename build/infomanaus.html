@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>II Encontro de Aquicultura na Amazônia Ocidental</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="./js/popup.js"></script>
+    <script src="./js/session.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="row">
+                <div class="header-logo">
+                    <a href="./index.html">
+                        <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
+                    </a>
+                </div>
+                <div class=" header-logo-text-side">
+                    <h1 class="primary-title u-center-vertical">II Encontro de Aquicultura na Amazônia Ocidental</h1>
+                </div>
+                <div class="header-acesso-rapido">
+                    <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
+                        <i class="material-icons">person</i>Área restrita</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg ">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="material-icons u-center-relative">menu</i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Evento
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./comissao.html">Comissão Organizadora</a>
+                            <a class="dropdown-item" href="./index.html#section-sobre">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./programacao.html" id="navbarDropdown2" role="button" aria-haspopup="true" aria-expanded="false">
+                            Programação
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Inscrições
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
+                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('inscricao')">Formulário de Inscrição</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Trabalhos
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./orientacaopremios.html">Orientação para submissão e Premiações</a>
+                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('trabalhos')" role="button" aria-haspopup="true" aria-expanded="false">
+                                Submeter Trabalho
+                            </a>
+                        </div>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="./contato.html" role="button" aria-haspopup="true" aria-expanded="false">
+                            Contatos
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Informações Úteis
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="#" style="cursor: pointer" role="button" aria-haspopup="true" aria-expanded="false">
+                                Local do evento
+                            </a>
+                            <a class="dropdown-item" href="./turismo.html">Passeios e turismos</a>
+                            <a class="dropdown-item" href="#">Chegando em Manaus</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div class="container card">
+            <div class="row">
+                <h3 class="heading-secondary u-margin-top-small " style="text-align: center">Chegando em Manaus</h3>
+                <div class="secao">
+                    <h3 style="margin-left: 1rem;">
+                        <strong>Como chegar</strong>
+                    </h3>
+                    <p class="paragraph" style="margin-left: 1rem;">Manaus é a capital do estado do Amazonas e o principal centro financeiro, corporativo e econômico da Região
+                        Norte do Brasil. É uma cidade histórica e portuária, localizada no centro da maior floresta tropical
+                        do mundo. Situa-se na confluência dos rios Negro e Solimões. É uma das cidades brasileiras mais conhecidas
+                        mundialmente, principalmente pelo seu potencial turístico e pelo ecoturismo, o que faz do município o
+                        décimo maior destino de turistas no Brasil.
+                    </p>
+                    <p class="paragraph" style="margin-left: 1rem;">Localizada no centro da maior floresta tropical do mundo, a forma mais rápida e confortável de chegar à cidade
+                        é de avião. Existem voos diários partindo de Miami-EUA e das principais capitais do Brasil, tais como:
+                        Brasília, São Paulo, Rio de Janeiro, Salvador, Curitiba, Belo Horizonte.
+                    </p>
+                </div>
+                <div class="secao">
+                    <h3 style="margin-left: 1rem;">
+                        <strong>Destinos em Manaus a partir do Aeroporto Internacional Eduardo Gomes</strong>
+                    </h3>
+                    <p class="paragraph" style="margin-left: 1rem;">Apesar do Aeroporto Internacional Eduardo Gomes situar-se em Manaus, este fica a 14 km do centro da cidade.
+                        Ele possui capacidade para atender 2,8 milhão de passageiros/ano, no entanto em 2009 transitaram pelos
+                        terminais mais de 3 milhões de passageiros, superando a capacidade instalada. É o maior aeroporto da
+                        Região Norte do Brasil em número de passageiros e em movimento de aeronaves da região Norte, sendo também
+                        o 3º maior aeroporto em movimentação de cargas do país, atrás de Cumbica e Viracopos.
+                    </p>
+                    <p class="paragraph" style="margin-left: 1rem;">O Aeroporto Internacional Eduardo Gomes serve às cidades da Região Metropolitana de Manaus. Manaus foi uma
+                        das cidades-sede da Copa do Mundo FIFA 2014. Devido a isto o Aeroporto possui poucas opções de alimentação,
+                        a Infraero divulgou que 13 estabelecimentos comerciais já estão em funcionamento. Um total de 133 estabelecimentos
+                        entre lojas e praça de alimentação estão previstos para fazer parte do complexo.
+                    </p>
+                    <p class="paragraph" style="margin-left: 1rem;"> O visitante pode sair do aeroporto pegando um dos taxis oficiais (carros pretos e brancos na saída do aeroporto,
+                        dentro do estacionamento) pagando o valor tabelado (de aproximadamente R$ 68,00) para a maioria dos bairros
+                        de Manaus. Para sair do aeroporto até o Distrito Industrial, o valor do taxi é de aproximadamente R$
+                        88,00.
+                    </p>
+                </div>
+                <div class="secao">
+                    <h3 style="margin-left: 1rem;">
+                        <strong>Clima em Manaus</strong>
+                    </h3>
+                    <p class="paragraph" style="margin-left: 1rem;">Manaus apresenta clima equatorial com umidade do ar acima de 80% e duas estações bem definidas: a das chuvas
+                        (dezembro a maio) e a chamada estação das secas, entre junho e novembro, quando a precipitação não é
+                        tão intensa e a sensação térmica chega a passar dos 40ºC. A proximidade com a floresta normalmente evita
+                        extremos de calor e torna a cidade úmida. Durante a realização do SBQS 2015, as temperaturas devem estar
+                        bastante elevadas, por isso não se esqueça de utilizar roupas leves e beber bastante líquido.
+                    </p>
+                </div>
+                <div class="secao" style="padding: 1rem;">
+                    <h3>
+                        <strong>Onde Comer?</strong>
+                    </h3>
+                    <p class="paragraph">O visitante poderá optar por várias opções de bares e restaurantes distribuídos por toda a cidade. Para agilizar
+                        a ida e o retorno dos participantes durante o horário de almoço recomendamos visitar os seguintes shoppings
+                        com várias opções de restaurantes de comida internacional, nacional e regional:
+                    </p>
+                    <div>
+                        <p>
+                            <strong>Studio 5 Centro de Convenções</strong>
+                        </p>
+                        <p>Av. Rodrigo Otávio, 3.555 – Distrito Industrial CEP: 69077-000
+                        </p>
+                        <p>Telefone: (92) 3216-3555</p>
+                        <p>Horários:</p>
+                        <p>
+                            Segunda a Sábado: 10h – 22h (Lojas), 10h – 23h (praça de alimentação)
+                        </p>
+                        <p>
+                            Domingo e feriados: 14h – 21h (lojas), 12h – 22h (praça de alimentação)
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Manauara Shopping</strong>
+                        </p>
+                        <p>Av. Mario Ypiranga, 1300 – Adrianópolis  Manaus – AM, CEP: 69058-775
+                        </p>
+                        <p>Telefone: (92) 4003-7760</p>
+                        <p>Horários:</p>
+                        <p>
+                            Segunda a Sábado: 10h – 22h (Lojas), 10h – 23h (praça de alimentação)
+                        </p>
+                        <p>
+                            Domingo e feriados: 14h – 21h (lojas), 12h – 22h (praça de alimentação)
+                        </p>
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Millenium Shopping</strong>
+                        </p>
+                        <p>Av. Djalma Batista, 1.661 –  Chapada, Manaus.
+                            CEP: 69050-010 
+                        </p>
+                        <p>Telefone: (92) 3655-3400</p>
+                        <p>Horários:</p>
+                        <p>
+                            Segunda a Sábado: Lojas e Praça de Alimentação, das 10h às 22h| Cinema, a partir das 13h                    </p>
+                        <p>
+                            Domingos e Feriados: Lojas, das 14h às 20h e Praça de Alimentação, das 12h às 22h| Cinema, a partir das 13h.                    </p>
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Amazonas Shopping</strong>
+                        </p>
+                        <p>Av. Djalma Batista 482 – Parque 10 de Novembro | Manaus – AM | CEP 69050-010 | Tel.: (92) 3303-9000
+                        </p>
+                        <p>Telefone:  (92) 3303-9000</p>
+                        <p>Horários:</p>
+                        <p>
+                            Segunda a Sábado: 10h às 22h         </p>
+                        <p>
+                            Domingos e Feriados: (Praça de Alimentação, Cinemas e Play) 12h às 22h, (Lojas) 14h às 21h.           </p>
+                    </div>
+                    <div>
+                        <p>
+                            <strong>Ponta Negra Shopping</strong>
+                        </p>
+                        <p>Av. Coronel Teixeira, 5705 – Ponta Negra – CEP: 69037-000 – Manaus
+                        </p>
+                        <p>Telefone:  (92) 3667-7225/3667-7226</p>
+                        <p>Horários:</p>
+                        <p>
+                            Segunda a Sábado: 10h às 22h (Lojas e Praça de Alimentação)   </p>
+                        <p>
+                            Domingo e feriados: 14h às 21h (Lojas), 10h às 22h (Praça de Alimentação)       </p>
+                    </div>
+                </div>
+    
+            </div>
+        </div>
+    </main>
+    <footer id="footer">
+        <div class="container">
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Links rápidos</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Sobre o evento</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Inscrições</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Envio de trabalhos</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Local</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Videos</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Entre em contato</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <i class="fa fas fa-phone"></i> Telefone 1: 999999999
+                        </li>
+                        <li>
+                            <i class="fa fas fa-phone"></i> Telefone 1: 999999999
+                        </li>
+                        <li>
+                            <i class="fa fas fa-phone"></i> Telefone 1: 999999999
+                        </li>
+                        <li>
+                            <i class="fa fas fa-phone"></i> Telefone 1: 999999999
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Informações úteis</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Passeios e turismos</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Chegando em Manaus</a>
+                        </li>
+                        <li>
+                            <a href="javascript:void();">
+                                <i class="fa fa-angle-double-right"></i>Local do evento</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();" target="_blank">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p class="h6">&copy Todos os direitos reservados. Desenvolvido por ICON STI
+                    </p>
+                </div>
+                </hr>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="./js/default.js" type="text/javascript"></script>
+</body>
+
+</html>

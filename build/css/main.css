@@ -879,24 +879,11 @@ section .section-title {
   text-transform: uppercase;
 }
 
-@media (max-width: 56.25em) {
-  #footer {
-    height: 50vh;
-  }
-}
-
-@media (max-width: 56.25em) {
-  #footer .container {
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
-  }
-}
-
 #footer {
   padding-top: 1rem;
   background: #0e4b0e !important;
   padding-bottom: 1rem;
+  height: auto;
 }
 
 #footer h5 {
