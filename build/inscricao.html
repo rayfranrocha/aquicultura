@@ -213,7 +213,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group form-check">
-                                    <input type="checkbox" class="form-check-input" onchange="mostrarTabelaMinicursos(event);" id="participar_minicurso">
+                                    <input type="checkbox" checked="false" class="form-check-input" onchange="mostrarTabelaMinicursos(event);" id="participar_minicurso">
                                     <label class="form-check-label" for="participar_minicurso">Quero participar de minicursos</label>
                                 </div>
                                 <div class="form-group" id="tabelaMinicursos">
@@ -228,21 +228,21 @@
                                         <tbody>
                                             <tr>
                                                 <td>
-                                                    <input type="checkbox" onchange="incluirMinicurso(event)" class="m1">
+                                                    <input type="checkbox" onchange="incluirMinicurso(event)" class="checkboxMinicurso">
                                                 </td>
                                                 <td>Metodologia Científica</td>
                                                 <td class="vagaMinicurso">100</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type="checkbox" onchange="incluirMinicurso(event)">
+                                                    <input class="checkboxMinicurso" type="checkbox" onchange="incluirMinicurso(event)">
                                                 </td>
                                                 <td>Nutrição e Saúde</td>
                                                 <td class="vagaMinicurso">50</td>
                                             </tr>
                                             <tr>
                                                 <td>
-                                                    <input type="checkbox" id="checkIncluirMinicurso" onchange="incluirMinicurso(event)" class="m3">
+                                                    <input type="checkbox" class="checkboxMinicurso" onchange="incluirMinicurso(event)" class="m3">
                                                 </td>
                                                 <td>Doenças na Aquicultura</td>
                                                 <td class="vagaMinicurso">50</td>

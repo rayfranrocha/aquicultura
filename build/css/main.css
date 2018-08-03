@@ -1078,6 +1078,16 @@ div[class^=conteudoImagem] {
   color: white;
 }
 
+.link-for-js {
+  cursor: pointer;
+  color: #007bff !important;
+}
+
+.link-for-js:hover {
+  color: #0056b3 !important;
+  text-decoration: underline !important;
+}
+
 .ul {
   padding: 0 3rem;
 }

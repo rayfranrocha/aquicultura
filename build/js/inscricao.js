@@ -12,6 +12,7 @@ var elementoEsconder;
 var elementoMostrar;
 var erro;
 var login = "";
+var checkboxes = [];
 /*-----------------------------------------*/
 $(document).ready(function () {
     erro = document.getElementById('erro');
@@ -22,7 +23,14 @@ $(document).ready(function () {
     trocarPagamento();
     recuperarLogin();
     mostrarTabelaMinicursos();
+    inicializarForm();
 });
+function inicializarForm() {
+    checkboxes = document.getElementsByClassName('checkboxMinicurso');
+    for(var i = 0; i < checkboxes.length; i++){
+        checkboxes[i].checked = false;
+    }
+}
 /*---- Função para ir ao próximo passo ---- */
 function proximo(event) {
     event.preventDefault();
@@ -94,7 +102,7 @@ function recuperarLogin() {
     var db = new Dexie("dbusuario");
     db.open().then(function (db_) {
         const user = db_.table('user');
-        user.get('1').then(function(res){
+        user.get('1').then(function (res) {
             if (res && res.cpf) {
                 login = res.cpf;
             }
@@ -114,7 +122,7 @@ function recuperarVagas() {
     /* Guarda o nome dos minicursos */
     for (var i = 0; i < elementos_.length; i++) {
         (function (index) {
-            mapaMinicursos[(index+1)] = elementos_[index];
+            mapaMinicursos[(index + 1)] = elementos_[index];
         })(i);
     }
     var resposta = {
@@ -122,10 +130,10 @@ function recuperarVagas() {
         "2": 40,
         "3": 20
     }
-    for(var chave in resposta){
-        if(resposta.hasOwnProperty(chave)){
+    for (var chave in resposta) {
+        if (resposta.hasOwnProperty(chave)) {
             var valor = resposta[chave];
-            if(mapaMinicursos[chave]){
+            if (mapaMinicursos[chave]) {
                 mapaMinicursos[chave].innerText = valor;
             }
         }
@@ -161,7 +169,7 @@ function concluirCompra() {
         "tipoPagamento": tipoPagamento,
         "minicurso": null
     };
-    if(participanteMinicurso && escolhaMinicurso != null){
+    if (participanteMinicurso && escolhaMinicurso != null) {
         objetoInscricao.minicurso = escolhaMinicurso;
     }
     var envio = {
@@ -263,19 +271,30 @@ function trocarTipoInscricao(evento) {
 }
 /*---- Função para mostrar a tabela de minicursos caso necessário ----*/
 function mostrarTabelaMinicursos(evento) {
-    if(evento){
+    if (evento) {
         participaMinicurso = evento.target.checked;
         mostrarAPartirDeBool('tabelaMinicursos', participaMinicurso);
-    }else{
-        var checkbox = document.getElementById('checkIncluirMinicurso');
-        var checked_ = checkbox.value == "on" ? true : false;
-        mostrarAPartirDeBool('tabelaMinicursos',checked_);
+    } else {
+
+        var checkbox = document.getElementById('participar_minicurso');
+        var checked_ = checkbox.checked;
+        mostrarAPartirDeBool('tabelaMinicursos', checked_);
     }
 }
 /*---- Função para confirmar inscrição em minicurso e lógica para escolha de minicurso----*/
 function incluirMinicurso(evento) {
     var minicursoAtual = evento.target.parentNode.nextElementSibling.innerText;
     var checked_ = evento.target.checked;
+
+    /*Algoritmo para desmarcar outras checkbox */
+    var checkboxAtual = evento.target;
+    for (var i = 0; i < checkboxes.length; i++) {
+        if (checkboxes[i] !== checkboxAtual) {
+            checkboxes[i].checked = false;
+        }
+    }
+    /*Lógica para incluir preço no total a pagar */
+
     if (checked_ && minicursoAtual !== escolhaMinicurso) {
         document.getElementById('precoMinicurso').innerText = "R$ 50,00";
         escolhaMinicurso = minicursoAtual;
@@ -283,6 +302,7 @@ function incluirMinicurso(evento) {
         document.getElementById('precoMinicurso').innerText = "R$ 0,00";
         escolhaMinicurso = "";
     }
+
     precoMinicurso = escolhaMinicurso != "" ? 50.0 : 0.0;
     atualizarTotalAPagar();
 }
