@@ -35,6 +35,16 @@ $(document).ready(function () {
             }
         }
     });
+    var navbar = document.getElementById('navbar');
+    if(navbar){
+        $(window).scroll(function() {
+            if($(this).scrollTop() > 200){
+                 navbar.classList.add("navbar-fixed-top");
+            }else{
+                 navbar.classList.remove("navbar-fixed-top");
+            }
+        });
+    }
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     if (width <= 550) {
         /* -----TROCA POSIÇÃO BOTÕES----- */
@@ -45,6 +55,5 @@ $(document).ready(function () {
             botoesDiv.removeChild(btAnterior);
             botoesDiv.appendChild(btAnterior);
         }
-       
     }
 }); 
