@@ -35,12 +35,25 @@ $(document).ready(function () {
             }
         }
     });
+
+    var buttonForScrollTop = document.getElementById('buttonForScrollTop');
     var navbar = document.getElementById('navbar');
+    var showScroll = (buttonForScrollTop != undefined && buttonForScrollTop != null);
     if(navbar){
         $(window).scroll(function() {
             if($(this).scrollTop() > 200){
+                if(showScroll){
+                    buttonForScrollTop.style.display = "block";
+                    buttonForScrollTop.classList.remove("out")
+                    buttonForScrollTop.classList.add("in");
+                }
                  navbar.classList.add("navbar-fixed-top");
             }else{
+                if(showScroll){
+                  buttonForScrollTop.style.display = "none";
+                  buttonForScrollTop.classList.remove("in")
+                  buttonForScrollTop.classList.add("out");
+                }
                  navbar.classList.remove("navbar-fixed-top");
             }
         });
@@ -56,4 +69,4 @@ $(document).ready(function () {
             botoesDiv.appendChild(btAnterior);
         }
     }
-}); 
+});

@@ -42,12 +42,7 @@ body {
     padding: 0;
   }
 }
-.navbar-fixed-top{
-  position: fixed;
-  z-index: 100;
-  width: 100%;
-  top: 0%;
-}
+
 @keyframes moveInLeft {
   0% {
     opacity: 0;
@@ -107,9 +102,7 @@ body {
   line-height: 1.7;
   color: #777;
 }
-.navbar-fixed-top{
-  position: fixed;
-}
+
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
@@ -364,6 +357,25 @@ a.btn.btn-success:visited {
 .btn-text:active {
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   transform: translateY(0px);
+}
+
+#buttonForScrollTop {
+  font-style: normal;
+  display: block;
+  text-align: center;
+  /* z-index: 100; */
+  position: fixed;
+  /* left: 50%; */
+  /* top: 0px; */
+  z-index: 100;
+  right: 10px;
+  bottom: 10px;
+  height: 4.5rem;
+  width: 4.5rem;
+  background: darkgreen;
+  border-radius: 50%;
+  border: none;
+  box-shadow: 0rem 0.25rem 1.25rem black;
 }
 
 .circle {
@@ -970,6 +982,13 @@ section .section-title {
 .erro {
   font-size: 1.5rem;
   color: yellow;
+}
+
+.navbar-fixed-top {
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  top: 0%;
 }
 
 .home.jumbotron {

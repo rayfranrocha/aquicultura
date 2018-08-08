@@ -16,5 +16,8 @@
   "bugs": {
     "url": "https://gitlab.com/jeliel/aquicultura/issues"
   },
-  "homepage": "https://gitlab.com/jeliel/aquicultura#README"
+  "homepage": "https://gitlab.com/jeliel/aquicultura#README",
+  "dependencies": {
+    "sass": "^1.10.3"
+  }
 }

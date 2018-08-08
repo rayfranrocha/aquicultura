@@ -92,5 +92,26 @@ a.btn.btn-success:visited{
 	&:active{
 		box-shadow: 0 .5rem 1rem rgba($color-black,.15);
 		transform: translateY(0px);
-	}	
+	}
+}
+#buttonForScrollTop{
+	font-style: normal;
+	display: block;
+	text-align: center;
+	/* z-index: 100; */
+	position: fixed;
+	/* left: 50%; */
+	/* top: 0px; */
+	z-index: 100;
+	right: 10px;
+	bottom: 10px;
+	height: 4.5rem;
+	width: 4.5rem;
+	background: darkgreen;
+	border-radius: 50%;
+	border: none;
+	box-shadow: 0rem 0.25rem 1.25rem black;
+}
+#buttonForScrollTop{
+
 }
