@@ -73,25 +73,16 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown3" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        <a class="nav-link" href="#" id="navbarDropdown3" role="button" aria-haspopup="true" onclick="areaRestrita('inscricao')"
                             aria-expanded="false">
                             Inscrições
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown3">
-                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('inscricao')">Formulário de Inscrição</a>
-                        </div>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" aria-haspopup="true" style="cursor: pointer" onclick="areaRestrita('trabalhos')"
                             aria-expanded="false">
                             Trabalhos
                         </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="./orientacaopremios.html">Orientação para submissão e Premiações</a>
-                            <a class="dropdown-item" style="cursor: pointer" onclick="areaRestrita('trabalhos')" role="button" aria-haspopup="true" aria-expanded="false">
-                                Submeter Trabalho
-                            </a>
-                        </div>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link " href="./contato.html" role="button" aria-haspopup="true" aria-expanded="false">
@@ -213,15 +204,17 @@
                             </div>
                             <div class="col-lg-3 col-md-3 col-sm-12">
                                 <div class="service-item">
-
-                                    <div class="circle__container u-margin-top-small">
-                                        <div class="circle">
-                                            <i class="circle__icon material-icons ">location_on</i>
+                                    <a href="#localizacao">    
+                                        <div class="circle__container u-margin-top-small">
+                                            <div class="circle">
+                                                <i class="circle__icon material-icons ">location_on</i>
+                                            </div>
                                         </div>
-                                    </div>
+                                    </a>
                                     <div class="service-item__text-container u-margin-top-small">
-
-                                        <h4 class=" heading-quaternary">Localização</h4>
+                                        <a href="#localizacao">
+                                            <h4 class=" heading-quaternary">Localização</h4>
+                                        </a>
                                         <p class="u-margin-bottom-medium">  O II Econtro de Aquicultura acontecerá em Manaus, no coração da Amazônia
                                         </p>
                                     </div>
@@ -240,7 +233,7 @@
                                         <a href="./programacao.html">
                                             <h4 class=" heading-quaternary">Programação</h4>
                                         </a>
-                                        <p class="u-margin-bottom-medium">Todas as informações sobre as palestras e minicursos você encontra aqui.
+                                        <p class="u-margin-bottom-medium">Todas as informações sobre as palestras e minicursos você encontra <a href="./programacao.html">aqui.</a>
                                         </p>
                                     </div>
                                 </div>
@@ -248,7 +241,6 @@
                             <div class="col-lg-3 col-md-3 col-sm-12">
                                 <div class="service-item">
                                     <a style="cursor: pointer" onclick="areaRestrita('trabalhos')">
-
                                         <div class="circle__container u-margin-top-small">
                                             <div class="circle">
                                                 <i class="circle__icon material-icons ">folder</i>
@@ -259,7 +251,7 @@
                                         <a class="link-for-js" onclick="areaRestrita('trabalhos')">
                                             <h4 class=" heading-quaternary ">Trabalhos</h4>
                                         </a>
-                                        <p class="u-margin-bottom-medium">Já submeteu seu trabalho? Clique aqui e veja como fazê-lo
+                                        <p class="u-margin-bottom-medium">Já submeteu seu trabalho? Clique <a class="link-for-js" onclick="areaRestrita('trabalhos')">aqui</a> e veja como fazê-lo
                                         </p>
                                     </div>
                                 </div>
@@ -292,7 +284,7 @@
                 </div>
             </div>
         </section>
-        <section class="localizacao" style="width: 100%; text-align: center; height: auto;">
+        <section class="localizacao" id="localizacao" style="width: 100%; text-align: center; height: auto;">
             <h3 class="heading-secondary u-margin-top-small  u-margin-bottom-small ">LOCALIZAÇÃO</h3><br>
             <h3 class="heading-secondary u-margin-top-small  u-margin-bottom-small ">Auditório Vânia Pimentel<br>Av.  Nilton Lins<br>MANAUS - AM</h3>
 
