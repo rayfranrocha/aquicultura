@@ -11,7 +11,6 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
     <link rel="stylesheet" href="./css/main.css">
-
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -23,8 +22,11 @@
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    <script src="http://maps.google.com/maps/api/js"></script>
+    <script type="text/javascript" src="./js/plugins/gmaps.js"></script>
     <script src="./js/popup.js"></script>
     <script src="./js/session.js"></script>
+    <script type="text/javascript" src="./js/mapa.js"></script>
 </head>
 
 <body>
@@ -182,38 +184,6 @@
                 </a>
             </div>
         </div>
-        <!--
-        <div id="carrosselInicio" class="owl-carousel owl-theme play owl autoplay">
-            <div>
-                <div class="conteudoImagem">
-                    <h2 class="display-4 u-titulo-branco">II Encontro de Aquicultura na Amazônia Ocidental</h2>
-                    <p class="lead u-texto-branco">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, minus necessitatibus quae ad incidunt quis ratione numquam
-                        magnam ea laboriosam et optio consequatur quibusdam! Libero accusantium fugit repellendus maxime
-                        tenetur.
-                    </p>
-                </div>
-                <img src="http://www.aquaciencia.aquabio.com.br/images/aquaciencia/slider/MorrodoCareca.jpg">
-            </div>
-            <div>
-                <img src="http://www.aquaciencia.aquabio.com.br/images/aquaciencia/slider/MorrodoCareca.jpg">
-            </div>
-            <div>
-                <img src="http://www.aquaciencia.aquabio.com.br/images/aquaciencia/slider/MorrodoCareca.jpg">
-            </div>
-            <div>
-                <img src="http://www.aquaciencia.aquabio.com.br/images/aquaciencia/slider/MorrodoCareca.jpg">
-            </div>
-        </div> -->
-        <!-- <div class="home jumbotron jumbotron-fluid"> -->
-
-        <!-- <div class="container">
-                <h2 class="display-4 u-titulo-branco">II Encontro de Aquicultura na Amazônia Ocidental</h2>
-                <p class="lead u-texto-branco">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, minus necessitatibus quae ad incidunt quis ratione numquam
-                    magnam ea laboriosam et optio consequatur quibusdam! Libero accusantium fugit repellendus maxime tenetur.</p>
-            </div> -->
-        <!-- </div> -->
         <section id="services" class="section-services">
             <div class="container" data-animation="slideInLeft" data-timeout="350">
                 <div class="row justify-content-center">
@@ -322,6 +292,12 @@
                 </div>
             </div>
         </section>
+        <section class="localizacao" style="width: 100%; text-align: center; height: auto;">
+            <h3 class="heading-secondary u-margin-top-small  u-margin-bottom-small ">LOCALIZAÇÃO</h3><br>
+            <h3 class="heading-secondary u-margin-top-small  u-margin-bottom-small ">Auditório Vânia Pimentel<br>Av.  Nilton Lins<br>MANAUS - AM</h3>
+
+             <div id="map" class="u-margin-bottom-medium" style="height: 30rem;"></div>
+        </section>
         <section class="section-inscricao" id="section-inscricao">
             <form action="#" id="form" method="post" onsubmit="cadastrar(event,'inscricao');">
                 <h1 class=" u-center-text-2 u-margin-top-small">Faça sua inscrição no evento!</h1>
@@ -377,6 +353,7 @@
         <a  style="display: block;" href="#top" id="buttonForScrollTop"><i class="fas fa-angle-up circle__icon" style="font-style: normal; font-size: 2rem; color: white;"></i>
         </a>
     </main>
+
     <footer id="footer">
         <div>
             <div class="row text-center text-xs-center text-sm-left text-md-left">
