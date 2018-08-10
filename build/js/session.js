@@ -209,8 +209,13 @@ function cadastrar(event, redirecionar) {
             login: "00423864203"
         };
         sessao.logar(jsonTemp, function () {
-            var redirect = sessao.getRed().redirect;
-            areaRestrita(redirect);
+            if(redirecionar){
+                sessao.setRed(redirecionar);
+                areaRestrita(redirecionar);
+            }else{
+                var redirect = sessao.getRed().redirect;
+                areaRestrita(redirect);
+            }
         });
 
         // $.ajax({
