@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pagamento</title>
+</head>
+
+<body>
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.lightbox.js"></script>
+    <script>
+        jQuery(document).ready(function () {
+            PagSeguroLightbox({
+                code: 'A2B320ED44449CBBB4B5CFA039A3D251'
+            }, {
+                success: function(transactionCode) {
+                    console.log(transactionCode)
+                },
+                abort: function() {
+                    alert('abort');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
