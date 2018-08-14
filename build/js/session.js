@@ -51,8 +51,8 @@ $(document).ready(function () {
             console.error('Failed to open db: ' + (err.stack || err));
         });
     function logar(dados, callback) {
-        db.user.put({ id: '1', isLogado: true, cpf: dados.login }).then(function () {
-            userSession = { id: '1', isLogado: true, cpf: dados.login };
+        db.user.put({ id: dados.id, isLogado: true, cpf: dados.cpf, token: dados.token }).then(function () {
+            userSession = { id: dados.id, isLogado: true, cpf: dados.cpf };
         })
             .then(function () {
                 if (callback) {
@@ -148,35 +148,17 @@ function login(event) {
     var jsonTemp = {
         login: "00423864203"
     };
-    sessao.logar(jsonTemp, function () {
-        var redirect = sessao.getRed().redirect;
-        areaRestrita(redirect);
-    });
-    // $.ajax({
-    //     type: "POST",
-    //     crossDomain: true,
-    //     contentType: "application/json",
-    //     dataType: 'json',
-    //     data: JSON.stringify(dados__),
-    //     url: baseUrl + "/login/222",
-    //     success: function (response) {
-    //         var resposta = response;
-    //         console.log(resposta);
-    //         if (error && resposta.erro !== null) {
-    //             error.style.display = 'block';
-    //             error.innerText = resposta.erro;
-    //             error.style.color = 'red';
-    //         } else if (resposta.login !== undefined && resposta.login !== null) {
-    //             sessao.logar(resposta, function () {
-    //                 var redirect = sessao.getRed().redirect;
-    //                 areaRestrita(redirect);
-    //             });
-    //         }
-    //     },
-    //     error: function (jqXHR, textStatus, error) {
-    //         console.log(jqXHR, textStatus, error);
-    //     }
-    // });
+
+    axios.post('http://localhost:5000/auth', {
+        cpf: cpf.replace(/[\.\-]/g, ''),
+        senha: senha
+    })
+        .then((response) => {
+            sessao.logar(response.data, function () {
+                var redirect = sessao.getRed().redirect;
+                areaRestrita(redirect);
+            });
+        });
 }
 function cadastrar(event, redirecionar) {
     event.preventDefault();
@@ -202,44 +184,24 @@ function cadastrar(event, redirecionar) {
             "nome": nomeElement.value,
             "email": email,
             "senha": senha,
-            "login": cpf,
-            "infoExtra": ""
+            "cpf": cpf.replace(/[\.\-]/g, '')
         };
         var jsonTemp = {
             login: "00423864203"
         };
-        sessao.logar(jsonTemp, function () {
-            var redirect = sessao.getRed().redirect;
-            areaRestrita(redirect);
-        });
 
-        // $.ajax({
-        //     type: "POST",
-        //     crossDomain: true,
-        //     contentType: "application/json",
-        //     dataType: 'json',
-        //     data: JSON.stringify(jsonCadastro),
-        //     url: baseUrl + "/cadastro/222",
-        //     success: function (response) {
-        //         var resposta = response;
-        //         if (error && resposta && (resposta.erro !== null)) {
-        //             error.style.display = 'block';
-        //             if(!resposta.erro.indexOf("Usuário já cadastrado")){
-        //                 error.innerText = resposta.erro;
-        //             }else{
-        //                 error.innerHTML = resposta.erro + '<a href="#">Esqueci minha senha</a>'
-        //             }
-        //             error.style.color = 'red';
-        //         } else if (resposta.login !== null) {
-        //             sessao.logar(resposta, function () {
-        //                 var redirect = sessao.getRed().redirect;
-        //                 areaRestrita(redirect);
-        //             });
-        //         }
-        //     },
-        //     error: function (jqXHR, textStatus, error) {
-        //         console.log(jqXHR, textStatus, error);
-        //     }
-        // });
+        axios.post('http://localhost:5000/usuario', jsonCadastro)
+            .then((response) => {
+                axios.post('http://localhost:5000/auth', {
+                    cpf: jsonCadastro.cpf,
+                    senha: senha
+                })
+                    .then((response) => {
+                        sessao.logar(response.data, function () {
+                            var redirect = sessao.getRed().redirect;
+                            areaRestrita(redirect);
+                        });
+                    });
+            })
     }
 }

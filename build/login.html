@@ -22,6 +22,9 @@
         crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
         crossorigin="anonymous"></script>
+    
+        <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="./js/session.js"></script>
 </head>
@@ -104,7 +107,7 @@
     </header>
     <main>
         <div id="login-form" class="login-form">
-            <form onsubmit="login(event)" action="index.html" method="post">
+            <form onsubmit="login(event)" method="post">
                 <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Realizar Login</h1>
                 <p>Prezado participante, você ainda não está logado. Para se inscrever no evento, minicursos ou submeter trabalhos,
                     você precisa estar logado</p>

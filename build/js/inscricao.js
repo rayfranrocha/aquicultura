@@ -37,6 +37,12 @@ function proximo(event) {
     if (passoAtual < 4) {
         location.href = "#form";
         esconderEMostrar('passo' + passoAtual, 'passo' + (passoAtual + 1));
+        switch (passoAtual) {
+            case 1:
+                
+                break;
+        }
+
         passoAtual = passoAtual + 1;
         var texto_atual = document.getElementById('textoPassoAtual').innerText;
         texto_atual = "PASSO " + passoAtual + " DE 4";
