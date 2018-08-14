@@ -1,8 +1,8 @@
 var sessao;
 // var baseUrl = 'http://192.168.0.105:8080/netbarco-ws/api/siteCongresso/usuario';
-// var location_ = 'http://iconsti.com/aquicultura';
-var indexSliceLocation = location.href.search(/[a-z]*.html$/);
-var location_ = location.href.substring(0,indexSliceLocation-1);
+var location_ = 'http://aquiculturanaamazonia.com.br';
+// var indexSliceLocation = location.href.search(/[a-z]*.html$/;);
+// var location_ = location.href.substring(0,indexSliceLocation-1);
 jQuery.support.cors = true;
 $(document).ready(function () {
     var db = new Dexie("dbusuario");
@@ -189,6 +189,18 @@ function cadastrar(event, redirecionar) {
         var jsonTemp = {
             login: "00423864203"
         };
+<<<<<<< HEAD
+=======
+        sessao.logar(jsonTemp, function () {
+            if(redirecionar){
+                sessao.setRed(redirecionar);
+                areaRestrita(redirecionar);
+            }else{
+                var redirect = sessao.getRed().redirect;
+                areaRestrita(redirect);
+            }
+        });
+>>>>>>> 2c783e6207b82f95886b3bc8ec479a6686e53528
 
         axios.post('http://localhost:5000/usuario', jsonCadastro)
             .then((response) => {
