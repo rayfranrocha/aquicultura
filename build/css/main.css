@@ -9,6 +9,12 @@ big-desktop*/
   margin: 0px;
   padding: 0px;
 }
+.owl-carousel .owl-item img{
+    display: block;
+    width: auto !important;
+    max-height: 14rem !important;
+}
+
 @media (max-width: 56.25em) {
   * *:focus {
     outline: none;
