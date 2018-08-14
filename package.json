@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "sass ./sass/main.scss ./build/css/main.css"
+    "build": "sass ./sass/main.scss ./build/css/main.css",
+    "start": "browser-sync start --server 'build' --files 'build' --single"
   },
   "repository": {
     "type": "git",
