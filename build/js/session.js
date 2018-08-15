@@ -2,7 +2,8 @@ var sessao;
 // var baseUrl = 'http://192.168.0.105:8080/netbarco-ws/api/siteCongresso/usuario';
 var ambiente = {
     'localhost': "http://localhost:3000",
-    'aquiculturanaamazonia.com.br':  'http://aquiculturanaamazonia.com.br'
+    'aquiculturanaamazonia.com.br':  'http://aquiculturanaamazonia.com.br',
+    'www.aquiculturanaamazonia.com.br': 'http://www.aquiculturanaamazonia.com.br'
 }
 var location_ = ambiente[location.hostname];
 // var indexSliceLocation = location.href.search(/[a-z]*.html$/;);
