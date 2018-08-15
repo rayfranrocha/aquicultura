@@ -47,7 +47,7 @@ module.exports = {
         },
 
         proximo () {
-            axios.put(`http://localhost:5000/inscricao/${this.id}`, {dadosBoleto: this.dadosBoleto})
+            axios.put(`/inscricao/${this.id}`, {dadosBoleto: this.dadosBoleto})
                 .then(response => this.$router.push({name: 'passo3'}))
         }
     }

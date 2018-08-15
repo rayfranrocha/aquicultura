@@ -24,6 +24,16 @@
         crossorigin="anonymous"></script>
     
         <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+        <script>
+            var ambiente = {
+                'localhost': "http://localhost:5000",
+                'aquiculturanaamazonia.com.br':  'http://api.aquiculturanaamazonia.com.br',
+                'www.aquiculturanaamazonia.com.br': 'http://api.aquiculturanaamazonia.com.br'
+            }
+            console.log(ambiente[location.hostname]);
+            axios.defaults.baseURL = ambiente[location.hostname];
+            console.log('axios', axios.defaults.baseURL);
+        </script>
 
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
     <script src="./js/session.js"></script>

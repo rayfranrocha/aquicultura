@@ -38,7 +38,7 @@ module.exports = {
     methods: {
         proximo () {
             this.dadosInscricao.user = window.localStorage.getItem("user")
-            axios.post('http://localhost:5000/inscricao', this.dadosInscricao)
+            axios.post('/inscricao', this.dadosInscricao)
                 .then(response => {
                     this.$store.dispatch('setIdInscricao', response.data._id);
                     this.$router.push({name: 'passo2'});

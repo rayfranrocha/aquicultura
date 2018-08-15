@@ -9,6 +9,16 @@ var Passo2 = httpVueLoader('./js/components/inscricao/passo2.vue');
 var Passo3 = httpVueLoader('./js/components/inscricao/passo3.vue');
 var Passo4 = httpVueLoader('./js/components/inscricao/passo4.vue');
 
+var ambiente = {
+  'localhost': "http://localhost:5000",
+  'aquiculturanaamazonia.com.br':  'http://api.aquiculturanaamazonia.com.br',
+  'www.aquiculturanaamazonia.com.br': 'http://api.aquiculturanaamazonia.com.br'
+}
+
+console.log(ambiente[location.hostname]);
+axios.defaults.baseURL = ambiente[location.hostname];
+console.log('axios', axios.defaults.baseURL);
+
 /* Router and App setup: */
 var routes = [{
   path: '/home',

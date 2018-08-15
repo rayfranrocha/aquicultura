@@ -111,7 +111,7 @@ module.exports = {
         }
     },
     created () {
-        axios.get('http://localhost:5000/vaga')
+        axios.get('/vaga')
             .then(response => this.listMinicurso = response.data)
     },
     data: function () {
@@ -189,9 +189,9 @@ module.exports = {
             this.dadosInscricao.totalAPagar = this.valorTotal;
             this.dadosInscricao.valorInscricao = this.valorInscricao;
             
-            axios.put(`http://localhost:5000/inscricao/${this.id}`, this.dadosInscricao)
+            axios.put(`/inscricao/${this.id}`, this.dadosInscricao)
                 .then(response => {
-                    axios.post('http://localhost:5000/pagseguro', {id: this.id})
+                    axios.post('/pagseguro', {id: this.id})
                         .then(response => {
                             console.log('Pagesguro response', response.data)
 
@@ -202,7 +202,7 @@ module.exports = {
                                 success: function(transactionCode) {
                                     console.log(transactionCode)
                                     this.dadosInscricao.pagseguro.transactionCode = transactionCode
-                                    axios.put(`http://localhost:5000/inscricao/${this.id}`, this.dadosInscricao)
+                                    axios.put(`/inscricao/${this.id}`, this.dadosInscricao)
                                         .then(reponse => {
 
                                         });

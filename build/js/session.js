@@ -156,7 +156,7 @@ function login(event) {
         login: "00423864203"
     };
 
-    axios.post('http://localhost:5000/auth', {
+    axios.post('/auth', {
         cpf: cpf.replace(/[\.\-]/g, ''),
         senha: senha
     })
@@ -194,9 +194,9 @@ function cadastrar(event, redirecionar) {
             "cpf": cpf.replace(/[\.\-]/g, '')
         };
 
-        axios.post('http://localhost:5000/usuario', jsonCadastro)
+        axios.post('/usuario', jsonCadastro)
             .then((response) => {
-                axios.post('http://localhost:5000/auth', {
+                axios.post('/auth', {
                     cpf: jsonCadastro.cpf,
                     senha: senha
                 })
