@@ -10,84 +10,33 @@ var location_ = ambiente[location.hostname];
 // var location_ = location.href.substring(0,indexSliceLocation-1);
 jQuery.support.cors = true;
 $(document).ready(function () {
-    var db = new Dexie("dbusuario");
-    var userSession = {};
-    var userRedirect = {};
-    db.version(1).stores({
-        user: '&id,cpf,email',
-        redirect: '&id'
-    });
-    db.version(2).stores({
-        user: '&id,cpf',
-        redirect: '&id'
-    }).upgrade((tx) => {
-        return tx.user.toCollection().modify(function (user) {
-            delete user.email;
-            delete user.nome;
-        });
-    });
-    db.open().catch(function (e) {
-        console.error("Open failed: " + e);
-    });
-    /*---Get para objeto de redirecionar---*/
-    db.redirect.get('1')
-        .then(function (res) {
-            if (res === undefined) {
-                db.redirect.put(objetoRedirect()).then(function () {
-                    console.log('Criado redirect');
-                    userRedirect = objetoRedirect();
-                });
-            } else {
-                userRedirect = res;
-            }
-        });
-    /*---Get para objeto de sessão---*/
-    db.user.get('1')
-        .then(function (res) {
-            if (res === undefined) {
-                db.user.put({ id: '1', isLogado: false, cpf: '' }).then(function () {
-                    console.log('Criado');
-                    userSession = { id: '1', isLogado: false, cpf: '' };
-                });
-            } else {
-                userSession = res;
-            }
-        }).catch(function (err) {
-            console.error('Failed to open db: ' + (err.stack || err));
-        });
-    function logar(dados, callback) {
-        db.user.put({ id: dados.id, isLogado: true, cpf: dados.cpf, token: dados.token }).then(function () {
-            window.localStorage.setItem('user', dados.id);
-            userSession = { id: dados.id, isLogado: true, cpf: dados.cpf };
-        })
-            .then(function () {
-                if (callback) {
-                    callback();
-                }
-            })
-    }
-    function deslogar(callback) {
-        db.user.put({ id: '1', isLogado: false, cpf: '' })
-            .then(function () {
-                if (callback) {
-                    callback();
-                }
-            });
-    }
-    async function getDados() {
-        let user = await db.user.get(window.localStorage.getItem("user"));
-        return user;
-    }
-    function setRed(red) {
-        db.redirect.put({ id: '1', redirect: red }).then(function () {
 
-        });
+    function logar(dados, callback) {
+        window.localStorage.setItem('user', dados.id);
+        window.localStorage.setItem('auth-token', dados.token);
+
+        callback();
+    }
+
+    function deslogar(callback) {
+       window.localStorage.removeItem('user');
+       window.localStorage.removeItem('auth-token');
+       callback();
+    }
+    
+    function getDados() {
+        return JSON.parse(decodeURIComponent(escape(window.atob( window.localStorage.getItem('auth-token').split('.')[1] ))));
+    }
+
+    function setRed(red) {
+        window.localStorage.setItem('redirect', red);
     }
     function getRed() {
-        return userRedirect;
+        return window.localStorage.getItem('redirect');
     }
+    
     function isLogado() {
-        return userSession.isLogado;
+        return window.localStorage.getItem('auth-token');
     }
     sessao = (function () {
         return {
@@ -109,7 +58,7 @@ function areaRestrita(redirecionar) {
             window.location.href = location_ + '/inscricao.html#/home/passo1';
         }
         else if (redirecionar === "trabalhos") {
-            window.location.href = location_ + '/trabalhos.html';
+            window.location.href = location_ + '/trabalhos.html#/form';
         } else {
             window.location.href = location_ + '/arearestrita.html';
         }
@@ -143,28 +92,22 @@ function logout() {
 }
 function login(event) {
     event.preventDefault();
+
     var cpf, senha, error;
     senha = document.getElementById('senha_log').value;
     cpf = document.getElementById('cpf_log').value;
     error = document.getElementById('erro_login');
-    //Chamar webservice com dados
-    var dados__ = {
-        login: cpf,
-        senha: senha
-    };
-    var jsonTemp = {
-        login: "00423864203"
-    };
 
-    axios.post('/auth', {
-        cpf: cpf.replace(/[\.\-]/g, ''),
-        senha: senha
-    })
+    axios.post('/auth', {cpf: cpf.replace(/[\.\-]/g, ''),senha: senha})
         .then((response) => {
             sessao.logar(response.data, function () {
                 var redirect = sessao.getRed().redirect;
                 areaRestrita(redirect);
             });
+        })
+        .catch(error => {
+            jQuery('#msg-error-login').text(error.response.data.message);
+            jQuery('#error-login').show();
         });
 }
 function cadastrar(event, redirecionar) {

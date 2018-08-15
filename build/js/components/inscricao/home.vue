@@ -49,9 +49,7 @@
         <div class="container card">
 
             <div class="formulario-contato">
-                <form id="form" method="post">
-                    <router-view></router-view>
-                </form>
+                <router-view></router-view>
             </div>
         </div>
     </div>
