@@ -1,6 +1,10 @@
 var sessao;
 // var baseUrl = 'http://192.168.0.105:8080/netbarco-ws/api/siteCongresso/usuario';
-var location_ = 'http://aquiculturanaamazonia.com.br';
+var ambiente = {
+    'localhost': "http://localhost:3000",
+    'aquiculturanaamazonia.com.br':  'http://aquiculturanaamazonia.com.br'
+}
+var location_ = ambiente[location.hostname];
 // var indexSliceLocation = location.href.search(/[a-z]*.html$/;);
 // var location_ = location.href.substring(0,indexSliceLocation-1);
 jQuery.support.cors = true;
@@ -52,6 +56,7 @@ $(document).ready(function () {
         });
     function logar(dados, callback) {
         db.user.put({ id: dados.id, isLogado: true, cpf: dados.cpf, token: dados.token }).then(function () {
+            window.localStorage.setItem('user', dados.id);
             userSession = { id: dados.id, isLogado: true, cpf: dados.cpf };
         })
             .then(function () {
@@ -68,8 +73,9 @@ $(document).ready(function () {
                 }
             });
     }
-    function getDados() {
-        return userSession;
+    async function getDados() {
+        let user = await db.user.get(window.localStorage.getItem("user"));
+        return user;
     }
     function setRed(red) {
         db.redirect.put({ id: '1', redirect: red }).then(function () {
@@ -99,7 +105,7 @@ function objetoRedirect() {
 function areaRestrita(redirecionar) {
     if (sessao.isLogado()) {
         if (redirecionar === "inscricao") {
-            window.location.href = location_ + '/inscricao.html';
+            window.location.href = location_ + '/inscricao.html#/home/passo1';
         }
         else if (redirecionar === "trabalhos") {
             window.location.href = location_ + '/trabalhos.html';
@@ -186,21 +192,6 @@ function cadastrar(event, redirecionar) {
             "senha": senha,
             "cpf": cpf.replace(/[\.\-]/g, '')
         };
-        var jsonTemp = {
-            login: "00423864203"
-        };
-<<<<<<< HEAD
-=======
-        sessao.logar(jsonTemp, function () {
-            if(redirecionar){
-                sessao.setRed(redirecionar);
-                areaRestrita(redirecionar);
-            }else{
-                var redirect = sessao.getRed().redirect;
-                areaRestrita(redirect);
-            }
-        });
->>>>>>> 2c783e6207b82f95886b3bc8ec479a6686e53528
 
         axios.post('http://localhost:5000/usuario', jsonCadastro)
             .then((response) => {
