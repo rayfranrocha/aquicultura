@@ -196,13 +196,18 @@ module.exports = {
                             console.log('Pagesguro response', response.data)
 
                             PagSeguroLightbox({
-                                code: response.data.checkout.code[0]
+                                code: response.data.checkout.code[0],
+                                iot: 'button'
                             }, {
                                 success: function(transactionCode) {
                                     console.log(transactionCode)
+                                    this.dadosInscricao.pagseguro.transactionCode = transactionCode
+                                    axios.put(`http://localhost:5000/inscricao/${this.id}`, this.dadosInscricao)
+                                        .then(reponse => {
+
+                                        });
                                 },
                                 abort: function() {
-                                    alert('abort');
                                 }
                             });
                         });
