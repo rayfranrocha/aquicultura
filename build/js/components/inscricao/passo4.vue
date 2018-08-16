@@ -199,6 +199,8 @@ module.exports = {
                 var arquivo = document.querySelector('#arquivo');
                 formData.append("file", arquivo.files[0]);
 
+                const self = this;
+
                 axios.post(`/inscricao/${this.id}/comprovante`, formData, {headers: {'Content-Type': 'multipart/form-data'}})
                     .then(response => {
                        axios.put(`/inscricao/${this.id}`, this.dadosInscricao)
@@ -212,10 +214,11 @@ module.exports = {
                                     }, {
                                         success: function(transactionCode) {
                                             console.log(transactionCode)
-                                            this.dadosInscricao.pagseguro.transactionCode = transactionCode
-                                            axios.put(`/inscricao/${this.id}`, this.dadosInscricao)
+                                            self.dadosInscricao.transactionCode = transactionCode
+                                            axios.put(`/inscricao/${self.id}`, self.dadosInscricao)
                                                 .then(reponse => {
-
+                                                    console.log(response.data);
+                                                    window.location.href = "arearestrita.html";
                                                 });
                                         },
                                         abort: function() {
@@ -225,6 +228,7 @@ module.exports = {
                         }); 
                     });
             } else {
+                const self = this;
                 axios.put(`/inscricao/${this.id}`, this.dadosInscricao)
                 .then(response => {
                     axios.post('/pagseguro', {id: this.id})
@@ -236,10 +240,11 @@ module.exports = {
                             }, {
                                 success: function(transactionCode) {
                                     console.log(transactionCode)
-                                    this.dadosInscricao.pagseguro.transactionCode = transactionCode
-                                    axios.put(`/inscricao/${this.id}`, this.dadosInscricao)
+                                    self.dadosInscricao.transactionCode = transactionCode
+                                    axios.put(`/inscricao/${self.id}`, self.dadosInscricao)
                                         .then(reponse => {
-                                            window.location.href= "/arearestrita.html"
+                                            console.log(response.data);
+                                            window.location.href = "arearestrita.html";
                                         });
                                 },
                                 abort: function() {
