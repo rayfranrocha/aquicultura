@@ -57,15 +57,15 @@ module.exports = {
                 return ''
             }
 
-            if (this.inscricao.statusPagseguro && this.inscricao.statusPagseguro.transaction.status[0] === 3) {
+            if (this.inscricao.statusPagseguro && this.inscricao.statusPagseguro.transaction.status[0] === '3') {
                 return 'PAGAMENTO CONFIRMADO'
             }
 
-            if (this.inscricao.statusPagseguro && this.inscricao.statusPagseguro.transaction.status[0] === 1) {
+            if (this.inscricao.statusPagseguro && this.inscricao.statusPagseguro.transaction.status[0] === '1') {
                 return 'AGUARDANDO PAGAMENTO'
             }
 
-            if (this.inscricao.statusPagseguro && this.inscricao.statusPagseguro.transaction.status[0] === 2) {
+            if (this.inscricao.statusPagseguro && this.inscricao.statusPagseguro.transaction.status[0] === '2') {
                 return 'EM ANÁLISE PELO PAGSEGURO'
             }
 
