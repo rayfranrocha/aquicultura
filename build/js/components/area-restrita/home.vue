@@ -22,7 +22,7 @@
                 <li class="dado">Status: {{statusPagamento}}</li>
                 <li class="dado">Tipo de Inscrição: {{inscricao.tipoInscricao}}</li>
                 <li class="dado">Minicurso escolhido: {{minicurso}}</li>
-                <li class="dado">Total Pago: {{inscricao.totalAPagar}}</li>
+                <li class="dado">Total Pago: {{formataMoney(inscricao.totalAPagar)}}</li>
 
             </ul>
         </div>
@@ -93,6 +93,12 @@ module.exports = {
                 }
             })
     },
+
+    methods: {
+        formataMoney (valor) {
+            return `R$ ${valor.toLocaleString('pt-BR',{minimumFractionDigits: 2, maximumFractionDigits: 2})}`
+        }
+    }
 }
 </script>
 
