@@ -47,7 +47,7 @@ var routes = [{
     }
   ]
 },
-{path: '*', redirect: '/home'}];
+{path: '*', redirect: '/home/passo1'}];
 
 var router = new VueRouter({
   routes: routes

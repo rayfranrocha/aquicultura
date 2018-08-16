@@ -1,6 +1,5 @@
 <template>
     <div>
-        <form @submit.prevent="pagar()" id="form" method="post">
             <input type="hidden" name="iot" value="button" />
             <fieldset>
                 <div class="row">
@@ -93,10 +92,9 @@
                     <button @click.prevent="anterior()" id="btAnterior" class="bt-flat-azul" type="button">Anterior</button>
                 </div>
                 <div class="col" id="proximo">
-                    <button type="submit" class="bt-flat-azul">Realizar pagamento</button>
+                    <button @click="pagar()" class="bt-flat-azul">Realizar pagamento</button>
                 </div>
             </div>
-        </form>
         
     </div>
 </template>
@@ -195,7 +193,7 @@ module.exports = {
             this.dadosInscricao.totalAPagar = this.valorTotal;
             this.dadosInscricao.valorInscricao = this.valorInscricao;
             
-            if (this.dadosInscricao.minicurso) {
+            if (this.dadosInscricao.tipoInscricao === 'ESTUDANTE' || this.dadosInscricao.tipoInscricao === 'ESTUDANTE_POS') {
                 var formData = new FormData();
                 
                 var arquivo = document.querySelector('#arquivo');
@@ -234,15 +232,14 @@ module.exports = {
                             console.log('Pagesguro response', response.data)
 
                             PagSeguroLightbox({
-                                code: response.data.checkout.code[0],
-                                iot: 'button'
+                                code: response.data.checkout.code[0]
                             }, {
                                 success: function(transactionCode) {
                                     console.log(transactionCode)
                                     this.dadosInscricao.pagseguro.transactionCode = transactionCode
                                     axios.put(`/inscricao/${this.id}`, this.dadosInscricao)
                                         .then(reponse => {
-
+                                            window.location.href= "/arearestrita.html"
                                         });
                                 },
                                 abort: function() {
