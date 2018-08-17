@@ -1035,7 +1035,7 @@ div[class^=conteudoImagem] {
 }
 
 .conteudoImagem2 {
-  background: linear-gradient(to bottom, rgba(41, 176, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url("../img/BANNER-BACKGROUND.jpg") center center no-repeat;
+  background: url("../img/BANNER-BACKGROUND.jpg") center center no-repeat;
 }
 
 .conteudoImagem2 > * {
@@ -1045,7 +1045,7 @@ div[class^=conteudoImagem] {
 }
 
 .conteudoImagem3 {
-  background: linear-gradient(to bottom, rgba(41, 176, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
 }
 
 .section-services {
