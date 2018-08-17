@@ -11,7 +11,7 @@
                     <tr>
                         <th scope="col">Categoria</th>
                         <th scope="col">Até 21/09</th>
-                        <th scope="col">21/10 a 02/11</th>
+                        <th scope="col">21/09 a 02/11</th>
                         <th scope="col">Local</th>
                     </tr>
                 </thead>
