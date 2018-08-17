@@ -9,15 +9,6 @@ big-desktop*/
   margin: 0px;
   padding: 0px;
 }
-.owl-carousel .owl-item img{
-    display: block;
-    width: auto !important;
-    max-height: 20rem !important;
-    left: 15%;
-    position: relative;
-}
-
-
 @media (max-width: 56.25em) {
   * *:focus {
     outline: none;
@@ -669,6 +660,14 @@ label.light {
   width: 100%;
 }
 
+.owl-carousel .owl-item img {
+  display: block;
+  width: auto !important;
+  max-height: 20rem !important;
+  left: 15%;
+  position: relative;
+}
+
 .popup {
   width: 100%;
   height: 100%;
@@ -1032,12 +1031,17 @@ div[class^=conteudoImagem] {
 }
 
 .conteudoImagem1 {
-  background: url("../img/BANNER-WEBPRINCIPAL.jpg") center center no-repeat;
+  background: url("../img/BANNER-PRINCIPAL.jpg") center center no-repeat;
 }
 
-.conteudoImagem2{
-	background:linear-gradient(to bottom,rgba(41,176,0,0.6) 0%,rgba(0,0,0,0) 100%)
-	,url('../img/BANNER-BACKGROUND.jpg') center center no-repeat;
+.conteudoImagem2 {
+  background: linear-gradient(to bottom, rgba(41, 176, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%), url("../img/BANNER-BACKGROUND.jpg") center center no-repeat;
+}
+
+.conteudoImagem2 > * {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .conteudoImagem3 {
