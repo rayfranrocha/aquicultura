@@ -1,14 +1,120 @@
 <!DOCTYPE html>
-<html lang="en-us">
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="css/style.css">
-</head>
-<body>
+<html lang="pt-br">
 
-<h1>
-Galeria de Fotos - Aquicultura na Amazônia
-</h1>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>II Encontro de Aquicultura na Amazônia Ocidental</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="./css/plugins-css-and-files/fbgallery.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="./js/fbgallery.js"></script>
+    <script src="./js/popup.js"></script>
+    <script src="./js/session.js"></script>
+</head>
+
+<body>
+    <header>
+      <a href="#" id="top"></a>
+        <div class="header">
+            <div class="row">
+                <div class="header-logo">
+                    <a href="./index.html">
+                        <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
+                    </a>
+                </div>
+                <div class=" header-logo-text-side">
+                    <h1 class="primary-title u-center-vertical">II Encontro de Aquicultura na Amazônia Ocidental</h1>
+                </div>
+                <div class="header-acesso-rapido">
+                    <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
+                        <i class="material-icons">person</i>Área restrita</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg " id="navbar">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="material-icons u-center-relative">menu</i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Evento
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./comissao.html">Comissão Organizadora</a>
+                            <a class="dropdown-item" href="./index.html#section-sobre">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./programacao.html" id="navbarDropdown2" role="button" aria-haspopup="true" aria-expanded="false">
+                            Programação
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown3" role="button" aria-haspopup="true" onclick="areaRestrita('inscricao')"
+                            aria-expanded="false">
+                            Inscrições
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" aria-haspopup="true" style="cursor: pointer" onclick="areaRestrita('trabalhos')"
+                            aria-expanded="false">
+                            Trabalhos
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="./contato.html" role="button" aria-haspopup="true" aria-expanded="false">
+                            Contatos
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Informações Úteis
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./index.html#localizacao" style="cursor: pointer" role="button" aria-haspopup="true" aria-expanded="false">
+                                Local do evento
+                            </a>
+                            <a class="dropdown-item" href="./turismo.html">Passeios e turismos</a>
+                            <a class="dropdown-item" href="./infomanaus.html">Chegando em Manaus</a>
+                        </div>
+                    </li>  
+					<li class="nav-item ">
+                        <a class="nav-link " href="./galeriaFotos.html" role="button" aria-haspopup="true" aria-expanded="false">
+                            Galeria de Fotos
+                        </a>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div id="gallery-container">
+
+		            <h3 class="heading-secondary u-margin-top-small " style="text-align: center">Galeria de Fotos - Aquicultura na Amazônia</h3>
 	
 	<script src="https://www.publicalbum.org/js/pa-embed-player.min.js" async></script>
 
@@ -178,5 +284,109 @@ Galeria de Fotos - Aquicultura na Amazônia
   <img data-src="https://lh3.googleusercontent.com/oV3VhNXUC62Ob1uyYyDn--yMNvgxSrGRZXe86AOQ8s1Q5Pxn81iJyBRrcxAMknZeP1Koe9lBL67QthKI1rtk5Jqbej_r9OPjWeDJnM-UYBpqJ8sEhWHy0ehU18OsDBp6KFOEXOOwFg=w1632-h1014" src="" alt="" />
 </div>
 
+		
+        </div>
+    </main>
+    <footer id="footer">
+        <div>
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Links rápidos</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="./index.html#section-sobre">
+                                <i class="fa fa-angle-double-right"></i>Sobre o evento</a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" onclick="areaRestrita('inscricao')">
+                                <i class="fa fa-angle-double-right"></i>Inscrições</a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" onclick="areaRestrita('trabalhos')">
+                                <i class="fa fa-angle-double-right"></i>Envio de trabalhos</a>
+                        </li>
+                        <li>
+                            <a href="./index.html#localizacao">
+                                <i class="fa fa-angle-double-right"></i>Local</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Entre em contato</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <i class="fa fas fa-phone"></i> Fone: (92) 3643-2022
+                        </li>
+                        <li>
+                            <i class="fa fas fa-phone"></i> Cel (92) 98175-0930
+                        </li>
+                        <li>
+                            <i class="fa fas fa-envelope"></i> aquicultura@niltonlins.br
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Informações úteis</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="./turismo.html">
+                                <i class="fa fa-angle-double-right"></i>Passeios e turismos</a>
+                        </li>
+                        <li>
+                            <a href="./infomanaus.html">
+                                <i class="fa fa-angle-double-right"></i>Chegando em Manaus</a>
+                        </li>
+                        <li>
+                            <a href="./index.html#localizacao">
+                                <i class="fa fa-angle-double-right"></i>Local do evento</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <!-- <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li> -->
+                        <!-- <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();" target="_blank">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p class="h6">&copy Todos os direitos reservados. Desenvolvido por ICON STI
+                    </p>
+                </div>
+                </hr>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="./js/default.js" type="text/javascript"></script>
 </body>
+
 </html>
