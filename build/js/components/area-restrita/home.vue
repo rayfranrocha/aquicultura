@@ -44,6 +44,21 @@
                 </a>
             </div>
         </div>
+        <div class="card container" v-if="user.admin">
+            <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">MENU ADMINISTRADOR</h1>
+            <div style="padding: 0 3rem;" class="u-margin-top-small">
+                <router-link class="btn btn-warning btn-lg btn-block"
+                    :to="{name: 'AprovacaoTrabalhos'}">
+                    Aprovar Trabalhos Submetidos
+                </router-link>
+            </div>
+            <div style="padding: 0 3rem;" class="u-margin-top-small">
+                <router-link class="btn btn-warning btn-lg btn-block"
+                    :to="{name: 'ListInscricoes'}">
+                   Inscrições Realizadas
+                </router-link>
+            </div>
+        </div>
     </div>
 </template>
 <script>
