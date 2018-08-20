@@ -4,6 +4,8 @@
 // https://github.com/kafkaca/vue-without-webpack/tree/master/js
 
 var HomeAreaRestrita = httpVueLoader('./js/components/area-restrita/home.vue');
+var AprovacaoTrabalho = httpVueLoader('./js/components/area-restrita/aprovacao-trabalho.vue');
+var ListInscricoes = httpVueLoader('./js/components/area-restrita/list-inscricoes.vue');
 
 var ambiente = {
   'localhost': "http://localhost:5000",
@@ -20,6 +22,14 @@ var routes = [{
   path: '/home',
   name: 'homeAreaRestrita',
   component: HomeAreaRestrita
+},{
+  path: '/aprovacao-trabalhos',
+  name: 'AprovacaoTrabalhos',
+  component: AprovacaoTrabalho
+},{
+  path: '/list-inscricoes',
+  name: 'ListInscricoes',
+  component: ListInscricoes
 },
 {path: '*', redirect: '/home'}];
 
