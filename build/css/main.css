@@ -433,7 +433,7 @@ a.btn.btn-success:visited {
   margin-bottom: 0.5rem;
   display: inline-block;
   color: transparent;
-  background-image: linear-gradient(to right, #146b05, #057952);
+  /*background-image: linear-gradient(to right, #146b05, #057952);*/
   -webkit-background-clip: text;
 }
 @media (max-width: 56.25em) {
@@ -1035,7 +1035,7 @@ div[class^=conteudoImagem] {
 }
 
 .conteudoImagem2 {
-  background: url("../img/BANNER-BACKGROUND.jpg") center center no-repeat;
+  background: url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
 }
 
 .conteudoImagem2 > * {
