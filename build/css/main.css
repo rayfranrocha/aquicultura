@@ -433,7 +433,7 @@ a.btn.btn-success:visited {
   margin-bottom: 0.5rem;
   display: inline-block;
   color: transparent;
-  /*background-image: linear-gradient(to right, #146b05, #057952);*/
+  background-image: linear-gradient(to right, #146b05, #057952);
   -webkit-background-clip: text;
 }
 @media (max-width: 56.25em) {
@@ -806,14 +806,10 @@ label.light {
 }
 
 .header-acesso-rapido {
-  float: right;
-  left: 5%;
   position: relative;
-}
-@media (max-width: 75em) {
-  .header-acesso-rapido {
-    left: 10%;
-  }
+  top: 50%;
+  transform: translateY(-50%);
+  margin-right: 1rem;
 }
 @media (max-width: 56.25em) {
   .header-acesso-rapido {
@@ -849,7 +845,7 @@ label.light {
 
 .header-logo {
   display: block;
-  width: 20%;
+  width: 100%;
   top: 50%;
   position: relative;
   transform: translateY(-50%);
@@ -863,16 +859,8 @@ label.light {
 }
 
 .header-logo-img {
-  width: 50%;
-  margin: 0 20%;
   position: relative;
   display: block;
-}
-@media (min-width: 90em) {
-  .header-logo-img {
-    margin: 0 10%;
-    width: 60%;
-  }
 }
 
 .navbar {
@@ -992,6 +980,14 @@ section .section-title {
   color: yellow;
 }
 
+.custom-flex-header {
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: 100%;
+  align-items: center;
+}
+
 .navbar-fixed-top {
   position: fixed;
   z-index: 100;
@@ -1045,7 +1041,7 @@ div[class^=conteudoImagem] {
 }
 
 .conteudoImagem3 {
-  background: url("https://upload.wikimedia.org/wikipedia/commons/a/ae/Ponte-Rio-Negro-Manaus.jpg") center center no-repeat;
+  background: url("../img/BANNER-WEB-PRAZOS-DE-SUBMISSAO.jpg") center center no-repeat;
 }
 
 .section-services {
