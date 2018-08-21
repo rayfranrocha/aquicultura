@@ -28,9 +28,8 @@
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="tipoPagamento">Pagamento *</label>
                             </div>
-                            <select required v-model="dadosInscricao.formaPagamento" class="custom-select" id="tipoPagamento">
-                                <option :value="null" selected>Escolha um modo de pagamento...</option>
-                                <option value="PAGSEGURO">Cartão ou Boleto Bancário via Pagseguro</option>
+                            <select disabled="disabled" required v-model="dadosInscricao.formaPagamento" class="custom-select" id="tipoPagamento">
+                                <option value="PAGSEGURO" selected>Cartão ou Boleto Bancário via Pagseguro</option>
                             </select>
                         </div>
                         <div v-if="dadosInscricao.tipoInscricao !== 'MINI_CURSO'" class="form-group form-check">
@@ -123,7 +122,7 @@ module.exports = {
             minicursoSelected: null,
             dadosInscricao: {
                 tipoInscricao: null,
-                formaPagamento: null,
+                formaPagamento: 'PAGSEGURO',
                 minicurso: null
             },
             participaMinicurso: false,

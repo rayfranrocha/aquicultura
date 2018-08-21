@@ -80,6 +80,10 @@ module.exports = {
                 return 'AGUARDANDO PAGAMENTO'
             }
 
+            if (this.inscricao.statusPagseguro && this.inscricao.statusPagseguro.transaction.status[0] === '6') {
+                return 'PAGAMENTO CANCELADO/DEVOLVIDO PELO PAGSEGURO'
+            }
+
             if (this.inscricao.statusPagseguro && this.inscricao.statusPagseguro.transaction.status[0] === '2') {
                 return 'EM ANÁLISE PELO PAGSEGURO'
             }
