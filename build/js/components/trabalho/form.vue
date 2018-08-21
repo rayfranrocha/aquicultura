@@ -59,7 +59,7 @@ module.exports = {
 
           axios.post('/trabalho', formData, {headers: {'Content-Type': 'multipart/form-data'}})
             .then(response => {
-                window.location.href = "index.html";
+                window.location.href = "trabalhos.html#/list-trabalho";
             });
       }
   }
