@@ -59,7 +59,11 @@ function areaRestrita(redirecionar) {
         }
         else if (redirecionar === "trabalhos") {
             window.location.href = location_ + '/trabalhos.html#/form';
-        } else {
+        } 
+        else if (redirecionar === "meusTrabalhos"){
+            window.location.href = location_ + '/trabalhos.html#/list-trabalho';     
+        }
+        else {
             window.location.href = location_ + '/arearestrita.html';
         }
     } else {
