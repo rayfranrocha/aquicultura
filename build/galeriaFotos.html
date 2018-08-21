@@ -30,107 +30,96 @@
 
 <body>
     <header>
-                <a href="#" id="top"></a>
-                <div class="header">
-                    <div class="custom-flex-header">
-                        <div class="header-logo" style="margin-left: 20px;">
-                            <a href="./index.html">
-                                <img src="./img/logo.png" style="width: 30%;" class="header-logo-img" alt="Imagem: Logo do evento">
+        <a href="#" id="top"></a>
+        <div class="header">
+            <div class="custom-flex-header">
+                <div class="header-logo" style="margin-left: 20px;">
+                    <a href="./index.html">
+                        <img src="./img/logo.png" style="width: 30%;" class="header-logo-img" alt="Imagem: Logo do evento">
+                    </a>
+                </div>
+                <div class="header-acesso-rapido" style="margin-left: auto;">
+                    <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
+                        <i class="material-icons">person</i>Área restrita</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg " id="navbar">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="material-icons u-center-relative">menu</i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Evento
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./comissao.html">Comissão Organizadora</a>
+                            <a class="dropdown-item" href="./index.html#section-sobre">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./programacao.html" id="navbarDropdown2" role="button" aria-haspopup="true" aria-expanded="false">
+                            Programação
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown3" role="button" aria-haspopup="true" onclick="areaRestrita('inscricao')"
+                            aria-expanded="false">
+                            Inscrições
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" aria-haspopup="true" style="cursor: pointer" data-toggle="dropdown"
+                            aria-expanded="false">
+                            Trabalhos
+                        </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="./orientacaopremios.html" style="cursor: pointer" role="button" aria-haspopup="true" aria-expanded="false">
+                                Orientações e Prêmios
+                            </a>
+                            <a class="dropdown-item" href="#" onclick="areaRestrita('trabalhos')" style="cursor: pointer" role="button" aria-haspopup="true"
+                                aria-expanded="false">
+                                Submeter Trabalhos
+                            </a>
+                            <a class="dropdown-item" href="#" onclick="areaRestrita('meusTrabalhos')" style="cursor: pointer" role="button" aria-haspopup="true"
+                                aria-expanded="false">
+                                Consultar Trabalhos
                             </a>
                         </div>
-                        <div class="header-acesso-rapido" style="margin-left: auto;">
-                            <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
-                                <i class="material-icons">person</i>Área restrita</a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="./contato.html" role="button" aria-haspopup="true" aria-expanded="false">
+                            Contatos
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Informações Úteis
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./index.html#localizacao" style="cursor: pointer" role="button" aria-haspopup="true" aria-expanded="false">
+                                Local do evento
+                            </a>
+                            <a class="dropdown-item" href="./turismo.html">Passeios e turismos</a>
+                            <a class="dropdown-item" href="./infomanaus.html">Chegando em Manaus</a>
+                            <a class="dropdown-item" href="./agenciaturismo.html">Agência de Turismo</a>
                         </div>
-                    </div>
-                </div>
-                <nav class="navbar navbar-expand-lg " id="navbar">
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                        aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon">
-                            <i class="material-icons u-center-relative">menu</i>
-                        </span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                        <ul class="navbar-nav mr-auto">
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Evento
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="./comissao.html">Comissão Organizadora</a>
-                                    <a class="dropdown-item" href="./index.html#section-sobre">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
-                                </div>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="./programacao.html" id="navbarDropdown2" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Programação
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link" href="#" id="navbarDropdown3" role="button" aria-haspopup="true" onclick="areaRestrita('inscricao')"
-                                    aria-expanded="false">
-                                    Inscrições
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" 
-                                href="#"
-                                role="button" aria-haspopup="true" style="cursor: pointer" data-toggle="dropdown"
-                                    aria-expanded="false">
-                                    Trabalhos
-                                </a>
-                                <div class="dropdown-menu">
-                                    <a class="dropdown-item" 
-                                    href="./orientacaopremios.html"
-                                    style="cursor: pointer" 
-                                    role="button" aria-haspopup="true" aria-expanded="false">
-                                        Orientações e Prêmios
-                                    </a>
-                                    <a class="dropdown-item" 
-                                    href="#"
-                                    onclick="areaRestrita('trabalhos')"
-                                    style="cursor: pointer" 
-                                    role="button" aria-haspopup="true" aria-expanded="false">
-                                        Submeter Trabalhos
-                                    </a>
-                                    <a class="dropdown-item" 
-                                    href="#"
-                                    onclick="areaRestrita('meusTrabalhos')"
-                                    style="cursor: pointer" 
-                                    role="button" aria-haspopup="true" aria-expanded="false">
-                                        Consultar Trabalhos
-                                    </a>
-                                </div>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link " href="./contato.html" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Contatos
-                                </a>
-                            </li>
-                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                                    aria-expanded="false">
-                                    Informações Úteis
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="./index.html#localizacao" style="cursor: pointer" role="button" aria-haspopup="true" aria-expanded="false">
-                                        Local do evento
-                                    </a>
-                                    <a class="dropdown-item" href="./turismo.html">Passeios e turismos</a>
-                                    <a class="dropdown-item" href="./infomanaus.html">Chegando em Manaus</a>
-                                    <a class="dropdown-item" href="./agenciaturismo.html">Agência de Turismo</a>
-                                </div>
-                            </li>
-                            <li class="nav-item ">
-                                <a class="nav-link " href="./galeriaFotos.html" role="button" aria-haspopup="true" aria-expanded="false">
-                                    Galeria de Fotos
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="./galeriaFotos.html" role="button" aria-haspopup="true" aria-expanded="false">
+                            Galeria de Fotos
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
     </header>
     <main>
         <div style="width: 100%;background: black;">
@@ -384,7 +373,7 @@
     <footer id="footer">
         <div>
             <div class="row text-center text-xs-center text-sm-left text-md-left">
-                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-3">
                     <h5>Links rápidos</h5>
                     <ul class="list-unstyled quick-links">
                         <li>
@@ -405,7 +394,7 @@
                         </li>
                     </ul>
                 </div>
-                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-3">
                     <h5>Entre em contato</h5>
                     <ul class="list-unstyled quick-links">
                         <li>
@@ -420,7 +409,7 @@
 
                     </ul>
                 </div>
-                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-3">
                     <h5>Informações úteis</h5>
                     <ul class="list-unstyled quick-links">
                         <li>
@@ -435,37 +424,52 @@
                             <a href="./index.html#localizacao">
                                 <i class="fa fa-angle-double-right"></i>Local do evento</a>
                         </li>
+                        <li>
+                            <a href="./agenciaturismo.html">
+                                <i class="fa fa-angle-double-right"></i>Agência de Turismo</a>
+                        </li>
                     </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-3">
+                    <a href="./galeriaFotos.html">
+                        <h5>Galeria de Imagem</h5>
+                        <div class="img-galeria-footer">
+
+                            <img class="img-responsive" src="https://lh3.googleusercontent.com/PXW5KXGgJGhcznUqbEjiiHz-LOmmdDdo-wEpgQ_aNqICJGfBuv9xV7M_KiCkO0Sqt7BUWT1R7X-S5lY3be2ThEjEsWFbRDtdiMRhG6FS_9lyC-mgQKwAiVta028SdaDF8enMeiCpOg=w300-h300"
+                                alt="imagem">
+
+                        </div>
+                    </a>
                 </div>
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
                         <!-- <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li> -->
+                                <a href="javascript:void();">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                            </li> -->
                         <!-- <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();" target="_blank">
-                                <i class="fa fa-envelope"></i>
-                            </a>
-                        </li> -->
+                                <a href="javascript:void();">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void();">
+                                    <i class="fa fa-instagram"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void();">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </li>
+                            <li class="list-inline-item">
+                                <a href="javascript:void();" target="_blank">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                            </li> -->
                     </ul>
                 </div>
                 </hr>
@@ -476,6 +480,9 @@
                     </p>
                 </div>
                 </hr>
+            </div>
+            <div class="row">
+
             </div>
         </div>
     </footer>

@@ -791,11 +791,6 @@ label.light {
   display: block;
   background-color: white;
 }
-@media (max-width: 37.5em) {
-  .header {
-    display: none;
-  }
-}
 
 @media (max-width: 37.5em) {
   .header-logo-text-side {
@@ -990,6 +985,8 @@ section .section-title {
   justify-content: flex-start;
   flex-direction: row;
   width: 100%;
+  margin-top: 10px;
+  margin-bottom: 10px;
   align-items: center;
 }
 
