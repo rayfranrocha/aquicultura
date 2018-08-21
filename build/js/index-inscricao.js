@@ -75,7 +75,6 @@ var store = new Vuex.Store(
   }
 );
 
-
 var app = new Vue({
   router: router,
   store: store
