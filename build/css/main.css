@@ -791,6 +791,11 @@ label.light {
   display: block;
   background-color: white;
 }
+@media (max-width: 37.5em) {
+  .header {
+    display: none;
+  }
+}
 
 @media (max-width: 37.5em) {
   .header-logo-text-side {

@@ -30,14 +30,10 @@
     <header>
         <a href="#" id="top"></a>
         <div class="header">
-            <div class="custom-flex-header"
-                >
+            <div class="custom-flex-header">
                 <div class="header-logo" style="margin-left: 20px;">
                     <a href="./index.html">
-                        <img src="./img/logo.png" 
-                        style="width: 30%;"
-                        class="header-logo-img" 
-                        alt="Imagem: Logo do evento">
+                        <img src="./img/logo.png" style="width: 30%;" class="header-logo-img" alt="Imagem: Logo do evento">
                     </a>
                 </div>
                 <div class="header-acesso-rapido" style="margin-left: auto;">
@@ -77,10 +73,34 @@
                         </a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link" href="#" id="navbarDropdown" role="button" aria-haspopup="true" style="cursor: pointer" onclick="areaRestrita('trabalhos')"
+                        <a class="nav-link dropdown-toggle" 
+                        href="#"
+                        role="button" aria-haspopup="true" style="cursor: pointer" data-toggle="dropdown"
                             aria-expanded="false">
                             Trabalhos
                         </a>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" 
+                            href="./orientacaopremios.html"
+                            style="cursor: pointer" 
+                            role="button" aria-haspopup="true" aria-expanded="false">
+                                Orientações e Prêmios
+                            </a>
+                            <a class="dropdown-item" 
+                            href="#"
+                            onclick="areaRestrita('trabalhos')"
+                            style="cursor: pointer" 
+                            role="button" aria-haspopup="true" aria-expanded="false">
+                                Submeter Trabalhos
+                            </a>
+                            <a class="dropdown-item" 
+                            href="#"
+                            onclick="areaRestrita('meusTrabalhos')"
+                            style="cursor: pointer" 
+                            role="button" aria-haspopup="true" aria-expanded="false">
+                                Consultar Trabalhos
+                            </a>
+                        </div>
                     </li>
                     <li class="nav-item ">
                         <a class="nav-link " href="./contato.html" role="button" aria-haspopup="true" aria-expanded="false">
@@ -260,7 +280,7 @@
                 </div>
             </div>
         </section>
-<!--
+        <!--
         <section class="sobre u-margin-top-medium u-margin-bottom-medium" id="section-sobre">
             <div class="container">
                 <h3 class="col-xs-12 heading-secondary u-center-text-2 u-margin-top-small u-margin-bottom-small ">O EVENTO</h3>
@@ -293,9 +313,7 @@
                 <br>MANAUS - AM</h3>
             <div>
                 <div id="map" class="u-margin-bottom-medium" style="height: 30rem;">
-                    <a 
-                    target="_blank"
-                    href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482">
+                    <a target="_blank" href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482">
                         <img src="./img/mapa.jpg" class="img-responsive" alt="">
                     </a>
                 </div>
