@@ -30,8 +30,7 @@
                             </div>
                             <select required v-model="dadosInscricao.formaPagamento" class="custom-select" id="tipoPagamento">
                                 <option :value="null" selected>Escolha um modo de pagamento...</option>
-                                <option value="PAGSEGURO">Cartão</option>
-                                <option value="NO_LOCAL">Pagamento Local</option>
+                                <option value="PAGSEGURO">Cartão ou Boleto Bancário via Pagseguro</option>
                             </select>
                         </div>
                         <div v-if="dadosInscricao.tipoInscricao !== 'MINI_CURSO'" class="form-group form-check">
@@ -188,6 +187,10 @@ module.exports = {
             default:
                 return 0
             }
+        },
+
+        pagarNoLocal() {
+
         },
         pagar () {
             this.dadosInscricao.totalAPagar = this.valorTotal;
