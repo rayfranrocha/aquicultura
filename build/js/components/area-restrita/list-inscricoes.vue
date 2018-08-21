@@ -20,9 +20,8 @@
                                     <th scope="col">Tipo Inscriçao</th>
                                     <th scope="col">Valor Inscriçao</th>
                                     <th scope="col">Data/hora</th>
-                                    <th scope="col">Nome</th>
+                                    <th scope="col">Nome/Empresa</th>
                                     <th scope="col">Sexo</th>
-                                    <th scope="col">Empresa/Instituição</th>
                                     <th scope="col">Minicurso</th>
                                     <th scope="col">Valor Do minicurso</th>
                                     <th scope="col">Total Pago</th>
@@ -35,11 +34,10 @@
                                     <td>{{inscricao.tipoInscricao}}</td>
                                     <td>{{formataMoney(inscricao.valorInscricao)}}</td>
                                     <td>{{moment(inscricao.createdAt).format('DD/MM/YYYY hh:mm')}}</td>
-                                    <td>{{inscricao.nomeCracha}}</td>
+                                    <td>{{inscricao.nomeCracha}}/{{inscricao.empresa}}</td>
                                     <td>{{inscricao.sexo}}</td>
-                                    <td>{{inscricao.empresa}}</td>
-                                    <td>{{ inscricao.minicurso ?inscricao. minicurso.nome : ''}}</td>
-                                    <td>{{ inscricao.minicurso ? formataMoney(inscricao.minicurso.preco): 'R$ 0,00' }}</td>
+                                    <td>{{ inscricao.minicurso ?inscricao. minicurso.nome : 'N/A'}}</td>
+                                    <td>{{ inscricao.minicurso ? formataMoney(inscricao.minicurso.preco): 'N/A' }}</td>
                                     <td>{{formataMoney(inscricao.totalAPagar)}}</td>
                                     <td>{{getStatusPagamento(inscricao)}}</td>
                                     <td class="text-center">
