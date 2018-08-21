@@ -13,13 +13,15 @@
                             <thead>
                                 <tr>
                                     <th class="w-10" scope="col">Código</th>
-                                    <th class="w-75" scope="col">Título</th>
+                                    <th class="w-10" scope="col">Data envio</th>
+                                    <th class="w-50" scope="col">Título</th>
                                     <th class="w-15" scope="col">Status</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="trabalho in listTrabalhos" :key="trabalho._id">
                                     <td>{{trabalho._id.substr(0,6)}}</td>
+                                    <td>{{formataData(trabalho.createdAt)}}</td>
                                     <td>{{trabalho.titulo}}</td>
                                     <td>{{trabalho.status}}</td>
                                 </tr>
@@ -44,5 +46,10 @@ module.exports = {
                 this.listTrabalhos = response.data;
             });
     },
+    methods: {
+        formataData (data) {
+            return moment(data).format('DD/MM/YYYY hh:mm')
+        }
+    }
 }
 </script>
