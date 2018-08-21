@@ -14,7 +14,7 @@
                         <input required type="text" id="empresa" name="empresa" v-model="dadosInscricao.empresa">
                         <label for="sexo">Sexo*:</label>
                         <input required type="text" id="sexo" name="sexo" v-model="dadosInscricao.sexo">
-                        <label for="telefone">Telefone*:</label>
+                        <label for="telefone">Telefone Celular*:</label>
                         <input required type="tel" id="telefone" name="telefone" v-model="dadosInscricao.telefone">
                     </div>
 
@@ -32,6 +32,7 @@
 <script>
 module.exports = {
     mounted() {
+        jQuery('#telefone').mask('(00) 00000-0000');
         jQuery('#nome').focus();
     },
     data: function() {
@@ -41,7 +42,8 @@ module.exports = {
     },
     methods: {
         proximo () {
-            this.dadosInscricao.user = window.localStorage.getItem("user")
+            this.dadosInscricao.user = window.localStorage.getItem("user");
+            this.dadosInscricao.telefone = this.dadosInscricao.telefone.replace(/[ \-()]/g,'');
             axios.post('/inscricao', this.dadosInscricao)
                 .then(response => {
                     this.$store.dispatch('setIdInscricao', response.data._id);
