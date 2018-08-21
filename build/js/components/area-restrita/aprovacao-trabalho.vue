@@ -4,45 +4,57 @@
             <div class="card container">
                 <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Trabalhos Para aprovação</h1>
                 <hr class="small">
-                <div class="row">
-                    <div class="col-xs-12 col-md-12 col-sm-12">
-                        <table class="table table-striped">
-                            <thead>
-                                <tr>
-                                    <th class="w-10" scope="col">Código</th>
-                                    <th class="w-10" scope="col">Data envio</th>
-                                    <th class="w-75" scope="col">Título</th>
-                                    <th class="w-75" scope="col">Autores</th>
-                                    <th class="w-75" scope="col">Email Autores</th>
-                                    <th class="w-15" scope="col">Status</th>
-                                    <th class="w-15" scope="col">Anexo</th>
-                                    <th class="w-15" scope="col">Ação</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="trabalho in listTrabalhos" :key="trabalho._id">
-                                    <td>{{trabalho._id.substr(0,6)}}</td>
-                                    <td>{{formataData(trabalho.createdAt)}}</td>
-                                    <td>{{trabalho.titulo}}</td>
-                                    <td>{{trabalho.autores}}</td>
-                                    <td>{{trabalho.emailAutores}}</td>
-                                    <td>{{trabalho.status}}</td>
-                                    <td class="text-center">
-                                        <a target="_blank" class="btn btn-secondary" title="Exibir Anexo" :href="`${urlServico}/trabalhoAnexo/${trabalho._id}.pdf`">
-                                            <i class="fa fa-file-pdf"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <button class="btn btn-secondary" title="Visualizar"
-                                            @click="visualiza(trabalho)" >
-                                            <i class="fa fa-search"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
+
+                <div class="card-body">
+                    <form class="form-inline" @submit.prevent="busca">
+                        <input style="width: 60%" class="form-control mr-sm-2" type="search" placeholder="Informe o título para pesquisar" aria-label="Search" v-model="filtro.titulo">
+                        <button class="btn btn-lg btn-outline-success my-2 my-sm-0" type="submit">
+                            <i class="fa fa-search"></i>
+                            Buscar
+                        </button>
+                    </form>
+
+                    <div class="row">
+                        <div class="col-xs-12 col-md-12 col-sm-12">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th class="w-10" scope="col">Código</th>
+                                        <th class="w-10" scope="col">Data envio</th>
+                                        <th class="w-75" scope="col">Título</th>
+                                        <th class="w-75" scope="col">Autores</th>
+                                        <th class="w-75" scope="col">Email Autores</th>
+                                        <th class="w-15" scope="col">Status</th>
+                                        <th class="w-15" scope="col">Anexo</th>
+                                        <th class="w-15" scope="col">Ação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="trabalho in listTrabalhos" :key="trabalho._id">
+                                        <td>{{trabalho._id.substr(0,6)}}</td>
+                                        <td>{{formataData(trabalho.createdAt)}}</td>
+                                        <td>{{trabalho.titulo}}</td>
+                                        <td>{{trabalho.autores}}</td>
+                                        <td>{{trabalho.emailAutores}}</td>
+                                        <td>{{trabalho.status}}</td>
+                                        <td class="text-center">
+                                            <a target="_blank" class="btn btn-secondary" title="Exibir Anexo" :href="`${urlServico}/trabalhoAnexo/${trabalho._id}.pdf`">
+                                                <i class="fa fa-file-pdf"></i>
+                                            </a>
+                                        </td>
+                                        <td>
+                                            <button class="btn btn-secondary" title="Visualizar"
+                                                @click="visualiza(trabalho)" >
+                                                <i class="fa fa-search"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
+                
             </div>
         </section>
         <div id="modalAprovacao" class="modal" tabindex="-1" role="dialog">
@@ -130,7 +142,12 @@ module.exports = {
             return moment(data).format('DD/MM/YYYY hh:mm')
         },
         busca () {
-            axios.get(`/trabalhoRest`, {params: this.filtro})
+            let filter = {};
+            if (this.filtro.titulo) {
+                filter.titulo__regex = `/.*${this.filtro.titulo}.*/i`
+            }
+
+            axios.get(`/trabalhoRest`, {params: filter})
                 .then(response => {
                     this.listTrabalhos = response.data;
                 });
@@ -166,6 +183,16 @@ module.exports = {
 <style scoped>
     .card {
         max-width: 98%!important;
+    }
+    form {
+        margin: 10px auto;
+        padding: 10px 20px;
+        border-radius: 8px;
+        width: 100%;
+        background-color: #ffffff;
+    }
+    input[type=search] {
+        margin-bottom: 0 !important;
     }
 </style>
 
