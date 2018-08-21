@@ -287,29 +287,13 @@
                 <br>Av. Nilton Lins
                 <br>MANAUS - AM</h3>
             <div>
-                <div id="map" class="u-margin-bottom-medium" style="height: 30rem;"></div>
-                <!-- PARA O FUNCIONAMENTO DO MAPA-->
-                <script>
-                    var map;
-                    function initMap() {
-                      var center = {
-                        lat: -3.0578086,
-                        lng: -60.0067482,
-                      };
-                      map = new google.maps.Map(document.getElementById("map"), {
-                        center: center,
-                        zoom: 14,
-                        mapTypeId: google.maps.MapTypeId.ROADMAP
-                      });
-                      var marker = new google.maps.Marker({
-                        position: center,
-                        // icon: "icon.png",
-                        map: map
-                      });
-                    }
-                </script>
-                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtDammkFAxQKvULjHWuh9vgfHT-py-laI&callback=initMap"></script>
-
+                <div id="map" class="u-margin-bottom-medium" style="height: 30rem;">
+                    <a 
+                    target="_blank"
+                    href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482">
+                        <img src="./img/mapa.jpg" class="img-responsive" alt="">
+                    </a>
+                </div>
             </div>
         </section>
         <section class="section-inscricao" id="section-inscricao">
