@@ -120,10 +120,11 @@
         </nav>
     </header>
     <main>
-        <button type="button" class="btn btn-primary gone" id="mostrar" data-toggle="modal" data-target="#exampleModalLong">
+        <button 
+        style="display: none;"
+        type="button" class="btn btn-primary gone" id="mostrar" data-toggle="'modal'" data-target="#exampleModalLong">
             Modal
         </button>
-        <!-- Modal -->
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
             <div class="modal-dialog" role="document" style="max-width: 1024px;">
                 <div class="modal-content">
@@ -149,25 +150,17 @@
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="conteudoImagem1" style="text-align: center;">
-                            <!--  <h2 class="display-4 u-titulo-branco">II Encontro de Aquicultura na Amazônia Ocidental</h2>
-                            <h2 class="display-3 u-titulo-branco">A Amazônia de portas abertas para o mundo.</h2> -->
-
+                        
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="conteudoImagem2" style="text-align: center;">
-                            <!--<h2 class="display-4 u-titulo-branco">II Encontro de Aquicultura na Amazônia Ocidental</h2>-->
-                            <!--<h2 class="display-4 u-titulo-branco">A Amazônia de portas abertas para o mundo!</h2>-->
+                        
                         </div>
                     </div>
                     <div class="carousel-item">
                         <div class="conteudoImagem3" style="text-align: center;">
-                            <!--<h2 class="display-4 u-titulo-branco">II Encontro de Aquicultura na Amazônia Ocidental</h2>
-                            <p class="lead u-texto-branco">
-                                Lorem ipsum dolor sit amet consectetur adipisicing elit. Nihil, minus necessitatibus quae ad incidunt quis ratione numquam
-                                magnam ea laboriosam et optio consequatur quibusdam! Libero accusantium fugit repellendus
-                                maxime tenetur.
-                            </p>-->
+                         
                         </div>
                     </div>
                 </div>
@@ -269,7 +262,7 @@
                 </div>
             </div>
         </section>
-        <!--
+        
         <section class="sobre u-margin-top-medium u-margin-bottom-medium" id="section-sobre">
             <div class="container">
                 <h3 class="col-xs-12 heading-secondary u-center-text-2 u-margin-top-small u-margin-bottom-small ">O EVENTO</h3>
@@ -292,23 +285,39 @@
                     </div>
                 </div>
             </div>
-        </section>
-		-->
-        <section class="localizacao" id="localizacao" style="width: 100%; text-align: center; height: auto;">
+        </section>	
+        <section 
+        class="localizacao" 
+        id="localizacao" 
+        style="width: 100%; text-align: center; height: auto;">
             <h3 class="heading-secondary u-margin-top-small  u-margin-bottom-small ">LOCALIZAÇÃO</h3>
             <br>
             <h3 class="heading-secondary u-margin-top-small  u-margin-bottom-small ">Auditório Vânia Pimentel
                 <br>Av. Nilton Lins
                 <br>MANAUS - AM</h3>
             <div>
-                <div id="map" class="u-margin-bottom-medium" style="height: 30rem;">
-                    <a target="_blank" href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482">
-                        <img src="./img/mapa.jpg" class="img-responsive" alt="">
+                <div 
+                id="map" 
+                class="u-margin-bottom-medium" 
+                style="height: 30rem;">
+                    <a target="_blank" 
+                    href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482">
+                        <img 
+                        style="width: 100%"
+                        id="imgMapa"
+                        src="./img/mapa.jpg" 
+                        class="img-responsive" alt="">
                     </a>
+                    <a 
+                    href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482"
+                    style="display: none" 
+                    id="btIrMapa"
+                    class="bt-flat-azul">Clique aqui para acessar pelo google 
+                    maps.</a>
                 </div>
             </div>
         </section>
-		<!--
+        
         <section class="section-inscricao" id="section-inscricao">
             <form action="#" id="form" method="post" onsubmit="cadastrar(event,'inscricao');">
                 <h1 class=" u-center-text-2 u-margin-top-small">Faça sua inscrição no evento!</h1>
@@ -328,12 +337,12 @@
                 <button type="submit" class="bt-flat-azul">Continuar Inscrição</button>
             </form>
         </section>
-		-->
+		
         <section id="local" class="section-local">
             <div class="container" data-animation="slideInLeft" data-timeout="350">
                 <div class="row justify-content-center">
                     <h3 class="heading-secondary-white u-margin-top-small u-margin-bottom-small ">Conheça Manaus a cidade que sediará o evento!</h3>
-                    <!-- <div class="col-md-3"></div> -->
+                     <div class="col-md-3"></div> 
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <div class="video-wrapper">
                             <iframe class="video" width="540" height="405" src="https://www.youtube.com/embed/gO6smF5ySko" frameborder="0" allow="autoplay; encrypted-media"
@@ -462,31 +471,6 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
                     <ul class="list-unstyled list-inline social text-center">
-                        <!-- <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-facebook"></i>
-                            </a>
-                        </li> -->
-                        <!-- <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-twitter"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-instagram"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();">
-                                <i class="fa fa-google-plus"></i>
-                            </a>
-                        </li>
-                        <li class="list-inline-item">
-                            <a href="javascript:void();" target="_blank">
-                                <i class="fa fa-envelope"></i>
-                            </a>
-                        </li> -->
                     </ul>
                 </div>
                 </hr>

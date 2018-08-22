@@ -68,5 +68,13 @@ $(document).ready(function () {
             botoesDiv.removeChild(btAnterior);
             botoesDiv.appendChild(btAnterior);
         }
+        /* --- TIRA IMAGEM DA PÁGINA PRINCIPAL */
+        var img = document.getElementById('imgMapa');
+        var btIrMapa = document.getElementById('btIrMapa');
+        if(img){
+            img.style.display = 'none';
+            btIrMapa.style.display = 'block';
+            document.getElementById('map').style.height = '15rem';
+        }
     }
 });
