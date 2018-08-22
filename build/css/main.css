@@ -990,6 +990,27 @@ section .section-title {
   align-items: center;
 }
 
+.header-logo-img {
+  left: 0;
+  transform: none;
+}
+@media (max-width: 56.25em) {
+  .header-logo-img {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.header-logo {
+  margin-left: 20px;
+}
+@media (max-width: 56.25em) {
+  .header-logo {
+    margin-left: 0;
+  }
+}
+
 .navbar-fixed-top {
   position: fixed;
   z-index: 100;

@@ -11,6 +11,21 @@
 				margin-bottom: 10px;
                 align-items: center;
 }
+.header-logo-img{
+	left: 0;
+	transform: none;
+	@include respond(tab-port){
+		position: relative;
+		left: 50%;
+		transform: translateX(-50%);
+	}
+}
+.header-logo{
+	margin-left: 20px;
+	@include respond(tab-port){
+		margin-left: 0;
+	}
+}
 .navbar-fixed-top{
   position: fixed;
   z-index: 100;
