@@ -17,29 +17,21 @@
                         <table class="table table-hover">
                             <thead>
                                 <tr>
-                                    <th scope="col">Tipo Inscriçao</th>
-                                    <th scope="col">Valor Inscriçao</th>
                                     <th scope="col">Data/hora</th>
                                     <th scope="col">Nome/Empresa</th>
-                                    <th scope="col">Sexo</th>
+                                    <th scope="col">Tipo Inscriçao</th>
+                                    <th scope="col">Comprovante Aluno</th>
                                     <th scope="col">Minicurso</th>
                                     <th scope="col">Valor Do minicurso</th>
                                     <th scope="col">Total Pago</th>
                                     <th scope="col">Status do Pagamento</th>
-                                    <th scope="col">Comprovante tipo Inscrição</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr v-for="inscricao in inscricoes" :key="inscricao._id">
-                                    <td>{{inscricao.tipoInscricao}}</td>
-                                    <td>{{formataMoney(inscricao.valorInscricao)}}</td>
                                     <td>{{moment(inscricao.createdAt).format('DD/MM/YYYY hh:mm')}}</td>
                                     <td>{{inscricao.nomeCracha}}/{{inscricao.empresa}}</td>
-                                    <td>{{inscricao.sexo}}</td>
-                                    <td>{{ inscricao.minicurso ?inscricao. minicurso.nome : 'N/A'}}</td>
-                                    <td>{{ inscricao.minicurso ? formataMoney(inscricao.minicurso.preco): 'N/A' }}</td>
-                                    <td>{{formataMoney(inscricao.totalAPagar)}}</td>
-                                    <td>{{getStatusPagamento(inscricao)}}</td>
+                                    <td>{{inscricao.tipoInscricao}} <br/> {{formataMoney(inscricao.valorInscricao)}}</td>
                                     <td class="text-center">
                                         <a v-if="['ESTUDANTE', 'ESTUDANTE_POS'].indexOf(inscricao.tipoInscricao) > -1" target="_blank" class="btn btn-secondary" title="Exibir Comprovante inscricao" :href="`${urlServico}/inscricaoAnexo/${inscricao._id}.pdf`">
                                             <i class="fa fa-file-pdf"></i>
@@ -48,6 +40,12 @@
                                             N/A
                                         </span>
                                     </td>
+                                    <td>{{ inscricao.minicurso ?inscricao. minicurso.nome : 'N/A'}} <br/>
+									    {{ inscricao.minicurso ? formataMoney(inscricao.minicurso.preco): 'N/A' }}
+									</td>
+                                    <td></td>
+                                    <td>{{formataMoney(inscricao.totalAPagar)}}</td>
+                                    <td>{{getStatusPagamento(inscricao)}}</td>
                                 </tr>
                             </tbody>
                         </table>
