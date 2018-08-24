@@ -45,7 +45,7 @@
 									</td>
                                     <td></td>
                                     <td>{{formataMoney(inscricao.totalAPagar)}}</td>
-                                    <td>{{getStatusPagamento(inscricao)}}</td>
+                                    <td>{{statusPagamento}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -67,7 +67,14 @@ module.exports = {
             }
             axios.get('/inscricao?populate=user',{params: filter})
             .then(response => {
-                this.inscricoes = response.data
+                let list = response.data
+                list.forEach(inscricao => {
+                    inscricao.statusPagamento = this.getStatusPagamento(inscricao)
+                })
+                list.sort((i1, i2) => {
+                    return ('' + i1.statusPagamento).localeCompare(('' + i2.statusPagamento))
+                })
+                this.inscricoes = list
             })
         },
         formataMoney (valor) {
