@@ -65,7 +65,7 @@ module.exports = {
             if (this.filtro.nomeCracha) {
                  filter.nomeCracha__regex = `/.*${this.filtro.nomeCracha}.*/i`
             }
-            axios.get('/inscricao',{params: filter})
+            axios.get('/inscricao?populate=user',{params: filter})
             .then(response => {
                 this.inscricoes = response.data
             })
