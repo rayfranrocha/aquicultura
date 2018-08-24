@@ -31,8 +31,7 @@
         <a href="#" id="top"></a>
         <div class="header">
             <div class="custom-flex-header">
-                <div class="header-logo" 
-                >
+                <div class="header-logo">
                     <a href="./index.html">
                         <img src="./img/logo.png" style="width: 30%;" class="header-logo-img" alt="Imagem: Logo do evento">
                     </a>
@@ -121,9 +120,7 @@
         </nav>
     </header>
     <main>
-        <button 
-        style="display: none;"
-        type="button" class="btn btn-primary gone" id="mostrar" data-toggle="'modal'" data-target="#exampleModalLong">
+        <button style="display: none;" type="button" class="btn btn-primary gone" id="mostrar" data-toggle="'modal'" data-target="#exampleModalLong">
             Modal
         </button>
         <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
@@ -260,36 +257,15 @@
                 </div>
             </div>
         </section>
-        
+
         <section class="sobre" id="section-sobre">
             <div class="container">
                 <h3 class="col-xs-12 heading-secondary u-center-text-2 u-margin-bottom-small ">O EVENTO</h3>
                 <div class="row">
-                    <div class="col-xs-12 col-sm-12 col-md-6">
-                        <p>
-							<strong> O Encontro de Aquicultura na Amazônia Ocidental, </strong>desde  a sua primeira edição em 2012, vem buscando agregar 
-							todos os segmentos da sociedade (cientistas, governo, educadores, estudantes e produtores rurais) que participam 
-							da atividade aquícola. Neste ano de 2018, em sua segunda edição com o Tema: Amazônia de portas abertas para o mundo" 
-							os  Programas de Pós-Graduação: Aquicultura (AQUI/Universidade Nilton Lins em ampla associação com o Instituto 
-							Nacional de Pesquisas da Amazônia – MCTIC-INPA), Ciências Pesqueiras nos Trópicos (CIPET/Universidade Federal do 
-							Amazonas - UFAM) e Ciência Animal (CAN/UFAM) se uniram para iniciar o processo de internacionalização, como 
-							meio de melhorar a qualidade dos seus cursos, conferindo maior visibilidade à pesquisa científica realizada 
-							na Amazônia, além de promover a mobilidade internacional e nacional de docentes e discentes da pós-graduação. 
-							Para esses profissionais, este evento será uma grande oportunidade para aprimorar seus conhecimentos científicos, 
-							participar das discussões e fazer parcerias. Para o segmento do setor produtivo (técnicos, governo e produtores), 
-							será um avanço no fortalecimento das parcerias, com trocas de experiências, entre produtores e a academia. 
-							Durante o evento, serão abordados temas como: reprodução, nutrição, sanidade, saúde, comportamento, 
-							biotecnologia, conservação, manejo e agronegócio das atividades aquícolas e pesqueiras. Esses e outros 
-							assuntos serão apresentados e discutidos por meio de minicursos, palestras e pôsteres, nos quais serão mostrados 
-							os avanços da ciência para o Setor e a oportunidade de discutir sobre os investimentos feitos pelos órgãos públicos 
-							e privados. Esperamos que este evento contribua, especialmente, para a formação profissional dos jovens mestres e 
-							doutores da Amazônia sobre vários aspectos do setor aquícola e pesqueiro na região, sendo esperado um grande público. 
-							Por fim, agradecemos aos patrocinadores, as instituições parceiras e todos aqueles que estão contribuindo para a 
-							realização deste evento. 
-                        </p>
-                    </div>
-					
-                    <div class="col-xs-12 col-sm-12 col-md-6">
+                    <div
+                     id="englishText"
+                     style="display: none;text-align: justify;"
+                     class="col-xs-12 col-sm-12 col-md-6">
                         <p>
 							<strong>The Aquaculture Meeting in the Western Amazon, </strong> since its first edition in 2012 aimed to aggregate 
 							scientists, government, educators, students and producers involved with aquaculture. The second edition, in 2018, 
@@ -308,47 +284,82 @@
 							and doctors in the Amazon over all aspects of aquaculture and fisheries in the region. We thank the sponsors, 
 							related institutions and the organizing committee contributing with the event.
                         </p>
+                        <a 
+                        id="btnVersaoParaPt"
+                        class="btn btn-success btn-lg u-center-horizontal">Versão em Português</a>
                     </div>
+                    <div 
+                    id="textPortugues"
+                    class="col-xs-12 col-sm-12 col-md-6">
+                        <p style="text-align: justify;">
+                            <strong> O Encontro de Aquicultura na Amazônia Ocidental, </strong>desde a sua primeira edição em 2012,
+                            vem buscando agregar todos os segmentos da sociedade (cientistas, governo, educadores, estudantes
+                            e produtores rurais) que participam da atividade aquícola. Neste ano de 2018, em sua segunda
+                            edição com o Tema: Amazônia de portas abertas para o mundo" os Programas de Pós-Graduação: Aquicultura
+                            (AQUI/Universidade Nilton Lins em ampla associação com o Instituto Nacional de Pesquisas da Amazônia
+                            – MCTIC-INPA), Ciências Pesqueiras nos Trópicos (CIPET/Universidade Federal do Amazonas - UFAM)
+                            e Ciência Animal (CAN/UFAM) se uniram para iniciar o processo de internacionalização, como meio
+                            de melhorar a qualidade dos seus cursos, conferindo maior visibilidade à pesquisa científica
+                            realizada na Amazônia, além de promover a mobilidade internacional e nacional de docentes e discentes
+                            da pós-graduação. Para esses profissionais, este evento será uma grande oportunidade para aprimorar
+                            seus conhecimentos científicos, participar das discussões e fazer parcerias. Para o segmento
+                            do setor produtivo (técnicos, governo e produtores), será um avanço no fortalecimento das parcerias,
+                            com trocas de experiências, entre produtores e a academia. Durante o evento, serão abordados
+                            temas como: reprodução, nutrição, sanidade, saúde, comportamento, biotecnologia, conservação,
+                            manejo e agronegócio das atividades aquícolas e pesqueiras. Esses e outros assuntos serão apresentados
+                            e discutidos por meio de minicursos, palestras e pôsteres, nos quais serão mostrados os avanços
+                            da ciência para o Setor e a oportunidade de discutir sobre os investimentos feitos pelos órgãos
+                            públicos e privados. Esperamos que este evento contribua, especialmente, para a formação profissional
+                            dos jovens mestres e doutores da Amazônia sobre vários aspectos do setor aquícola e pesqueiro
+                            na região, sendo esperado um grande público. Por fim, agradecemos aos patrocinadores, as instituições
+                            parceiras e todos aqueles que estão contribuindo para a realização deste evento.
+                        </p>
+                        <a 
+                        id="btnVersaoParaEng"
+                        class="btn btn-success btn-lg u-center-horizontal">English Version</a>
+                    </div>
+                    
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <img src="./img/BANNER-BACKGROUND.jpg" class="img-fluid" alt="">
+
+                        <div class="row">
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <a href="" class="btn btn-success btn-lg" style="
+                                    margin: 1rem;">Envio de Trabalhos</a>
+                            </div>
+                            <div class="col-xs-12 col-sm-12 col-md-6">
+                                <a href="" class="btn btn-success btn-lg" style="
+                                margin: 1rem;">Programação</a>
+                            </div>
+                        </div>
+                    </div>
+                   
                 </div>
             </div>
-        </section>	
-        <section 
-        class="localizacao" 
-        id="localizacao" 
-        style="width: 100%; text-align: center; height: auto;">
+        </section>
+        <section class="localizacao" id="localizacao" style="width: 100%; text-align: center; height: auto;">
             <h3 class="heading-secondary u-margin-bottom-small ">LOCALIZAÇÃO</h3>
             <br>
             <h3 class="heading-secondary u-margin-bottom-small ">Auditório Vânia Pimentel
                 <br>Av. Prof. Nilton Lins
                 <br>MANAUS - AM</h3>
             <div>
-                <div 
-                id="map" 
-                class="u-margin-bottom-medium" 
-                style="height: 30rem;">
-                    <a target="_blank" 
-                    href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482">
-                        <img 
-                        style="width: 100%"
-                        id="imgMapa"
-                        src="./img/mapa.jpg" 
-                        class="img-responsive" alt="">
+                <div id="map" class="u-margin-bottom-medium" style="height: 30rem;">
+                    <a target="_blank" href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482">
+                        <img style="width: 100%" id="imgMapa" src="./img/mapa.jpg" class="img-fluid" alt="">
                     </a>
-                    <a 
-                    href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482"
-                    style="display: none" 
-                    id="btIrMapa"
-                    class="bt-flat-azul">Clique aqui para acessar pelo google 
-                    maps.</a>
+                    <a href="https://www.google.com.br/maps/place/Audit%C3%B3rio+V%C3%A2nia+Pimentel/@-3.0580788,-60.0076246,17.83z/data=!4m5!3m4!1s0x926c1a6893686e95:0x425fff45c62633e8!8m2!3d-3.0578086!4d-60.0067482"
+                        style="display: none" id="btIrMapa" class="bt-flat-azul">Clique aqui para acessar pelo google maps.
+                    </a>
                 </div>
             </div>
         </section>
-        
+
         <section id="local" class="section-local">
             <div class="container" data-animation="slideInLeft" data-timeout="350">
                 <div class="row justify-content-center">
                     <h3 class="heading-secondary-white u-margin-top-small u-margin-bottom-small ">Conheça Manaus a cidade que sediará o evento!</h3>
-                     <div class="col-md-3"></div> 
+                    <div class="col-md-3"></div>
                     <div class="col-md-12 col-sm-12 col-lg-12">
                         <div class="video-wrapper">
                             <iframe class="video" width="540" height="405" src="https://www.youtube.com/embed/gO6smF5ySko" frameborder="0" allow="autoplay; encrypted-media"
@@ -467,7 +478,7 @@
                         <h5>Galeria de Fotos</h5>
                         <div class="img-galeria-footer">
 
-                            <img class="img-responsive" src="https://lh3.googleusercontent.com/PXW5KXGgJGhcznUqbEjiiHz-LOmmdDdo-wEpgQ_aNqICJGfBuv9xV7M_KiCkO0Sqt7BUWT1R7X-S5lY3be2ThEjEsWFbRDtdiMRhG6FS_9lyC-mgQKwAiVta028SdaDF8enMeiCpOg=w300-h300"
+                            <img class="img-fluid" src="https://lh3.googleusercontent.com/PXW5KXGgJGhcznUqbEjiiHz-LOmmdDdo-wEpgQ_aNqICJGfBuv9xV7M_KiCkO0Sqt7BUWT1R7X-S5lY3be2ThEjEsWFbRDtdiMRhG6FS_9lyC-mgQKwAiVta028SdaDF8enMeiCpOg=w300-h300"
                                 alt="imagem">
 
                         </div>
