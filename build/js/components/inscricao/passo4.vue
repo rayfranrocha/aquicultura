@@ -24,7 +24,7 @@
                             <h3 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Anexo para comprovação do tipo de inscrição</h3>
                             <input required class="form-control" style="margin: 3rem 0;" type="file" name="arquivo" id="arquivo" accept="application/pdf">
                         </div>
-                        <div class="input-group mb-3">
+                        <div v-if="dadosInscricao.formaPagamento === 'PAGSEGURO'" class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <label class="input-group-text" for="tipoPagamento">Pagamento *</label>
                             </div>
