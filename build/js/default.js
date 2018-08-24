@@ -58,6 +58,8 @@ $(document).ready(function () {
             }
         });
     }
+    var btnVersaoParaPt = document.getElementById('btnVersaoParaPt');
+    var btnVersaoParaEng = document.getElementById('btnVersaoParaEng');
     var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
     if (width <= 550) {
         /* -----TROCA POSIÇÃO BOTÕES----- */
@@ -76,5 +78,17 @@ $(document).ready(function () {
             btIrMapa.style.display = 'block';
             document.getElementById('map').style.height = '15rem';
         }
+    } 
+    if(btnVersaoParaPt!= null && btnVersaoParaEng!=null){
+        var textPortugues = document.getElementById('textPortugues');
+        var textEnglish = document.getElementById('englishText');
+        btnVersaoParaEng.addEventListener("click",function(){
+            textPortugues.style.display = 'none';
+            textEnglish.style.display = 'block';
+        });
+        btnVersaoParaPt.addEventListener("click",function(){
+            textPortugues.style.display = 'block';
+            textEnglish.style.display = 'none';
+        });
     }
 });
