@@ -18,6 +18,7 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Data/hora</th>
+                                    <th scope="col">Email</th>
                                     <th scope="col">Nome/Empresa</th>
                                     <th scope="col">Tipo Inscriçao</th>
                                     <th scope="col">Comprovante Aluno</th>
@@ -30,6 +31,7 @@
                             <tbody>
                                 <tr v-for="inscricao in inscricoes" :key="inscricao._id">
                                     <td>{{moment(inscricao.createdAt).format('DD/MM/YYYY hh:mm')}}</td>
+                                    <td>{{inscricao.user ? inscricao.user.email : ''}}</td>
                                     <td>{{inscricao.nomeCracha}}/{{inscricao.empresa}}</td>
                                     <td>{{inscricao.tipoInscricao}} <br/> {{formataMoney(inscricao.valorInscricao)}}</td>
                                     <td class="text-center">
