@@ -42,7 +42,7 @@
                                     <tr>
                                         <th>Desejo Participar</th>
                                         <th>Minicurso</th>
-                                        <th>Vagas</th>
+                                        <th>Vagas Disponíveis</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -51,7 +51,7 @@
                                             <input required type="radio" name="minicursoSelected" v-model="minicursoSelected" :value="index" class="checkboxMinicurso">
                                         </td>
                                         <td>{{minicurso.nome}}</td>
-                                        <td class="vagaMinicurso">{{minicurso.vagas}}/{{minicurso.disponiveis}}</td>
+                                        <td class="vagaMinicurso">{{minicurso.disponiveis}}</td>
                                     </tr>
                                 </tbody>
                             </table>
