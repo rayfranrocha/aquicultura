@@ -160,12 +160,33 @@
 
             pagar () {
                 let dadosMinicurso = {
-                    minicursoGrupo2: this.minicursoGrupo2,
+                    minicurso: this.minicursoGrupo2,
                     minicursoGrupo3: this.minicursoGrupo3,
-                    valorTotal: this.valorTotal
+                    valorTotalMinicurso: this.valorTotal
                 }
-                axios.put(`/inscricao/${this.inscricao.id}`, dadosMinicurso)
-                        .then(response => {})
+                axios.put(`/inscricao/minicurso/${this.inscricao.id}`, dadosMinicurso)
+                        .then(response => {
+                            axios.post('/pagseguro/minicurso', {id: this.inscricao.id})
+                                .then(response => {
+                                    console.log('Pagesguro response', response.data)
+
+                                    PagSeguroLightbox({
+                                        code: response.data.checkout.code[0]
+                                    }, {
+                                        success: function(transactionCode) {
+                                            console.log(transactionCode)
+                                            self.dadosInscricao.transactionCodeMinicurso3 = transactionCode
+                                            axios.put(`/inscricao/${self.id}`, self.dadosInscricao)
+                                                .then(reponse => {
+                                                    console.log(response.data);
+                                                    window.location.href = "arearestrita.html";
+                                                });
+                                        },
+                                        abort: function() {
+                                        }
+                                    });
+                                });
+                        });
             }
         }
     }

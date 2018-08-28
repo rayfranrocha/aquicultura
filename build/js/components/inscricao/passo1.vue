@@ -55,7 +55,7 @@ module.exports = {
     created() {
         axios.get(`/inscricao?user=${window.localStorage.getItem("user")}`)
             .then(inscricao => {
-                if (inscricao) {
+                if (inscricao.length > 0) {
                     this.$router.push({name: 'inscricaoExistente'});
                 }
             })
