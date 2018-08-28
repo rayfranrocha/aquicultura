@@ -27,10 +27,39 @@
                 </div>
             </div>
         </form>
+
+        <!-- Modal -->
+        <div class="modal fade" id="modalInscricaoRealizada" tabindex="-1" role="dialog" aria-labelledby="modalInscricaoRealizadaTitleId" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+                        <h4 class="modal-title" id="modalInscricaoRealizadaTitleId">Modal title</h4>
+                    </div>
+                    <div class="modal-body">
+                        Body
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </template>
 <script>
 module.exports = {
+    created() {
+        axios.get(`/inscricao?user=${window.localStorage.getItem("user")}`)
+            .then(inscricao => {
+                if (inscricao) {
+                    this.$router.push({name: 'inscricaoExistente'});
+                }
+            })
+    },
     mounted() {
         jQuery('#telefone').mask('(00) 00000-0000');
         jQuery('#nome').focus();

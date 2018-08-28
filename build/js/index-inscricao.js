@@ -8,6 +8,8 @@ var Passo1 = httpVueLoader('./js/components/inscricao/passo1.vue');
 var Passo2 = httpVueLoader('./js/components/inscricao/passo2.vue');
 var Passo3 = httpVueLoader('./js/components/inscricao/passo3.vue');
 var Passo4 = httpVueLoader('./js/components/inscricao/passo4.vue');
+var InscricaoExistente = httpVueLoader('./js/components/inscricao/inscricaoExistente.vue');
+var Minicurso = httpVueLoader('./js/components/inscricao/minicurso.vue');
 
 var ambiente = {
   'localhost': "http://localhost:5000",
@@ -44,6 +46,16 @@ var routes = [{
       path: 'passo4',
       name: 'passo4',
       component: Passo4
+    },
+    {
+      path: 'inscricaoExistente',
+      name: 'inscricaoExistente',
+      component: InscricaoExistente
+    },
+    {
+      path: 'minicurso',
+      name: 'minicurso',
+      component: Minicurso
     }
   ]
 },

@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container card">
+        <div class="container card" v-if="$route.name.indexOf('passo') >= 0">
             <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">INSCRIÇÕES</h1>
             <hr class="small">
             <div class="table-head u-margin-top-small">
@@ -46,9 +46,9 @@
                 </tbody>
             </table>
         </div>
-        <div class="container card">
+        <div :class="{'card': $route.name.indexOf('passo') >= 0}" class="container">
 
-            <div class="formulario-contato">
+            <div :class="{'formulario-contato': $route.name.indexOf('passo') >= 0}">
                 <router-view></router-view>
             </div>
         </div>
