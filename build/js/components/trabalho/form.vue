@@ -6,6 +6,20 @@
                 <hr class="small">
                 <div class="container formulario-trabalho">
                     <div class="row">
+                        <div class="col">
+                            <div v-if="error" class="alert alert-danger alert-dismissible fade show" role="alert">
+                              <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                              </button>
+                              <strong>{{error.message}}</strong> 
+                            </div>
+                            
+                            <script>
+                              $(".alert").alert();
+                            </script>
+                        </div>
+                    </div>
+                    <div class="row">
                         <div class="col-md-12 col-sm-12 col-lg-12 col-xs-12">
                             <form @submit.prevent="submeter()" method="post">
                                 <fieldset>
@@ -39,7 +53,8 @@ module.exports = {
   },
   data () {
       return {
-          trabalho: {}
+          trabalho: {},
+          error: null
       }
   },
   methods: {
@@ -60,6 +75,8 @@ module.exports = {
           axios.post('/trabalho', formData, {headers: {'Content-Type': 'multipart/form-data'}})
             .then(response => {
                 window.location.href = "trabalhos.html#/list-trabalho";
+            }).catch(error => {
+                this.error = error.response.data;
             });
       }
   }
