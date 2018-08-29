@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container card" v-if="$route.name.indexOf('passo') >= 0">
+        <div class="container card" v-if="$route.name.indexOf('inscricao') >= 0 || $route.name.indexOf('produto') >= 0">
             <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">INSCRIÇÕES</h1>
             <hr class="small">
             <div class="table-head u-margin-top-small">
@@ -16,23 +16,11 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Estudante de cursos técnicos ou graduação</td>
-                        <td>R$50,00</td>
-                        <td>R$70,00</td>
-                        <td>R$100,00</td>
-                    </tr>
-                    <tr>
-                        <td>Estudante de pós graduação</td>
-                        <td>R$70,00</td>
-                        <td>R$100,00</td>
-                        <td>R$130,00</td>
-                    </tr>
-                    <tr>
-                        <td>Profissional</td>
-                        <td>R$150,00</td>
-                        <td>R$200,00</td>
-                        <td>R$250,00</td>
+                    <tr v-for="tipoInscricao in listTipoInscricao" :key="tipoInscricao._id">
+                        <td>{{tipoInscricao.nome}}</td>
+                        <td>{{formataMoney(tipoInscricao.precoAte21)}}</td>
+                        <td>{{formataMoney(tipoInscricao.precoApos21)}}</td>
+                        <td>{{formataMoney(tipoInscricao.precoLocal)}}</td>
                     </tr>
                     <tr>
                         <td>
@@ -46,11 +34,29 @@
                 </tbody>
             </table>
         </div>
-        <div :class="{'card': $route.name.indexOf('passo') >= 0}" class="container">
+        <div class="container card">
 
-            <div :class="{'formulario-contato': $route.name.indexOf('passo') >= 0}">
+            <div class="formulario-contato">
                 <router-view></router-view>
             </div>
         </div>
     </div>
 </template>
+<script>
+    module.exports = {
+        data () {
+            return {
+                listTipoInscricao: []
+            }
+        },
+        created () {
+            axios.get('/tipoInscricao')
+                .then(response => this.listTipoInscricao = response.data);
+        },
+        methods: {
+            formataMoney (valor) {
+                return `R$ ${valor.toLocaleString('pt-BR',{minimumFractionDigits: 2, maximumFractionDigits: 2})}`
+            }
+        }
+    }
+</script>

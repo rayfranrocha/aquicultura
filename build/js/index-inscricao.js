@@ -10,6 +10,8 @@ var Passo3 = httpVueLoader('./js/components/inscricao/passo3.vue');
 var Passo4 = httpVueLoader('./js/components/inscricao/passo4.vue');
 var InscricaoExistente = httpVueLoader('./js/components/inscricao/inscricaoExistente.vue');
 var Minicurso = httpVueLoader('./js/components/inscricao/minicurso.vue');
+var Produtos = httpVueLoader('./js/components/inscricao/produtos.vue');
+var Inscricao = httpVueLoader('./js/components/inscricao/inscricao.vue');
 
 var ambiente = {
   'localhost': "http://localhost:5000",
@@ -56,10 +58,20 @@ var routes = [{
       path: 'minicurso',
       name: 'minicurso',
       component: Minicurso
+    },
+    {
+      path: 'produtos',
+      name: 'produtos',
+      component: Produtos
+    },
+    {
+      path: 'inscricao',
+      name: 'inscricao',
+      component: Inscricao
     }
   ]
 },
-{path: '*', redirect: '/home/passo1'}];
+{path: '*', redirect: '/home/produtos'}];
 
 var router = new VueRouter({
   routes: routes

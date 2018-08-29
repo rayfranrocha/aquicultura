@@ -1,137 +1,111 @@
 <template>
     <div>
-            <input type="hidden" name="iot" value="button" />
-            <fieldset>
-                <div class="row">
-                    <h2 id="textoPassoAtual" class="heading-secondary no-hover u-center-text-2">PASSO 3 DE 3</h2>
-                    <hr class="small">
-                    
-                    <div class="passo-3 col-md-12 col-sm-12 col-xs-12">
-                        <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Inscrição minicursos e pagamento</h1>
-                        <div class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="tipoInscricao">Tipo *</label>
+            <form @submit.prevent="pagar">
+                <input type="hidden" name="iot" value="button" />
+                <fieldset>
+                    <div class="row">
+                        <h2 id="textoPassoAtual" class="heading-secondary no-hover u-center-text-2">PASSO 3 DE 3</h2>
+                        <hr class="small">
+                        
+                        <div class="passo-3 col-md-12 col-sm-12 col-xs-12">
+                            <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Inscrição minicursos e pagamento</h1>
+                            <div class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="tipoInscricao">Tipo *</label>
+                                </div>
+                                <select required v-model="dadosInscricao.tipoInscricao" class="custom-select" id="tipoInscricao">
+                                    <option :value="null" selected>Escolha um tipo de inscrição...</option>
+                                    <option value="ESTUDANTE">Estudante de curso técnico ou Graduação</option>
+                                    <option value="ESTUDANTE_POS">Estudante de Pós-Graduação</option>
+                                    <option value="PROFISSIONAL">Profissional</option>
+                                    <option value="MINI_CURSO">Participação apenas do minicurso</option>
+                                </select>
                             </div>
-                            <select required v-model="dadosInscricao.tipoInscricao" class="custom-select" id="tipoInscricao">
-                                <option :value="null" selected>Escolha um tipo de inscrição...</option>
-                                <option value="ESTUDANTE">Estudante de curso técnico ou Graduação</option>
-                                <option value="ESTUDANTE_POS">Estudante de Pós-Graduação</option>
-                                <option value="PROFISSIONAL">Profissional</option>
-                                <option value="MINI_CURSO">Participação apenas do minicurso</option>
-                            </select>
-                        </div>
-                        <div v-if="dadosInscricao.tipoInscricao === 'ESTUDANTE' || dadosInscricao.tipoInscricao === 'ESTUDANTE_POS'" class="passo-4 col-md-12 col-sm-12 col-xs-12">
-                            <h3 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Anexo para comprovação do tipo de inscrição</h3>
-                            <input required class="form-control" style="margin: 3rem 0;" type="file" name="arquivo" id="arquivo" accept="application/pdf">
-                        </div>
-                        <div v-if="dadosInscricao.formaPagamento !== 'PAGSEGURO'" class="input-group mb-3">
-                            <div class="input-group-prepend">
-                                <label class="input-group-text" for="tipoPagamento">Pagamento *</label>
+                            <div v-if="dadosInscricao.tipoInscricao === 'ESTUDANTE' || dadosInscricao.tipoInscricao === 'ESTUDANTE_POS'" class="passo-4 col-md-12 col-sm-12 col-xs-12">
+                                <h3 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Anexo para comprovação do tipo de inscrição</h3>
+                                <input required class="form-control" style="margin: 3rem 0;" type="file" name="arquivo" id="arquivo" accept="application/pdf">
                             </div>
-                            <select disabled="disabled" required v-model="dadosInscricao.formaPagamento" class="custom-select" id="tipoPagamento">
-                                <option value="PAGSEGURO" selected>Cartão ou Boleto Bancário via Pagseguro</option>
-                            </select>
-                        </div>
-                        <div v-if="dadosInscricao.tipoInscricao !== 'MINI_CURSO'" class="form-group form-check">
-                            <input v-model="participaMinicurso" type="checkbox" class="form-check-input" id="participar_minicurso">
-                            <label class="form-check-label" for="participar_minicurso">Quero participar de minicursos</label>
-                        </div>
-                        <div v-if="participaMinicurso || dadosInscricao.tipoInscricao === 'MINI_CURSO'" class="form-group">
-                            <table class="table table-table-secondary">
+                            <div v-if="dadosInscricao.formaPagamento !== 'PAGSEGURO'" class="input-group mb-3">
+                                <div class="input-group-prepend">
+                                    <label class="input-group-text" for="tipoPagamento">Pagamento *</label>
+                                </div>
+                                <select disabled="disabled" required v-model="dadosInscricao.formaPagamento" class="custom-select" id="tipoPagamento">
+                                    <option value="PAGSEGURO" selected>Cartão ou Boleto Bancário via Pagseguro</option>
+                                </select>
+                            </div>
+                            <div v-if="dadosInscricao.tipoInscricao !== 'MINI_CURSO'" class="form-group form-check">
+                                <input v-model="participaMinicurso" type="checkbox" class="form-check-input" id="participar_minicurso">
+                                <label class="form-check-label" for="participar_minicurso">Quero participar de minicursos</label>
+                            </div>
+                            <div v-if="participaMinicurso || dadosInscricao.tipoInscricao === 'MINI_CURSO'" class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="tipoInscricao">Minicurso</label>
+                                    </div>
+                                    <select name="cars" class="custom-select" v-model="minicursoSelected">
+                                        <option :value="null">Selecione o Minicurso</option>
+                                        <option v-for="(minicurso, index) in listMinicurso" :value="index" :key="minicurso._id">
+                                            {{minicurso.nome}} - Preço: {{formataMoney(minicurso.preco)}} - Vagas Disponíveis: {{minicurso.vagas}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div v-if="participaMinicurso || dadosInscricao.tipoInscricao === 'MINI_CURSO'" class="form-group">
+                                <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <label class="input-group-text" for="tipoInscricao">Minicurso 2</label>
+                                    </div>
+                                    <select name="cars" class="custom-select" v-model="minicursoSelected3">
+                                        <option :value="null">Selecione o Minicurso 2</option>
+                                        <option v-for="(minicurso, index) in listMinicurso3" :value="index" :key="minicurso._id">{{minicurso.nome}} 
+                                            <p>- Preço: {{formataMoney(minicurso.preco)}} - Vagas Disponíveis: {{minicurso.vagas}}</p>
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Item</th>
+                                        <th scope="col">Preço</th>
+                                    </tr>
+                                </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Grupo 1</td>
+                                        <td>Minicursos (Grupo 1 + Grupo 2)</td>
+                                        <td id="precoMinicurso">{{formataMoney(valorMinicurso + valorMinicurso3)}}</td>
                                     </tr>
                                     <tr>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Desejo Participar</th>
-                                                    <th>Preço</th>
-                                                    <th>Minicurso</th>
-                                                    <th>Vagas Disponíveis</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr v-for="(minicurso, index) in listMinicurso" :key="minicurso._id">
-                                                    <td>
-                                                        <input required type="radio" name="minicursoSelected" v-model="minicursoSelected" :value="index" class="checkboxMinicurso">
-                                                    </td>
-                                                    <td>{{formataMoney(minicurso.preco)}}</td>
-                                                    <td>{{minicurso.nome}}</td>
-                                                    <td class="vagaMinicurso">{{minicurso.disponiveis}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <td>Inscrição</td>
+                                        <td id="precoInscricao">{{formataMoney(valorInscricao)}}</td>
                                     </tr>
                                     <tr>
-                                        <td>Grupo 2</td>
-                                    </tr>
-                                    <tr>
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th>Desejo Participar</th>
-                                                    <th>Preço</th>
-                                                    <th>Minicurso</th>
-                                                    <th>Vagas Disponíveis</th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr v-for="(minicurso, index) in listMinicurso3" :key="minicurso._id">
-                                                    <td>
-                                                        <input required type="radio" name="minicursoSelected3" v-model="minicursoSelected3" :value="index" class="checkboxMinicurso">
-                                                    </td>
-                                                    <td>{{formataMoney(minicurso.preco)}}</td>
-                                                    <td>{{minicurso.nome}}</td>
-                                                    <td class="vagaMinicurso">{{minicurso.disponiveis}}</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                        <td>Total A Pagar</td>
+                                        <td id="precoTotal">{{formataMoney(valorTotal)}}</td>
                                     </tr>
                                 </tbody>
                             </table>
+
                         </div>
-
-                        <table class="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Item</th>
-                                    <th scope="col">Preço</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Minicursos (Grupo 1 + Grupo 2)</td>
-                                    <td id="precoMinicurso">{{formataMoney(valorMinicurso + valorMinicurso3)}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Inscrição</td>
-                                    <td id="precoInscricao">{{formataMoney(valorInscricao)}}</td>
-                                </tr>
-                                <tr>
-                                    <td>Total A Pagar</td>
-                                    <td id="precoTotal">{{formataMoney(valorTotal)}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-
+                        
                     </div>
-                    
-                </div>
-            </fieldset>
+                </fieldset>
 
-            <div class="row" id="botoesDiv">
-                <div class="col" id="anterior">
-                    <button @click.prevent="anterior()" id="btAnterior" class="bt-flat-azul" type="button">Anterior</button>
+                <div class="row" id="botoesDiv">
+                    <div class="col" id="anterior">
+                        <button @click.prevent="anterior()" id="btAnterior" class="bt-flat-azul" type="button">Anterior</button>
+                    </div>
+                    <div class="col" id="proximo">
+                        <button :disabled="valorTotal === 0" type="submit" class="bt-flat-azul">Realizar pagamento</button>
+                    </div>
                 </div>
-                <div class="col" id="proximo">
-                    <button :disabled="valorTotal === 0" @click="pagar()" class="bt-flat-azul">Realizar pagamento</button>
-                </div>
-            </div>
+            </form>
         
     </div>
 </template>
+
 <script>
 module.exports = {
     computed: {
@@ -177,6 +151,8 @@ module.exports = {
                 this.dadosInscricao.minicurso = this.listMinicurso[newValue];
                 console.log('Minicurso', this.dadosInscricao.minicurso)
                 this.valorMinicurso = this.dadosInscricao.minicurso.preco;
+            } else {
+                this.valorMinicurso = 0;
             }
         },
         minicursoSelected3: function(newValue) {
@@ -184,6 +160,8 @@ module.exports = {
                 this.dadosInscricao.minicursoGrupo3 = this.listMinicurso3[newValue];
                 console.log('Minicurso', this.dadosInscricao.minicursoGrupo3)
                 this.valorMinicurso3 = this.dadosInscricao.minicursoGrupo3.preco;
+            } else {
+                this.valorMinicurso3 = 0;
             }
         },
         tipoInscricao: function(newValue) {
