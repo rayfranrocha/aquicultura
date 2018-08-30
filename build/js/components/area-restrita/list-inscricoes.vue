@@ -31,8 +31,8 @@
                             <tbody>
                                 <tr v-for="inscricao in inscricoes" :key="inscricao._id">
                                     <td>{{moment(inscricao.createdAt).format('DD/MM/YYYY hh:mm')}}</td>
-                                    <td>{{inscricao.user.cpf}}</td>
-                                    <td>{{inscricao.dadosBoleto.nome}}{{`${inscricao.empresa ? '/'+inscricao.empresa : ''}`}} <br/> {{inscricao.user ? inscricao.user.email : ''}} </td>
+                                    <td>{{inscricao.user ? inscricao.user.cpf : ''}}</td>
+                                    <td>{{inscricao.dadosBoleto ? inscricao.dadosBoleto.nome : ''}}{{`${inscricao.empresa ? '/'+inscricao.empresa : ''}`}} <br/> {{inscricao.user ? inscricao.user.email : ''}} </td>
                                     <td>{{inscricao.tipoInscricao}} <br/> {{formataMoney(inscricao.valorInscricao)}}</td>
                                     <td class="text-center">
                                         <a v-if="['ESTUDANTE', 'ESTUDANTE_POS'].indexOf(inscricao.tipoInscricao) > -1" target="_blank" class="btn btn-secondary" title="Exibir Comprovante inscricao" :href="`${urlServico}/inscricaoAnexo/${inscricao._id}.pdf`">
