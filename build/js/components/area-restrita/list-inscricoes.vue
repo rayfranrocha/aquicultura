@@ -18,11 +18,12 @@
                             <thead>
                                 <tr>
                                     <th scope="col">Data/hora</th>
+                                    <th scope="col">CPF</th>
                                     <th scope="col">Nome/Empresa</th>
                                     <th scope="col">Tipo Inscriçao</th>
                                     <th scope="col">Comprovante Aluno</th>
-                                    <th scope="col">Minicurso</th>
-                                    <th scope="col">Valor Do minicurso</th>
+                                    <th scope="col">Minicurso Grupo 1</th>
+                                    <th scope="col">Minicurso Grupo 2</th>
                                     <th scope="col">Total Pago</th>
                                     <th scope="col">Status do Pagamento</th>
                                 </tr>
@@ -30,7 +31,8 @@
                             <tbody>
                                 <tr v-for="inscricao in inscricoes" :key="inscricao._id">
                                     <td>{{moment(inscricao.createdAt).format('DD/MM/YYYY hh:mm')}}</td>
-                                    <td>{{inscricao.nomeCracha}}/{{inscricao.empresa}} <br/> {{inscricao.user ? inscricao.user.email : ''}} </td>
+                                    <td>{{inscricao.user.cpf}}</td>
+                                    <td>{{inscricao.dadosBoleto.nome}}{{`${inscricao.empresa ? '/'+inscricao.empresa : ''}`}} <br/> {{inscricao.user ? inscricao.user.email : ''}} </td>
                                     <td>{{inscricao.tipoInscricao}} <br/> {{formataMoney(inscricao.valorInscricao)}}</td>
                                     <td class="text-center">
                                         <a v-if="['ESTUDANTE', 'ESTUDANTE_POS'].indexOf(inscricao.tipoInscricao) > -1" target="_blank" class="btn btn-secondary" title="Exibir Comprovante inscricao" :href="`${urlServico}/inscricaoAnexo/${inscricao._id}.pdf`">
@@ -40,12 +42,14 @@
                                             N/A
                                         </span>
                                     </td>
-                                    <td>{{ inscricao.minicurso ?inscricao. minicurso.nome : 'N/A'}} <br/>
+                                    <td>{{ inscricao.minicurso ? inscricao.minicurso.nome : 'N/A'}} <br/>
 									    {{ inscricao.minicurso ? formataMoney(inscricao.minicurso.preco): 'N/A' }}
 									</td>
-                                    <td></td>
+                                    <td>{{ inscricao.minicurso2 ?inscricao.minicurso2.nome : 'N/A'}} <br/>
+									    {{ inscricao.minicurso2 ? formataMoney(inscricao.minicurso2.preco): 'N/A' }}
+									</td>
                                     <td>{{formataMoney(inscricao.totalAPagar)}}</td>
-                                    <td>{{statusPagamento}}</td>
+                                    <td>{{getStatusPagamento(inscricao)}}</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -72,6 +76,7 @@ module.exports = {
                     inscricao.statusPagamento = this.getStatusPagamento(inscricao)
                 })
                 list.sort((i1, i2) => {
+                    if (!i1.statusPagamento || !i2.statusPagamento) return -1;
                     return ('' + i1.statusPagamento).localeCompare(('' + i2.statusPagamento))
                 })
                 this.inscricoes = list

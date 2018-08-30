@@ -55,7 +55,7 @@ function objetoRedirect() {
 function areaRestrita(redirecionar) {
     if (sessao.isLogado()) {
         if (redirecionar === "inscricao") {
-            window.location.href = location_ + '/inscricao.html#/home/passo1';
+            window.location.href = location_ + '/inscricao.html#/home/produtos';
         }
         else if (redirecionar === "trabalhos") {
             window.location.href = location_ + '/trabalhos.html#/form';

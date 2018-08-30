@@ -15,16 +15,8 @@
               </div>
           </div>
         </div>
-        <div v-if="inscricao" class="card container dados_container">
-            <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">DADOS DE SUA INSCRIÇÃO</h1>
-            <ul class="lista-dados">
-                <li class="dado">Nome: {{inscricao.nomeCracha}}</li>
-                <li class="dado">Status: {{statusPagamento}}</li>
-                <li class="dado">Tipo de Inscrição: {{inscricao.tipoInscricao}}</li>
-                <li class="dado">Minicurso escolhido: {{minicurso}}</li>
-                <li class="dado">Total Pago: {{formataMoney(inscricao.totalAPagar)}}</li>
-
-            </ul>
+        <div class="card container dados_container">
+            <produtos></produtos>
         </div>
         <div class="card container">
             <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">SELECIONE UMA DAS OPÇÕES ABAIXO</h1>
@@ -62,7 +54,11 @@
     </div>
 </template>
 <script>
+var produtos = httpVueLoader('/js/components/inscricao/produtos.vue')
 module.exports = {
+    components: {
+        produtos
+    },
     computed: {
         user () {
             return JSON.parse(decodeURIComponent(escape(window.atob( window.localStorage.getItem('auth-token').split('.')[1] ))));
