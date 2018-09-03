@@ -130,6 +130,35 @@
                 </div>
             </div>
             <div class="row">
+                <h4 class="heading-secondary u-margin-bottom-small">Produtos escolhidos:</h4>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Item</th>
+                            <th scope="col">Preço</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Inscrição</td>
+                            <td id="precoTotal">{{formataMoney(valorInscricao)}}</td>
+                        </tr>
+                        <tr v-if="!inscricaoMinicurso">
+                            <td>Minicurso 1</td>
+                            <td id="precoTotal">{{formataMoney(valorMinicurso)}}</td>
+                        </tr>
+                        <tr v-if="!inscricaoMinicurso2">
+                            <td>Minicurso 2</td>
+                            <td id="precoTotal">{{formataMoney(valorMinicurso3)}}</td>
+                        </tr>
+                        <tr>
+                            <td><b>Total A Pagar</b></td>
+                            <td id="precoTotal"><b>{{formataMoney(valorTotal)}}</b></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="row">
                 <div class="col">
                     <router-link :to="{name: 'produtos'}" tag="a" class="btn btn-lg btn-block btn-secondary">Voltar</router-link>
                 </div>

@@ -84,6 +84,41 @@
                     <label for="email">Email*:</label>
                     <input required type="email" id="email" name="email" v-model="dadosInscricao.email">
                 </div>
+                <div class="row">
+                    <h4 class="heading-secondary u-margin-bottom-small">Produtos escolhidos:</h4>
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">Item</th>
+                                <th scope="col">Preço</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Minicurso 1</td>
+                                <td id="precoMinicurso">
+                                    {{formataMoney(valorMinicurso)}}
+                                    <button v-if="valorMinicurso > 0" type="button" class="btn btn-danger btn-sm" @click="limpar('grupo2')">
+                                        <i class="fas fa-remove"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Minicurso 2</td>
+                                <td id="precoInscricao">
+                                    {{formataMoney(valorMinicurso3)}}
+                                    <button v-if="valorMinicurso3 > 0" type="button" class="btn btn-danger btn-sm" @click="limpar('grupo3')">
+                                        <i class="fas fa-remove"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td><b>Total A Pagar</b></td>
+                                <td id="precoTotal">{{formataMoney(valorTotal)}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
                 <div class="text-center">
                     <button :disabled=isDisabledButton type="submit" class="btn btn-lg btn-primary">Realizar Pagamento</button>
                 </div>
