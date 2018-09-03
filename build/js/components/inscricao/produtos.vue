@@ -15,7 +15,7 @@
                                 <div class="card-body">
                                     <div class="container">
                                         <ul class="lista-dados">
-                                            <li class="dado">Tipo de Inscrição: {{inscricaoEvento.tipoInscricaoObj.nome}}</li>
+                                            <li class="dado">Tipo de Inscrição: {{inscricaoEvento.tipoInscricao || inscricaoEvento.tipoInscricaoObj.nome}}</li>
                                             <li class="dado">Total Pago: {{formataMoney(inscricaoEvento.totalAPagar)}}</li>
                                         </ul>
                                     </div>
