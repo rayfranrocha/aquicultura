@@ -32,7 +32,7 @@
                     <select name="cars" class="custom-select" v-model="minicursoSelected">
                         <option :value="null">Selecione o Minicurso</option>
                         <option v-for="(minicurso, index) in listMinicurso" :value="index" :key="minicurso._id">
-                            {{minicurso.nome}} - Preço: {{formataMoney(minicurso.preco)}} - Vagas Disponíveis: {{minicurso.vagas}}
+                            {{minicurso.nome}} - Preço: {{formataMoney(minicurso.preco)}} - Vagas Disponíveis: {{minicurso.disponiveis}}
                         </option>
                     </select>
                 </div>
@@ -46,7 +46,7 @@
                     <select name="cars" class="custom-select" v-model="minicursoSelected3">
                         <option :value="null">Selecione o Minicurso 2</option>
                         <option v-for="(minicurso, index) in listMinicurso3" :value="index" :key="minicurso._id">{{minicurso.nome}} 
-                            <p>- Preço: {{formataMoney(minicurso.preco)}} - Vagas Disponíveis: {{minicurso.vagas}}</p>
+                            <p>- Preço: {{formataMoney(minicurso.preco)}} - Vagas Disponíveis: {{minicurso.disponiveis}}</p>
                         </option>
                     </select>
                 </div>
