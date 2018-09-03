@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="container card">
+        <div class="container">
             <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Minhas Compras realizadas</h1>
             <hr class="small">
             <div class="card-body text-center">
@@ -55,21 +55,21 @@
 
             </div>
         </div>
-        <div class="container card" v-if="!inscricaoEvento || !inscricaoMinicurso || !inscricaoMinicurso2">
+        <div class="container" v-if="!inscricaoEvento || !inscricaoMinicurso || !inscricaoMinicurso2">
             <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Produtos Disponíveis</h1>
             <hr class="small">
             <div class="card-body text-center">
                 <div class="container">
                     <div class="row">
                         <div class="col" v-if="!inscricaoEvento">
-                            <a class="btn btn-primary"
+                            <a class="btn btn-lg btn-primary"
                                 href="/inscricao.html#/home/inscricao">
                                 <i class="fas fa-address-card"></i>
                                 Inscrição no Evento
                             </a>
                         </div>
                         <div class="col" v-if="isMinicursoDisponivel">
-                            <a class="btn btn-primary"
+                            <a class="btn btn-lg btn-primary"
                                 href="/inscricao.html#/home/minicurso">
                                 <i class="fas fa-chalkboard-teacher"></i>
                                 Inscrição no Minicurso
@@ -78,6 +78,20 @@
                     </div>
                 </div>
             </div>
+        </div>
+        <div class="container">
+                    <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">TRABALHOS</h1>
+            
+                    <div style="padding: 0 3rem;" class="u-margin-top-small">
+                        <a href="trabalhos.html#/list-trabalho">
+                            <button class="bt-flat-azul">Trabalhos Submetidos</button>
+                        </a>
+                    </div>
+                    <div style="padding: 0 3rem;" class="u-margin-top-small">
+                            <a href="trabalhos.html#/trabalho">
+                                <button class="bt-flat-azul">Submeter Trabalhos</button>
+                            </a>
+                    </div>
         </div>
     </div>
 </template>

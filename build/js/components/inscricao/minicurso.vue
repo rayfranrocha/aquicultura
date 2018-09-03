@@ -1,35 +1,34 @@
 <template>
-    <div class="card">
-        <div class="card-header">
-            Escolha o minicurso para pagamento
-        </div>
+    <div>
+        <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Inscrição em minicursos</h1>
         <div class="card-body">
             <form @submit.prevent="pagar">
-                <div class="col-md-12 col-sm-12 col-xs-12">
-                    <label for="nome">Nome para o crachá*:</label>
-                    <input required type="text" id="nome" name="nome" v-model="dadosInscricao.dadosBoleto.nome">
-
-                    <label for="telefone">Telefone Celular*:</label>
-                    <input required type="tel" id="telefone" name="telefone" v-model="dadosInscricao.telefone">
-
-                    <label for="email">Email*:</label>
-                    <input required type="email" id="email" name="email" v-model="dadosInscricao.email">
+                <div class="alert alert-primary" role="alert">
+                    {{  !inscricaoMinicurso && !inscricaoMinicurso2 ? 
+                        'Para participar de minicursos, selecione até dois minicursos.':
+                        '' 
+                    }}
+                    {{
+                        ((inscricaoMinicurso && !inscricaoMinicurso2) 
+                        || (inscricaoMinicurso2 && !inscricaoMinicurso)) ? 
+                        'Você ainda pode selecionar um minicurso': ''
+                    }}
+                    
                 </div>
-                <div class="form-group" v-if="!inscricaoMinicurso">
+                 <div class="form-group" v-if="!inscricaoMinicurso">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                            <label class="input-group-text" for="tipoInscricao">Minicurso</label>
+                            <label class="input-group-text" for="tipoInscricao">Minicurso 1</label>
                         </div>
                         <select name="cars" class="custom-select" v-model="minicursoSelected">
-                            <option :value="null">Selecione o Minicurso</option>
+                            <option :value="null">Selecione o Minicurso 1</option>
                             <option v-for="(minicurso, index) in listMinicurso" :value="index" :key="minicurso._id">
                                 {{minicurso.nome}} - Preço: {{formataMoney(minicurso.preco)}} - Vagas Disponíveis: {{minicurso.vagas}}
                             </option>
                         </select>
                     </div>
                 </div>
-
-                <div class="form-group" v-if="!inscricaoMinicurso2">
+                 <div class="form-group" v-if="!inscricaoMinicurso2">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
                             <label class="input-group-text" for="tipoInscricao">Minicurso 2</label>
@@ -42,7 +41,6 @@
                         </select>
                     </div>
                 </div>
-
                 <table class="table">
                     <thead>
                         <tr>
@@ -52,7 +50,7 @@
                     </thead>
                     <tbody>
                         <tr>
-                            <td>Minicursos Grupo 1</td>
+                            <td>Minicurso 1</td>
                             <td id="precoMinicurso">
                                 {{formataMoney(valorMinicurso)}}
                                 <button v-if="valorMinicurso > 0" type="button" class="btn btn-danger btn-sm" @click="limpar('grupo2')">
@@ -61,7 +59,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Minicurso Grupo 2</td>
+                            <td>Minicurso 2</td>
                             <td id="precoInscricao">
                                 {{formataMoney(valorMinicurso3)}}
                                 <button v-if="valorMinicurso3 > 0" type="button" class="btn btn-danger btn-sm" @click="limpar('grupo3')">
@@ -70,14 +68,24 @@
                             </td>
                         </tr>
                         <tr>
-                            <td>Total A Pagar</td>
+                            <td><b>Total A Pagar</b></td>
                             <td id="precoTotal">{{formataMoney(valorTotal)}}</td>
                         </tr>
                     </tbody>
                 </table>
+               
+                <div class="col-md-12 col-sm-12 col-xs-12">
+                    <label for="nome">Nome para o crachá*:</label>
+                    <input required type="text" id="nome" name="nome" v-model="dadosInscricao.dadosBoleto.nome">
 
+                    <label for="telefone">Telefone Celular*:</label>
+                    <input required type="tel" id="telefone" name="telefone" v-model="dadosInscricao.telefone">
+
+                    <label for="email">Email*:</label>
+                    <input required type="email" id="email" name="email" v-model="dadosInscricao.email">
+                </div>
                 <div class="text-center">
-                    <button :disabled=isDisabledButton type="submit" class="btn btn-primary">Realizar Pagamento</button>
+                    <button :disabled=isDisabledButton type="submit" class="btn btn-lg btn-primary">Realizar Pagamento</button>
                 </div>
             </form>
         </div>

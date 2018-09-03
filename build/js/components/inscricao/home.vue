@@ -1,8 +1,6 @@
 <template>
     <div>
         <div class="container card" v-if="$route.name.indexOf('inscricao') >= 0 || $route.name.indexOf('produto') >= 0">
-            <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">INSCRIÇÕES</h1>
-            <hr class="small">
             <div class="table-head u-margin-top-small">
                 <h3>Tabela de Preços</h3>
             </div>
