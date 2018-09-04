@@ -16,7 +16,7 @@
                                     <div class="container">
                                         <ul class="lista-dados">
                                             <li class="dado">Tipo de Inscrição: {{inscricaoEvento.tipoInscricao || inscricaoEvento.tipoInscricaoObj.nome}}</li>
-                                            <li class="dado">Total Pago: {{formataMoney(inscricaoEvento.totalAPagar)}}</li>
+                                            <li class="dado">Total Pago: {{formataMoney(inscricaoEvento.valorInscricao)}}</li>
                                         </ul>
                                     </div>
                                 </div>
@@ -31,7 +31,7 @@
                                 <h6 class="card-title">Inscrição no Minicurso 1</h6>
                                 <div class="card-body">
                                     <p class="card-text">{{inscricaoMinicurso.minicurso.nome}}</p>
-                                    <p class="card-text">Total Pago: {{formataMoney(inscricaoMinicurso.totalAPagar)}}</p>
+                                    <p class="card-text">Total Pago: {{formataMoney(inscricaoMinicurso.minicurso.preco)}}</p>
                                 </div>
                                 <div class="card-footer text-left">
                                     <label for="pagamentoEvento">Pagamento: <b>{{getStatusPagamento(inscricaoMinicurso)}}</b></label>
@@ -43,7 +43,7 @@
                                 <h6 class="card-title">Inscrição no Minicurso 2</h6>
                                 <div class="card-body">
                                     <p class="card-text">{{inscricaoMinicurso2.minicurso2.nome}}</p>
-                                    <p class="card-text">Total Pago: {{formataMoney(inscricaoMinicurso2.totalAPagar)}}</p>
+                                    <p class="card-text">Total Pago: {{formataMoney(inscricaoMinicurso2.minicurso2.preco)}}</p>
                                 </div>
                                 <div class="card-footer text-left">
                                     <label for="pagamentoEvento">Pagamento: <b>{{getStatusPagamento(inscricaoMinicurso2)}}</b></label>
