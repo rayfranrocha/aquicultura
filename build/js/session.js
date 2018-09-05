@@ -105,7 +105,7 @@ function login(event) {
     axios.post('/auth', {cpf: cpf.replace(/[\.\-]/g, ''),senha: senha})
         .then((response) => {
             sessao.logar(response.data, function () {
-                var redirect = sessao.getRed().redirect;
+                var redirect = sessao.getRed() ? sessao.getRed().redirect : '';
                 areaRestrita(redirect);
             });
         })
