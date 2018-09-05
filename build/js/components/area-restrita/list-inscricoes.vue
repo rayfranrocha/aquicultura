@@ -19,6 +19,11 @@
                         </button>
                     </form>
 
+                    <div class="row" v-if="inscricoes">
+                        <div class="col-sm12">
+                            <p><b>Total de inscrições: </b>{{inscricoes.length}}</p>
+                        </div>
+                    </div>
                     <div class="row">
                         <div class="table-responsive">
                             <table class="table table-hover">
