@@ -6,7 +6,13 @@
 
                 <div class="card-body">
                     <form class="form-inline" @submit.prevent="busca">
-                        <input style="width: 60%" class="form-control mr-sm-2" type="search" placeholder="Nome Usuário" aria-label="Search" v-model="filtro.nomeCracha">
+                        <input style="width: 50%" class="form-control mr-sm-2" type="search" placeholder="Nome Usuário" aria-label="Search" v-model="filtro.nomeCracha">
+                        <select v-model="filtro.statusPagamento" name="statusPagamento" id="statusPagamento" class="form-control custom-select mr-sm-2">
+                            <option value="">Selecione o status...</option>
+                            <option value="AGUARDANDO PAGAMENTO">Aguardando Pagamento</option>
+                            <option value="FORMA DE PAGAMENTO NÃO DETECTADA">Forma de Pagamento não detectada</option>
+                            <option value="PAGAMENTO CONFIRMADO">Pagamento Confirmado</option>
+                        </select>
                         <button class="btn btn-lg btn-outline-success my-2 my-sm-0" type="submit">
                             <i class="fa fa-search"></i>
                             Buscar
@@ -14,45 +20,45 @@
                     </form>
 
                     <div class="row">
-                        <table class="table table-hover">
-                            <thead>
-                                <tr>
-                                    <th scope="col">Data/hora</th>
-                                    <th scope="col">CPF</th>
-                                    <th scope="col">Nome/Empresa</th>
-                                    <th scope="col">Tipo Inscriçao</th>
-                                    <th scope="col">Comprovante Aluno</th>
-                                    <th scope="col">Minicurso Grupo 1</th>
-                                    <th scope="col">Minicurso Grupo 2</th>
-                                    <th scope="col">Total Pago</th>
-                                    <th scope="col">Status do Pagamento</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr v-for="inscricao in inscricoes" :key="inscricao._id">
-                                    <td>{{moment(inscricao.createdAt).format('DD/MM/YYYY hh:mm')}}</td>
-                                    <td>{{inscricao.user ? inscricao.user.cpf : ''}}</td>
-                                    <td>{{inscricao.dadosBoleto ? inscricao.dadosBoleto.nome : ''}}{{`${inscricao.empresa ? '/'+inscricao.empresa : ''}`}} <br/> {{inscricao.user ? inscricao.user.email : ''}} </td>
-                                    <td>{{inscricao.tipoInscricao}} <br/> {{formataMoney(inscricao.valorInscricao)}}</td>
-                                    <td class="text-center">
-                                        <a v-if="['ESTUDANTE', 'ESTUDANTE_POS'].indexOf(inscricao.tipoInscricao) > -1" target="_blank" class="btn btn-secondary" title="Exibir Comprovante inscricao" :href="`${urlServico}/inscricaoAnexo/${inscricao._id}.pdf`">
-                                            <i class="fa fa-file-pdf"></i>
-                                        </a>
-                                        <span v-else>
-                                            N/A
-                                        </span>
-                                    </td>
-                                    <td>{{ inscricao.minicurso ? inscricao.minicurso.nome : 'N/A'}} <br/>
-									    {{ inscricao.minicurso ? formataMoney(inscricao.minicurso.preco): 'N/A' }}
-									</td>
-                                    <td>{{ inscricao.minicurso2 ?inscricao.minicurso2.nome : 'N/A'}} <br/>
-									    {{ inscricao.minicurso2 ? formataMoney(inscricao.minicurso2.preco): 'N/A' }}
-									</td>
-                                    <td>{{formataMoney(inscricao.totalAPagar)}}</td>
-                                    <td>{{getStatusPagamento(inscricao)}}</td>
-                                </tr>
-                            </tbody>
-                        </table>
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Data/hora</th>
+                                        <th scope="col">Nome/Empresa</th>
+                                        <th scope="col">Tipo Inscriçao</th>
+                                        <th scope="col">Comprovante Aluno</th>
+                                        <th scope="col">Minicurso Grupo 1</th>
+                                        <th scope="col">Minicurso Grupo 2</th>
+                                        <th scope="col">Total</th>
+                                        <th scope="col">Status do Pagamento</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr v-for="inscricao in inscricoes" :key="inscricao._id">
+                                        <td>{{moment(inscricao.createdAt).format('DD/MM/YYYY hh:mm')}}</td>
+                                        <td>{{inscricao.dadosBoleto ? inscricao.dadosBoleto.nome : ''}}{{`${inscricao.empresa ? '/'+inscricao.empresa : ''}`}} <br/> {{inscricao.user ? inscricao.user.email : ''}} <br/>CPF: {{inscricao.user ? inscricao.user.cpf : ''}}</td>
+                                        <td>{{inscricao.tipoInscricao || (inscricao.tipoInscricaoObj ? inscricao.tipoInscricaoObj.nome : '')}} <br/> {{formataMoney(inscricao.valorInscricao)}}</td>
+                                        <td class="text-center">
+                                            <a v-if="['ESTUDANTE', 'ESTUDANTE_POS'].indexOf(inscricao.tipoInscricao) > -1 || (inscricao.tipoInscricaoObj && inscricao.tipoInscricaoObj.comprovante)" target="_blank" class="btn btn-secondary" title="Exibir Comprovante inscricao" :href="`${urlServico}/inscricaoAnexo/${inscricao._id}.pdf`">
+                                                <i class="fa fa-file-pdf"></i>
+                                            </a>
+                                            <span v-else>
+                                                N/A
+                                            </span>
+                                        </td>
+                                        <td>{{ inscricao.minicurso ? inscricao.minicurso.nome : 'N/A'}} <br/>
+                                            {{ inscricao.minicurso ? formataMoney(inscricao.minicurso.preco): 'N/A' }}
+                                        </td>
+                                        <td>{{ inscricao.minicurso2 ?inscricao.minicurso2.nome : 'N/A'}} <br/>
+                                            {{ inscricao.minicurso2 ? formataMoney(inscricao.minicurso2.preco): 'N/A' }}
+                                        </td>
+                                        <td>{{formataMoney(inscricao.totalAPagar)}}</td>
+                                        <td>{{getStatusPagamento(inscricao)}}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
                     </div>
                 </div>
         </div>
@@ -66,9 +72,6 @@ module.exports = {
     methods: {
         busca () {
             let filter = {};
-            if (this.filtro.nomeCracha) {
-                 filter.nomeCracha__regex = `/.*${this.filtro.nomeCracha}.*/i`
-            }
             axios.get('/inscricao?populate=user',{params: filter})
             .then(response => {
                 let list = response.data
@@ -79,9 +82,35 @@ module.exports = {
                     if (!i1.statusPagamento || !i2.statusPagamento) return -1;
                     return ('' + i1.statusPagamento).localeCompare(('' + i2.statusPagamento))
                 })
-                this.inscricoes = list
+
+                const filtroNomeEStatusPagamento = (inscricao) => {
+                    return (this.filtro.nomeCracha && inscricao.dadosBoleto.nome.toUpperCase().indexOf(this.filtro.nomeCracha.toUpperCase()) > -1)
+                          && (this.filtro.statusPagamento && this.getStatusPagamento(inscricao) === this.filtro.statusPagamento)
+                };
+
+                const filtroNome = (inscricao) => {
+                    return (this.filtro.nomeCracha && inscricao.dadosBoleto.nome.toUpperCase().indexOf(this.filtro.nomeCracha.toUpperCase()) > -1);
+                }
+
+                const filtroStatusPagamento = (inscricao) => {
+                    return (this.filtro.statusPagamento && this.getStatusPagamento(inscricao) === this.filtro.statusPagamento)
+                };
+
+                console.log('this.filtro.nomeCracha', this.filtro.nomeCracha);
+                console.log('this.filtro.statusPagamento', this.filtro.statusPagamento);
+
+                if (this.filtro.nomeCracha && !this.filtro.statusPagamento) {
+                    this.inscricoes = list.filter(inscricao => filtroNome(inscricao))
+                } else if (!this.filtro.nomeCracha && this.filtro.statusPagamento) {
+                    this.inscricoes = list.filter(inscricao => filtroStatusPagamento(inscricao))
+                } else if (this.filtro.nomeCracha && this.filtro.statusPagamento) {
+                    this.inscricoes = list.filter(inscricao => filtroNomeEStatusPagamento(inscricao))
+                } else {
+                    this.inscricoes = list;
+                }
             })
         },
+        
         formataMoney (valor) {
             if (!valor) return '';
             return `R$ ${valor.toLocaleString('pt-BR',{minimumFractionDigits: 2, maximumFractionDigits: 2})}`
@@ -105,14 +134,20 @@ module.exports = {
             }
 
             if (inscricao.pagseguro) {
-                return 'PROCESSANDO PAGAMENTO'
+                return 'FORMA DE PAGAMENTO NÃO DETECTADA'
+            }
+
+            if (!inscricao.pagseguro) {
+                return 'FORMA DE PAGAMENTO NÃO DETECTADA'
             }
         }
     },
     data () {
         return {
             inscricoes: [],
-            filtro: {},
+            filtro: {
+                statusPagamento: ''
+            },
             urlServico: axios.defaults.baseURL
         }
     }
