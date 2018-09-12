@@ -162,6 +162,8 @@
             </form>
             <h1 onclick="showCadastro()" class="heading-secondary no-hover u-center-text-2 u-margin-top-small u-margin-bottom-small"
                 style="cursor: pointer;">Não tem login? Cadastre-se.</h1>
+            <h1 onclick="showEsqueciSenha()" class="heading-secondary no-hover u-center-text-2 u-margin-top-small u-margin-bottom-small"
+                style="cursor: pointer;">Esqueci minha senha</h1>
         </div>
         <div id="cadastro-form" class="cadastro-form" style="display: none">
             <form action="#" onsubmit="cadastrar(event)" method="post">
@@ -301,6 +303,34 @@
             </div>
         </div>
     </footer>
+
+    <div class="modal" id="dlg-esqueciSenha" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Recupere sua senha informando o CPF</h4>
+                    <button onclick="jQuery('#dlg-esqueciSenha').hide()" type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form autocomplete="off" onsubmit="recuperarSenha()">
+                        <div class="row">
+                            <div class="col">
+                                <label for="cpfEsqueciSenha">CPF</label>
+                                <input autofocus required id="cpfEsqueciSenha" placeholder="somente números" type="tel" class="form-group">
+                            </div>
+                        </div>
+                        <div class="row text-center">
+                            <div class="col">
+                                <button type="submit" class="btn btn-default">Recupear</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal" id="loadingModal" tabindex="-1" role="dialog" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-sm" role="document">

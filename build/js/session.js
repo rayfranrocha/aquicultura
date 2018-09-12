@@ -89,6 +89,23 @@ function showCadastro() {
     });
     esconder.classList.add('out');
 }
+
+function showEsqueciSenha () {
+    jQuery('#dlg-esqueciSenha').show();
+}
+
+function recuperarSenha () {
+    event.preventDefault();
+    axios.post('/user/recuperarSenha', {cpf: jQuery('#cpfEsqueciSenha').val()})
+        .then(response => {
+            alert('Foi enviado a nova senha para o email cadastrado');
+            jQuery('#dlg-esqueciSenha').hide();
+        })
+        .catch(error => {
+            alert('O CPF informado não foi encontrado, tente novamente');
+        });
+}
+
 function logout() {
     sessao.deslogar(function () {
         window.location.href = location_ + '/index.html';
