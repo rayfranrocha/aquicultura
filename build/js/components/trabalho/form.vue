@@ -33,8 +33,6 @@
                                     <textarea v-model="trabalho.resumo" required rows="5" id="resumo"></textarea>
                                     <label for="abstract">Abstract*:</label>
                                     <textarea v-model="trabalho.abstract" required rows="5" id="abstract"></textarea>
-                                    <label for="arquivo">Arquivo</label>
-                                    <input class="form-control" type="file" name="arquivo" id="arquivo" accept="application/pdf">
                                 </fieldset>
                                 <span id="status-trabalho" class="u-margin-top-small"></span>
                                 <button class="u-margin-top-small bt-flat-azul" type="submit">Submeter Trabalho</button>
