@@ -5,18 +5,41 @@
                 <hr class="small">
 
                 <div class="card-body">
-                    <form class="form-inline" @submit.prevent="busca">
-                        <input style="width: 50%" class="form-control mr-sm-2" type="search" placeholder="Nome Usuário" aria-label="Search" v-model="filtro.nomeCracha">
-                        <select v-model="filtro.statusPagamento" name="statusPagamento" id="statusPagamento" class="form-control custom-select mr-sm-2">
-                            <option value="">Selecione o status...</option>
-                            <option value="AGUARDANDO PAGAMENTO">Aguardando Pagamento</option>
-                            <option value="FORMA DE PAGAMENTO NÃO DETECTADA">Forma de Pagamento não detectada</option>
-                            <option value="PAGAMENTO CONFIRMADO">Pagamento Confirmado</option>
-                        </select>
-                        <button class="btn btn-lg btn-outline-success my-2 my-sm-0" type="submit">
-                            <i class="fa fa-search"></i>
-                            Buscar
-                        </button>
+                    <form @submit.prevent="busca">
+                        <div class="row">
+                            <div class="col">
+                                <input class="form-control" type="search" placeholder="Nome Usuário" aria-label="Search" v-model="filtro.nomeCracha">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <select v-model="filtro.statusPagamento" name="statusPagamento" id="statusPagamento" class="form-control custom-select mr-sm-2">
+                                    <option value="">Selecione o status...</option>
+                                    <option value="AGUARDANDO PAGAMENTO">Aguardando Pagamento</option>
+                                    <option value="FORMA DE PAGAMENTO NÃO DETECTADA">Forma de Pagamento não detectada</option>
+                                    <option value="PAGAMENTO CONFIRMADO">Pagamento Confirmado</option>
+                                </select>
+                            </div>
+                            <div class="col">
+                                <select v-model="minicurso" class="form-control" name="minicurso" id="minicurso">
+                                    <option :value="null">Selecione o minicurso...</option>
+                                    <optgroup label="Minicurso: Grupo 1">
+                                        <option v-for="minicurso1 in minicursos1" :value="minicurso1" :key="minicurso1._id" v-text="minicurso1.nome" />
+                                    </optgroup>
+                                    <optgroup label="Minicurso: Grupo 2">
+                                        <option v-for="minicurso2 in minicursos2" :value="minicurso2" :key="minicurso2._id" v-text="minicurso2.nome" />
+                                    </optgroup>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col text-center">
+                                <button class="btn btn-lg btn-outline-success my-2 my-sm-0" type="submit">
+                                    <i class="fa fa-search"></i>
+                                    Buscar
+                                </button>
+                            </div>
+                        </div>
                     </form>
 
                     <div class="row" v-if="inscricoes">
@@ -73,6 +96,12 @@
 module.exports = {
     created () {
         this.busca()
+        axios.get('/vaga')
+            .then(response => {
+                let listVagas = response.data;
+                this.minicursos1 = listVagas.filter(vaga => vaga.grupo === 2)
+                this.minicursos2 = listVagas.filter(vaga => vaga.grupo === 3)
+            });
     },
     methods: {
         busca () {
@@ -101,17 +130,37 @@ module.exports = {
                     return (this.filtro.statusPagamento && this.getStatusPagamento(inscricao) === this.filtro.statusPagamento)
                 };
 
+                const filtroMinicurso2 = (inscricao, minicurso) => {
+                    if (!inscricao.minicurso) {
+                        return false;
+                    }
+                    return inscricao.minicurso._id === minicurso._id
+                };
+
+                const filtroMinicurso3 = (inscricao, minicurso) => {
+                    if (!inscricao.minicurso2) {
+                        return false;
+                    }
+                    return inscricao.minicurso2._id === minicurso._id
+                };
+
                 console.log('this.filtro.nomeCracha', this.filtro.nomeCracha);
                 console.log('this.filtro.statusPagamento', this.filtro.statusPagamento);
 
-                if (this.filtro.nomeCracha && !this.filtro.statusPagamento) {
-                    this.inscricoes = list.filter(inscricao => filtroNome(inscricao))
-                } else if (!this.filtro.nomeCracha && this.filtro.statusPagamento) {
-                    this.inscricoes = list.filter(inscricao => filtroStatusPagamento(inscricao))
-                } else if (this.filtro.nomeCracha && this.filtro.statusPagamento) {
-                    this.inscricoes = list.filter(inscricao => filtroNomeEStatusPagamento(inscricao))
-                } else {
-                    this.inscricoes = list;
+                this.inscricoes = list;
+                if (this.filtro.nomeCracha) {
+                    this.inscricoes = this.inscricoes.filter(inscricao => filtroNome(inscricao))
+                }
+                if (this.filtro.statusPagamento) {
+                    this.inscricoes = this.inscricoes.filter(inscricao => filtroStatusPagamento(inscricao))
+                }
+                if (this.minicurso) {
+                    if (this.minicurso.grupo === 2) {
+                        this.inscricoes = this.inscricoes.filter(inscricao => filtroMinicurso2(inscricao, this.minicurso))
+                    }
+                    if (this.minicurso.grupo === 3) {
+                        this.inscricoes = this.inscricoes.filter(inscricao => filtroMinicurso3(inscricao, this.minicurso))
+                    }
                 }
             })
         },
@@ -153,7 +202,10 @@ module.exports = {
             filtro: {
                 statusPagamento: ''
             },
-            urlServico: axios.defaults.baseURL
+            urlServico: axios.defaults.baseURL,
+            minicursos1: [],
+            minicursos2: [],
+            minicurso: null
         }
     }
 }
