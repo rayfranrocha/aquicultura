@@ -121,7 +121,7 @@
                 return window.localStorage.getItem('user');
             },
             isMinicursoDisponivel () {
-                return !this.inscricaoMinicurso || !this.inscricaoMinicurso2
+                return this.inscricaoEvento && (!this.inscricaoMinicurso || !this.inscricaoMinicurso2)
             }
         },
         data () {
