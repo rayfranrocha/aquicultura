@@ -22,7 +22,10 @@
                             </div>
                             <div class="col">
                                 <select v-model="minicurso" class="form-control" name="minicurso" id="minicurso">
-                                    <option :value="null">Selecione o minicurso...</option>
+                                    <option :value="null">Selecione o minicurso ou tipo de inscricao...</option>
+                                    <optgroup label="Tipo Inscrição">
+                                       <option v-for="tipoInscricao in listTipoInscricao" :value="tipoInscricao" :key="tipoInscricao._id" v-text="tipoInscricao.nome" />
+                                    </optgroup>
                                     <optgroup label="Minicurso: Grupo 1">
                                         <option v-for="minicurso1 in minicursos1" :value="minicurso1" :key="minicurso1._id" v-text="minicurso1.nome" />
                                     </optgroup>
@@ -102,6 +105,11 @@ module.exports = {
                 this.minicursos1 = listVagas.filter(vaga => vaga.grupo === 2)
                 this.minicursos2 = listVagas.filter(vaga => vaga.grupo === 3)
             });
+        axios.get('/tipoInscricao')
+            .then(response => {
+                let listTipoInscricao = response.data;
+                this.listTipoInscricao = listTipoInscricao;
+            });
     },
     methods: {
         busca () {
@@ -161,6 +169,12 @@ module.exports = {
                     if (this.minicurso.grupo === 3) {
                         this.inscricoes = this.inscricoes.filter(inscricao => filtroMinicurso3(inscricao, this.minicurso))
                     }
+                    if (this.minicurso.precoAte21) {
+                        this.inscricoes = this.inscricoes.filter(inscricao => {
+                            let nmTipoInscricao = inscricao.tipoInscricao || (inscricao.tipoInscricaoObj ? inscricao.tipoInscricaoObj.nome : '');
+                            return this.minicurso.nome === nmTipoInscricao
+                        });
+                    }
                 }
             })
         },
@@ -205,7 +219,8 @@ module.exports = {
             urlServico: axios.defaults.baseURL,
             minicursos1: [],
             minicursos2: [],
-            minicurso: null
+            minicurso: null,
+            listTipoInscricao: []
         }
     }
 }
