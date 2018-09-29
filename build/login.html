@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="css/owl.carousel.min.css">
     <link rel="stylesheet" href="css/owl.theme.default.min.css">
 
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.3/vue.min.js'></script>
+
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 
@@ -33,7 +35,6 @@
         }
         console.log(ambiente[location.hostname]);
         axios.defaults.baseURL = ambiente[location.hostname];
-        console.log('axios', axios.defaults.baseURL);
     </script>
 
     <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
@@ -135,6 +136,38 @@
     </header>
     <main>
         <div id="login-form" class="login-form">
+        <div class="container card">
+                <div class="table-head u-margin-top-small">
+                    <h3>Tabela de Preços</h3>
+                </div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Categoria</th>
+                            <th scope="col">Até 21/09</th>
+                            <th scope="col">21/09 a 02/11</th>
+                            <th scope="col">Local</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr v-for="tipoInscricao in listTipoInscricao" :key="tipoInscricao._id">
+                            <td>{{tipoInscricao.nome}}</td>
+                            <td>{{formataMoney(tipoInscricao.precoAte21)}}</td>
+                            <td>{{formataMoney(tipoInscricao.precoApos21)}}</td>
+                            <td>{{formataMoney(tipoInscricao.precoLocal)}}</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Minicursos
+                            </td>
+                            <td>R$50,00</td>
+                            <td>R$50,00</td>
+                            <td>R$50,00</td>
+    
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
             <form onsubmit="login(event)" method="post">
                 <h1 class="heading-secondary no-hover u-center-text-2 u-margin-top-small">Realizar Login</h1>
                 <p>Prezado participante, você ainda não está logado. Para se inscrever no evento, minicursos ou submeter trabalhos,
@@ -351,6 +384,27 @@
 
     <script src="./js/owl.carousel.min.js" type="text/javascript"></script>
     <script src="./js/default.js" type="text/javascript"></script>
+
+    <script>
+        var app = new Vue({
+            el: '#login-form',
+            data: {
+                listTipoInscricao: []
+            },
+            created: function() {
+                axios.get('/tipoInscricao')
+                    .then(response => {
+                        this.listTipoInscricao = response.data
+                        console.log(this.listTipoInscricao);
+                    });
+            },
+            methods: {
+                formataMoney (valor) {
+                    return `R$ ${valor.toLocaleString('pt-BR',{minimumFractionDigits: 2, maximumFractionDigits: 2})}`
+                }
+            }
+        });
+    </script>
 
     <script>
         axios.interceptors.request.use(function (config) {
