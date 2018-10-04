@@ -78,7 +78,8 @@ module.exports = {
 
       if (
         this.inscricao.statusPagseguro &&
-        this.inscricao.statusPagseguro.transaction.status[0] === "3"
+        (this.inscricao.statusPagseguro.transaction.status[0] === "3"
+          || this.inscricao.statusPagseguro.transaction.status[0] === "4")
       ) {
         return "PAGAMENTO CONFIRMADO";
       }
