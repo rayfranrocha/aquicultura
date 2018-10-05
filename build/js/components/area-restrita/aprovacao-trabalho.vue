@@ -19,29 +19,26 @@
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
-                                        <th class="w-10" scope="col">Código</th>
-                                        <th class="w-10" scope="col">Data envio</th>
+                                        <th class="w-10" scope="col">Cod. / Data</th>
                                         <th class="w-75" scope="col">Título</th>
                                         <th class="w-75" scope="col">Autores</th>
-                                        <th class="w-75" scope="col">Email Autores</th>
                                         <th class="w-15" scope="col">Status</th>
-                                        <th class="w-15" scope="col">Anexo</th>
                                         <th class="w-15" scope="col">Ação</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr v-for="trabalho in listTrabalhos" :key="trabalho._id">
-                                        <td>{{trabalho._id.substr(0,6)}}</td>
-                                        <td>{{formataData(trabalho.createdAt)}}</td>
-                                        <td>{{trabalho.titulo}}</td>
-                                        <td>{{trabalho.autores}}</td>
-                                        <td>{{trabalho.emailAutores}}</td>
-                                        <td>{{trabalho.status}}</td>
-                                        <td class="text-center">
-                                            <a target="_blank" class="btn btn-secondary" title="Exibir Anexo" :href="`${urlServico}/trabalhoAnexo/${trabalho._id}.pdf`">
-                                                <i class="fa fa-file-pdf"></i>
-                                            </a>
+                                        <td>{{trabalho._id}}
+                                                <br/>{{formataData(trabalho.createdAt)}}</td>
+                                        <td>
+                                            Área de submissão: {{trabalho.areaSubmissao || 'NÃO INFORMADO'}}
+                                            <br />
+                                            Categoria para premiação: {{trabalho.categoriaPremiacao || 'NÃO INFORMADO'}}
+                                            <br /><br />
+                                            Título: {{trabalho.titulo}}
                                         </td>
+                                        <td>{{trabalho.autores}}</td>
+                                        <td>{{trabalho.status}}</td>
                                         <td>
                                             <button class="btn btn-secondary" title="Visualizar"
                                                 @click="visualiza(trabalho)" >
@@ -90,10 +87,6 @@
                                 </div>
                                 <div class="row align-items-center">
                                     <div class="col-3">
-                                        <a target="_blank" :href="`${urlServico}/trabalhoAnexo/${trabalho._id}.pdf`" class="btn btn-warning">
-                                            <i class="fa fa-paperclip"></i>
-                                            <span>Anexo</span>
-                                        </a>
                                     </div>
                                 </div>
                             </div>
