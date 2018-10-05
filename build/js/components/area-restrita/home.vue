@@ -46,7 +46,7 @@
                     Aprovar Trabalhos Submetidos
                 </router-link>
             </div>
-            <div style="padding: 0 3rem;" class="u-margin-top-small">
+            <div style="padding: 0 3rem; margin-bottom: 32px;" class="u-margin-top-small">
                 <router-link class="btn btn-warning btn-lg btn-block"
                     :to="{name: 'ListInscricoes'}">
                    Inscrições Realizadas
