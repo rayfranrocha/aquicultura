@@ -29,6 +29,24 @@
                                     <input v-model="trabalho.autores" required type="text" id="nomes" name="nomes">
                                     <label for="emails">Email dos Autores*:</label>
                                     <input v-model="trabalho.emailAutores" required type="text" id="emails" name="emails">
+                                    <label for="emails">Instituição*:</label>
+                                    <input v-model="trabalho.instituicao" required type="text" id="instituicao" name="instituicao">
+                                    <label for="areaSubmissao">Área de Submissão*:</label>
+                                    <select required name="areaSubmissao" id="areaSubmissao"
+                                        v-model="trabalho.areaSubmissao">
+                                        <option :value="null">Selecione</option>
+                                        <option
+                                            v-for="areaSubmissao in listAreaSubmissao"
+                                            :key="areaSubmissao" :value="areaSubmissao" v-text="areaSubmissao"></option>
+                                    </select>
+                                    <label for="categoriaPremiacao">Categoria para Premiação*:</label>
+                                    <select required name="categoriaPremiacao" id="categoriaPremiacao"
+                                        v-model="trabalho.categoriaPremiacao">
+                                        <option :value="null">Selecione</option>
+                                        <option
+                                            v-for="categoria in listCategoriaPremiacao"
+                                            :key="categoria" :value="categoria" v-text="categoria"></option>
+                                    </select>
                                     <label for="resumo">Resumo*:</label>
                                     <textarea v-model="trabalho.resumo" required rows="5" id="resumo"></textarea>
                                     <label for="abstract">Abstract*:</label>
@@ -51,8 +69,31 @@ module.exports = {
   },
   data () {
       return {
-          trabalho: {},
-          error: null
+          trabalho: {
+              areaSubmissao: null,
+              categoriaPremiacao: null
+          },
+          error: null,
+          listAreaSubmissao: [
+            "Fisiologia aplicada a aquicultura",
+            "Nutrição de organismos aquáticos",
+            "Piscicultura de água doce",
+            "Ornamentais",
+            "Sanidade",
+            "Economia",
+            "Melhoramento e genética",
+            "Qualidade de água e toxicologia",
+            "Tecnologia e processamento de pescado",
+            "Aquicultura e meio ambiente",
+            "Carcinocultura de água doce",
+            "Reprodução e larvicultura",
+            "Comportamento/bem estar",
+            "Recursos Pesqueiros"
+          ],
+          listCategoriaPremiacao: [
+            "Estudante de Curso Técnico ou Graduação",
+            "Estudante de Pós-Graduação ou Profissionais da Área"
+          ]
       }
   },
   methods: {
