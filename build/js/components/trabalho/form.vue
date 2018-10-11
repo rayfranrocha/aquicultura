@@ -105,6 +105,8 @@ module.exports = {
           formData.append("resumo", this.trabalho.resumo);
           formData.append("abstract", this.trabalho.abstract);
           formData.append("user", window.localStorage.getItem("user"));
+          formData.append("areaSubmissao", this.trabalho.areaSubmissao);
+          formData.append("categoriaPremiacao", this.trabalho.categoriaPremiacao);
 
           var arquivo = document.querySelector('#arquivo');
           if (arquivo) {
