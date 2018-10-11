@@ -160,7 +160,7 @@
                     return ''
                 }
 
-                if (inscricao.statusPagseguro && inscricao.statusPagseguro.transaction.status[0] === '3') {
+                if (inscricao.statusPagseguro && inscricao.statusPagseguro.transaction.status[0] === '3' || inscricao.statusPagseguro.transaction.status[0] === '4') {
                     return 'PAGAMENTO CONFIRMADO'
                 }
 
