@@ -149,7 +149,6 @@ module.exports = {
         minicursoSelected: function(newValue) {
             if (newValue || newValue === 0) {
                 this.dadosInscricao.minicurso = this.listMinicurso[newValue];
-                console.log('Minicurso', this.dadosInscricao.minicurso)
                 this.valorMinicurso = this.dadosInscricao.minicurso.preco;
             } else {
                 this.valorMinicurso = 0;
@@ -158,7 +157,6 @@ module.exports = {
         minicursoSelected3: function(newValue) {
             if (newValue || newValue === 0) {
                 this.dadosInscricao.minicursoGrupo3 = this.listMinicurso3[newValue];
-                console.log('Minicurso', this.dadosInscricao.minicursoGrupo3)
                 this.valorMinicurso3 = this.dadosInscricao.minicursoGrupo3.preco;
             } else {
                 this.valorMinicurso3 = 0;
@@ -235,17 +233,14 @@ module.exports = {
                         .then(response => {
                             axios.post('/pagseguro', {id: this.id})
                                 .then(response => {
-                                    console.log('Pagesguro response', response.data)
 
                                     PagSeguroLightbox({
                                         code: response.data.checkout.code[0]
                                     }, {
                                         success: function(transactionCode) {
-                                            console.log(transactionCode)
                                             self.dadosInscricao.transactionCode = transactionCode
                                             axios.put(`/inscricao/${self.id}`, self.dadosInscricao)
                                                 .then(reponse => {
-                                                    console.log(response.data);
                                                     window.location.href = "arearestrita.html";
                                                 });
                                         },
@@ -261,17 +256,14 @@ module.exports = {
                 .then(response => {
                     axios.post('/pagseguro', {id: this.id})
                         .then(response => {
-                            console.log('Pagesguro response', response.data)
 
                             PagSeguroLightbox({
                                 code: response.data.checkout.code[0]
                             }, {
                                 success: function(transactionCode) {
-                                    console.log(transactionCode)
                                     self.dadosInscricao.transactionCode = transactionCode
                                     axios.put(`/inscricao/${self.id}`, self.dadosInscricao)
                                         .then(reponse => {
-                                            console.log(response.data);
                                             window.location.href = "arearestrita.html";
                                         });
                                 },

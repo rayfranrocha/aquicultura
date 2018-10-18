@@ -33,7 +33,6 @@
             'aquiculturanaamazonia.com.br': 'http://api.aquiculturanaamazonia.com.br',
             'www.aquiculturanaamazonia.com.br': 'http://api.aquiculturanaamazonia.com.br'
         }
-        console.log(ambiente[location.hostname]);
         axios.defaults.baseURL = ambiente[location.hostname];
     </script>
 
@@ -395,7 +394,6 @@
                 axios.get('/tipoInscricao')
                     .then(response => {
                         this.listTipoInscricao = response.data
-                        console.log(this.listTipoInscricao);
                     });
             },
             methods: {
