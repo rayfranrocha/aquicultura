@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>II Encontro de Aquicultura na Amazônia Ocidental</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Merriweather" rel="stylesheet">
+    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/dexie@latest/dist/dexie.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
+    <script src="./js/popup.js"></script>
+    <script src="./js/session.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="#" id="top"></a>
+        <div class="header">
+            <div class="row">
+                <div class="header-logo">
+                    <a href="./index.html">
+                        <img src="./img/logo.png" class="header-logo-img" alt="Imagem: Logo do evento">
+                    </a>
+                </div>
+                <div class=" header-logo-text-side">
+                    <h1 class="primary-title u-center-vertical">II Encontro de Aquicultura na Amazônia Ocidental</h1>
+                </div>
+                <div class="header-acesso-rapido">
+                    <a onclick="areaRestrita()" class="bt-header btn btn-primary btn-lg">
+                        <i class="material-icons">person</i>Área restrita</a>
+                </div>
+            </div>
+        </div>
+        <nav class="navbar navbar-expand-lg " id="navbar">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon">
+                    <i class="material-icons u-center-relative">menu</i>
+                </span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Evento
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./comissao.html">Comissão Organizadora</a>
+                            <a class="dropdown-item" href="./index.html#section-sobre">O que é o segundo Encontro de Aquicultura na Amazônia Ocidental</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="./programacao.html" id="navbarDropdown2" role="button" aria-haspopup="true" aria-expanded="false">
+                            Programação
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown3" role="button" aria-haspopup="true" onclick="areaRestrita('inscricao')"
+                            aria-expanded="false">
+                            Inscrições
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link" href="#" id="navbarDropdown" role="button" aria-haspopup="true" style="cursor: pointer" onclick="areaRestrita('trabalhos')"
+                            aria-expanded="false">
+                            Trabalhos
+                        </a>
+                    </li>
+                    <li class="nav-item ">
+                        <a class="nav-link " href="./contato.html" role="button" aria-haspopup="true" aria-expanded="false">
+                            Contatos
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                            Informações Úteis
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="./index.html#localizacao" style="cursor: pointer" role="button" aria-haspopup="true" aria-expanded="false">
+                                Local do evento
+                            </a>
+                            <a class="dropdown-item" href="./turismo.html">Passeios e turismos</a>
+                            <a class="dropdown-item" href="./infomanaus.html">Chegando em Manaus</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <button type="button" class="btn btn-primary gone" id="mostrar" data-toggle="modal" data-target="#exampleModalLong">
+            Modal
+        </button>
+        <!-- Modal 
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Bem vindo!</h5>
+                        <button type="button" data-target="#exampleModalLong" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <img src="./img/BANNER-WEB-PRAZOS-DE-SUBMISSAO.jpg" style="width: 100%;" alt="Imagem de boas vindas" srcset="">
+                    </div>
+                </div>
+            </div>
+        </div>
+		-->
+        <div>
+            <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                <ol class="carousel-indicators">
+                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                </ol>
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="conteudoImagem1" style="text-align: center;">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="conteudoImagem3" style="text-align: center;">
+                        </div>
+                    </div>
+                </div>
+                <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+        <section id="services" class="section-services">
+            <div class="container" data-animation="slideInLeft" data-timeout="350">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 col-lg-offset-1">
+                        <h3 class="heading-secondary u-margin-top-small ">II Encontro de aquicultura na amazônia ocidental</h3>
+                        <h4 class="heading-quaternary u-margin-top-small ">Venha Conhecer!</h4>
+                        <hr class="large">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="service-item">
+                                    <a href="./index.html#section-sobre">
+                                        <div class="circle__container u-margin-top-small">
+                                            <div class="circle">
+                                                <i class="circle__icon material-icons ">announcement</i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="service-item__text-container u-margin-top-small">
+                                        <a href="./index.html#section-sobre">
+                                            <h4 class=" heading-quaternary">Sobre o Evento</h4>
+                                        </a>
+                                        <p class="u-margin-bottom-medium">Este evento técnico científico reunirá os principais expoentes da arquicultura nacional
+
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="service-item">
+                                    <a href="#localizacao">
+                                        <div class="circle__container u-margin-top-small">
+                                            <div class="circle">
+                                                <i class="circle__icon material-icons ">location_on</i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="service-item__text-container u-margin-top-small">
+                                        <a href="#localizacao">
+                                            <h4 class=" heading-quaternary">Localização</h4>
+                                        </a>
+                                        <p class="u-margin-bottom-medium"> O II Econtro de Aquicultura acontecerá em Manaus, no coração da Amazônia
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="service-item">
+                                    <a href="./programacao.html">
+                                        <div class="circle__container u-margin-top-small">
+                                            <div class="circle">
+                                                <i class="circle__icon material-icons ">calendar_today</i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="service-item__text-container u-margin-top-small">
+                                        <a href="./programacao.html">
+                                            <h4 class=" heading-quaternary">Programação</h4>
+                                        </a>
+                                        <p class="u-margin-bottom-medium">Todas as informações sobre as palestras e minicursos você encontra
+                                            <a href="./programacao.html">aqui.</a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 col-md-3 col-sm-12">
+                                <div class="service-item">
+                                    <a style="cursor: pointer" onclick="areaRestrita('trabalhos')">
+                                        <div class="circle__container u-margin-top-small">
+                                            <div class="circle">
+                                                <i class="circle__icon material-icons ">folder</i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <div class="service-item__text-container u-margin-top-small">
+                                        <a class="link-for-js" onclick="areaRestrita('trabalhos')">
+                                            <h4 class=" heading-quaternary ">Trabalhos</h4>
+                                        </a>
+                                        <p class="u-margin-bottom-medium">Já submeteu seu trabalho? Clique
+                                            <a class="link-for-js" href="./orientacaopremios.html">aqui</a> e veja como fazê-lo
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="sobre u-margin-top-medium u-margin-bottom-medium" id="section-sobre">
+            <div class="container">
+                <h3 class="col-xs-12 heading-secondary u-center-text-2 u-margin-top-small u-margin-bottom-small ">O EVENTO</h3>
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-6">
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur sunt vitae blanditiis a numquam rem nam, voluptates
+                            quam modi quos voluptatum odio veniam consectetur qui eius voluptate ad deleniti reiciendis.
+                            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Recusandae vitae suscipit quod. Earum
+                            sapiente reprehenderit fugiat, eum maxime quod est non totam, quaerat asperiores voluptatem omnis
+                            mollitia tempore dignissimos vel. Lorem, ipsum dolor sit amet consectetur adipisicing elit. Consequatur
+                            sunt vitae blanditiis a numquam rem nam, voluptates quam modi quos voluptatum odio veniam consectetur
+                            qui eius voluptate ad deleniti reiciendis. Lorem ipsum dolor, sit amet consectetur adipisicing
+                            elit. Recusandae vitae suscipit quod. Earum sapiente reprehenderit fugiat, eum maxime quod est
+                            non totam, quaerat asperiores voluptatem omnis mollitia tempore dignissimos vel.
+                        </p>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-6 imagem">
+                        <img src="./img/fundo_manaus-min.jpg" alt="">
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="localizacao" id="localizacao" style="width: 100%; text-align: center; height: auto;">
+            <h3 class="heading-secondary u-margin-top-small  u-margin-bottom-small ">LOCALIZAÇÃO</h3>
+            <br>
+            <h3 class="heading-secondary u-margin-top-small  u-margin-bottom-small ">Auditório Vânia Pimentel
+                <br>Av. Nilton Lins
+                <br>MANAUS - AM</h3>
+            <div>
+                <div id="map" class="u-margin-bottom-medium" style="height: 30rem;"></div>
+                <!-- PARA O FUNCIONAMENTO DO MAPA-->
+                <script>
+                    var map;
+                    function initMap() {
+                      var center = {
+                        lat: -3.0578086,
+                        lng: -60.0067482,
+                      };
+                      map = new google.maps.Map(document.getElementById("map"), {
+                        center: center,
+                        zoom: 14,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                      });
+                      var marker = new google.maps.Marker({
+                        position: center,
+                        // icon: "icon.png",
+                        map: map
+                      });
+                    }
+                </script>
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBtDammkFAxQKvULjHWuh9vgfHT-py-laI&callback=initMap"></script>
+
+            </div>
+        </section>
+        <section class="section-inscricao" id="section-inscricao">
+            <form action="#" id="form" method="post" onsubmit="cadastrar(event,'inscricao');">
+                <h1 class=" u-center-text-2 u-margin-top-small">Faça sua inscrição no evento!</h1>
+                <fieldset>
+                    <label for="nome_cad">Nome:</label>
+                    <input type="text" id="nome_cad" name="nome_cad">
+                    <label for="email_cad">Email*:</label>
+                    <input type="email" id="email_cad" name="email_cad">
+                    <label for="cpf">CPF*:</label>
+                    <input type="text" id="cpf_cad" name="cpf_cad">
+                    <label for="senha">Senha*:</label>
+                    <input type="password" id="senha_cad" name="senha_cad">
+                    <label for="confsenha">Confirmar Senha*:</label>
+                    <input type="password" id="confsenha_cad" name="confsenha_cad">
+                </fieldset>
+                <span id="erro_form" class="erro" style="display: none;"></span>
+                <button type="submit" class="bt-flat-azul">Continuar Inscrição</button>
+            </form>
+        </section>
+        <section id="local" class="section-local">
+            <div class="container" data-animation="slideInLeft" data-timeout="350">
+                <div class="row justify-content-center">
+                    <h3 class="heading-secondary-white u-margin-top-small u-margin-bottom-small ">Conheça Manaus a cidade que sediará o evento!</h3>
+                    <!-- <div class="col-md-3"></div> -->
+                    <div class="col-md-12 col-sm-12 col-lg-12">
+                        <div class="video-wrapper">
+                            <iframe class="video" width="540" height="405" src="https://www.youtube.com/embed/gO6smF5ySko" frameborder="0" allow="autoplay; encrypted-media"
+                                allowfullscreen></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section class="parceiros u-margin-top-medium" id="section-parceiros">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <h3 class="heading-secondary u-margin-top-small ">PARCEIROS </h3>
+                    <div id="carrosselParceiros" class="owl-carousel owl-theme play owl autoplay">
+                        <div>
+                            <img src="./img/PARCEIROS/00 (ALCON).png">
+                        </div>
+                        <div>
+                            <img src="./img/PARCEIROS/00 (EAAO).png">
+                        </div>
+                        <div>
+                            <img src="./img/PARCEIROS/00 (FAPEAM).png">
+                        </div>
+                        <div>
+                            <img src="./img/PARCEIROS/00 (INPA).png">
+                        </div>
+                        <div>
+                            <img src="./img/PARCEIROS/00 (PPGAQUI).png">
+                        </div>
+                        <div>
+                            <img src="./img/PARCEIROS/00 (PPGCIPET).png">
+                        </div>
+                        <div>
+                            <img src="./img/PARCEIROS/00 (PROPESP).png">
+                        </div>
+                        <div>
+                            <img src="./img/PARCEIROS/00 (SEBRAE).png">
+                        </div>
+                        <div>
+                            <img src="./img/PARCEIROS/00 (UFAM).png">
+                        </div>
+                        <div>
+                            <img src="./img/PARCEIROS/00 (UNL).png">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <a style="display: block;" href="#top" id="buttonForScrollTop">
+            <i class="fa fa-angle-up circle__icon" style="font-style: normal; font-size: 2rem; color: white;"></i>
+        </a>
+    </main>
+
+    <footer id="footer">
+        <div>
+            <div class="row text-center text-xs-center text-sm-left text-md-left">
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Links rápidos</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="./index.html#section-sobre">
+                                <i class="fa fa-angle-double-right"></i>Sobre o evento</a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" onclick="areaRestrita('inscricao')">
+                                <i class="fa fa-angle-double-right"></i>Inscrições</a>
+                        </li>
+                        <li>
+                            <a style="cursor: pointer;" onclick="areaRestrita('trabalhos')">
+                                <i class="fa fa-angle-double-right"></i>Envio de trabalhos</a>
+                        </li>
+                        <li>
+                            <a href="./index.html#localizacao">
+                                <i class="fa fa-angle-double-right"></i>Local</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Entre em contato</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <i class="fa fas fa-phone"></i> Fone: (92) 3643-2022
+                        </li>
+                        <li>
+                            <i class="fa fas fa-phone"></i> Cel (92) 98175-0930
+                        </li>
+                        <li>
+                            <i class="fa fas fa-envelope"></i> aquicultura@niltonlins.br
+                        </li>
+
+                    </ul>
+                </div>
+                <div class="u-margin-top-small col-xs-12 col-sm-12 col-md-4">
+                    <h5>Informações úteis</h5>
+                    <ul class="list-unstyled quick-links">
+                        <li>
+                            <a href="./turismo.html">
+                                <i class="fa fa-angle-double-right"></i>Passeios e turismos</a>
+                        </li>
+                        <li>
+                            <a href="./infomanaus.html">
+                                <i class="fa fa-angle-double-right"></i>Chegando em Manaus</a>
+                        </li>
+                        <li>
+                            <a href="./index.html#localizacao">
+                                <i class="fa fa-angle-double-right"></i>Local do evento</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-5">
+                    <ul class="list-unstyled list-inline social text-center">
+                        <!-- <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-facebook"></i>
+                            </a>
+                        </li> -->
+                        <!-- <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-twitter"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-instagram"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();">
+                                <i class="fa fa-google-plus"></i>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="javascript:void();" target="_blank">
+                                <i class="fa fa-envelope"></i>
+                            </a>
+                        </li> -->
+                    </ul>
+                </div>
+                </hr>
+            </div>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 mt-2 mt-sm-2 text-center text-white">
+                    <p class="h6">&copy Todos os direitos reservados. Desenvolvido por ICON STI
+                    </p>
+                </div>
+                </hr>
+            </div>
+        </div>
+    </footer>
+    <script src="./js/owl.carousel.min.js" type="text/javascript"></script>
+    <script src="./js/default.js" type="text/javascript"></script>
+</body>
+
+</html>
