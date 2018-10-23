@@ -152,9 +152,6 @@ module.exports = {
                     return inscricao.minicurso2._id === minicurso._id
                 };
 
-                console.log('this.filtro.nomeCracha', this.filtro.nomeCracha);
-                console.log('this.filtro.statusPagamento', this.filtro.statusPagamento);
-
                 this.inscricoes = list;
                 if (this.filtro.nomeCracha) {
                     this.inscricoes = this.inscricoes.filter(inscricao => filtroNome(inscricao))

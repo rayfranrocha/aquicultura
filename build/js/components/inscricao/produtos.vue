@@ -160,6 +160,10 @@
                     return ''
                 }
 
+                if (!inscricao.statusPagseguro) {
+                    return 'FORMA DE PAGAMENTO NÃO DETECTADA (exclua essa inscrição e faça novamente)'
+                }
+
                 if (inscricao.statusPagseguro && inscricao.statusPagseguro.transaction.status[0] === '3' || inscricao.statusPagseguro.transaction.status[0] === '4') {
                     return 'PAGAMENTO CONFIRMADO'
                 }
@@ -172,7 +176,7 @@
                     return 'EM ANÁLISE PELO PAGSEGURO'
                 }
 
-                if (inscricao.pagseguro) {
+                if (!inscricao.pagseguro || !inscricao.statusPagseguro) {
                     return 'FORMA DE PAGAMENTO NÃO DETECTADA (exclua essa inscrição e faça novamente)'
                 }
             },

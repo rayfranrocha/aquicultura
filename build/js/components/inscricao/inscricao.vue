@@ -275,20 +275,16 @@ module.exports = {
     handlePagSeguro(idInscricao) {
       const self = this;
       axios.post("/pagseguro", { id: idInscricao }).then(response => {
-        console.log("Pagesguro response", response.data);
-
         PagSeguroLightbox(
           {
             code: response.data.checkout.code[0]
           },
           {
             success: function(transactionCode) {
-              console.log(transactionCode);
               self.dadosInscricao.transactionCode = transactionCode;
               axios
                 .put(`/inscricao/${idInscricao}`, self.dadosInscricao)
                 .then(reponse => {
-                  console.log(response.data);
                   window.location.href = "arearestrita.html";
                 });
             },
